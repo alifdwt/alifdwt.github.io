@@ -1,0 +1,338 @@
+---
+title: "Pangsa Pasar Aplikasi Android di Google Play"
+description: |
+  Menganalisa dan mencari strategi pemasaran aplikasi di Google Play.
+author: "Alif Dewantara"
+title-block-banner: true
+date: "2023-02-06"
+categories: 
+  - Analisis Data
+  - Python
+image: "Logo Google Play.png"
+---
+
+## Aplikasi-Aplikasi dalam Google Play Store dan Review-nya
+
+Aplikasi *mobile* sekarang ada di mana-mana. Semua orang bisa membuatnya dengan mudah dan bahkan banyak yang mencari untung dengan membuat aplikasi. Dua faktor tersebut menyebabkan semakin banyak aplikasi yang dibuat dan dikembangkan. Pada kesempatan kali ini, kita akan membuat analisis komprehensif tentang pasar aplikasi Android dengan membandingkannya dengan sekitar sepuluh ribu aplikasi di Google Play dari bermacam-macam kategori. Kita akan melihat *insight* dari data yang telah kita punya untuk memberikan gambaran terkait strategi pengembangan.
+
+![](img/Google_Play_Store_badge_EN.svg.webp)
+
+Mari kita lihat dua data yang telah kita kumpulkan:
+
+-   `Apps.csv` : berisi semua detail aplikasi di Google Play. Di dalamnya juga terdapat 13 fitur yang menjelaskan aplikasi tersebut.
+
+-   `user_reviews.csv` : berisi 100 review dari tiap aplikasi. Teks dalam review tersebut telah diproses dan diatribusikan dengan tiga fitur baru: Sentimen (Positif, Negatif, atau Netral), Sentimen Polaritas, dan Sentimen Subjektivitas.
+
+```{python}
+#Membaca dataset
+import pandas as pd
+apps_with_duplicates = pd.read_csv('datasets/apps.csv')
+
+# Menghilangkan duplikasi dari apps_with_duplicates
+apps = apps_with_duplicates.drop_duplicates(subset='App')
+
+# Print angka total aplikasi
+print('Jumlah total aplikasi di dalam dataset = ', apps['App'].value_counts().sum())
+apps.head()
+```
+
+## Pembersihan Data (*Data Cleaning*)
+
+Pembersihan data merupakan salah satu hal penting yang harus dilakukan dalam proyek ilmu data. Walaupun proses ini terbilang membosankan, tapi tak bisa disepelekan.
+
+Dengan melihat sampel acak dalam baris dataset di atas, kita mengetahui bahwa isi dalam beberapa kolom seperti `Installs` dan `Price` punya karakter unik (`+`, `$`) tergantung dengan jenis angka apa dalam kolom tersebut. Hal ini dimaksudkan agar mencegah kolom diinterpretasikan sebagai angka murni, yang akan membuat kita kesulitan untuk mengaplikasikan perhitungan matematis. Maka dari itu, kita ingin membuat kolom-kolom ini hanya berisikan angka digit \[0-9\].
+
+Selanjutnya, kita sekarang akan melakukan pembersihan data, terutama menghilangkan karakter-karakter unik `,` dan `+` yang ada di kolom `Installs` dan `$` yang ada di kolom `Price`.
+
+```{python}
+# Daftar karakter yang ingin dihapus
+chars_to_remove = ['+', ',', '$']
+# Daftar kolom yang ingin dibersihkan
+cols_to_clean = ['Installs', 'Price']
+
+# Membuat loop untuk tiap kolom dalam cols_to_clean
+for col in cols_to_clean:
+  # Membuat loop untuk tiap karakter dalam chars_to_remove
+  for char in chars_to_remove:
+    # Mengganti karakter dengan string kosong
+    apps[col] = apps[col].apply(lambda x: x.replace(char, ''))
+    
+# Print info dataframe apps
+print(apps.info())
+```
+
+## Membenarkan Tipe Data
+
+Jika kita lihat dalam info di atas maka kita mengetahui bahwa kolom `Installs` dan `Price` dikategorikan sebagai tipe data `object` (bukan `int` atau `float`). Hal ini disebabkan karena sebelumnya kedua kolom memiliki input yang berbeda-beda: digit dan karakter unik.
+
+Empat fitur yang akan sering kita gunakan adalah `Installs`, `Size`, `Rating`, dan `Price`. Ketika `Size` dan `Rating` keduanya adalah `float` (angka murni), kita masih harus mengubah `Installs` dan `Price` menjadi angka numerik.
+
+```{python}
+import numpy as np
+
+# Mengonversi tipe data Installs menjadi float
+apps['Installs'] = apps['Installs'].astype('float64')
+
+# Mengonversi tipe data Price menjadi float
+apps['Price'] = apps['Price'].astype('float64')
+
+# Mengecek tipe data dari dataframe apps
+print(apps.dtypes)
+```
+
+## Mengkategorisasikan Aplikasi
+
+Dengan lebih dari 1 milyar pengguna aktif di 190 negara di dunia, Google Play tetap menjadi tempat utama distribusi aplikasi yang menjangkau global. Agar perusahaan/bisnis dapat menjangkau aplikasinya ke pengguna, penting untuk membuat aplikasi tersebut cepat dan mudah ditemukan di Google Play. Untuk mengembangkan pengalaman pencarian, Google telah memperkenalkan konsep mengelompokkan aplikasi berdasarkan kategori.
+
+Hal ini akan membawa kita ke beberapa pertanyaan:
+
+-   Kategori apa yang memiliki pengguna tertinggi di pasar?
+
+-   Apakah ada kategori spesifik yang mendominasi pasar?
+
+-   Kategori apa yang memiliki jumlah aplikasi paling sedikit?
+
+Kita akan melihat bahwa terdapat 33 kategori aplikasi di dalam dataset. Aplikasi *Family* dan *Game* memiliki prevalensi pasar tertinggi. Menariknya, aplikasi *Tools*, *Business*, dan *Medical* juga berada di peringkat atas.
+
+```{python}
+#Mengimpor plotly
+import plotly
+plotly.offline.init_notebook_mode(connected=True)
+import plotly.graph_objs as go
+
+# Print jumlah total kategori
+num_categories = len(apps['Category'].unique())
+print('Jumlah kategori = ', num_categories)
+
+# Menghitung angka aplikasi dalam setiap 'Category'
+num_apps_in_category = apps['Category'].value_counts()
+
+# Mengurutkan num_apps_in_category dalam urutan menurun (descending) berdasarkan jumlah aplikasi dalam tiap kategori
+sorted_num_apps_in_category = num_apps_in_category.sort_values(ascending=False)
+
+data = [go.Bar(
+        x = num_apps_in_category.index, # index = category name
+        y = num_apps_in_category.values, # value = count
+)]
+
+plotly.offline.plot(data)
+```
+
+![](img/Kategorisasi%20aplikasi.png)
+
+## Distribusi Rating Aplikasi
+
+Setelah melihat *market share* dari tiap kategori aplikasi, mari kita meliha bagaimana aplikasi-aplikasi ini bekerja secara rata-rata. Penilaian (*rating*) aplikasi (dalam skala 1 sampai 5) mempengaruhi pencarian, pengubahan aplikasi, dan juga nama baik dari sebuah *brand*. Penilaian adalah indikator kunci performa suatu aplikasi.
+
+Dari penelitian ini, kita menemukan bahwa rata-rata volume penilaian keseluruhan aplikasi adalah 4,17. Jika dibuatkan histogram, maka ia akan *left skewed* yang mengindikasikan bahwa sebagia besar aplikasi diberikan *rating* tinggi.
+
+```{python}
+# Average rating of apps
+avg_app_rating = apps['Rating'].mean()
+print('Rata-rata rating aplikasi = ', avg_app_rating)
+```
+
+```{python}
+# Distribution of apps according to their ratings
+data = [go.Histogram(
+        x = apps['Rating']
+)]
+
+# Vertical dashed line to indicate the average app rating
+layout = {'shapes': [{
+              'type' :'line',
+              'x0': avg_app_rating,
+              'y0': 0,
+              'x1': avg_app_rating,
+              'y1': 1000,
+              'line': { 'dash': 'dashdot'}
+          }]
+          }
+
+plotly.offline.plot({'data': data, 'layout': layout})
+```
+
+![](img/Distribusi%20Rating%20Aplikasi.png)
+
+## Ukuran dan Harga suatu Aplikasi
+
+Mari kita sekarang mencari tahu ukuran dan harga suatu aplikasi. Untuk ukuran, jika suatu aplikasi ponsel berukuran terlalu besar, maka pengguna akan kesulitan dan/atau merogoh kocek yang lkebih mahal untuk mengunduhnya. Waktu unduh yang panjang dapat membuat pengguna meninggalkan unduhannya sebelum mencoba aplikasi yang telah dibuat. Selain itu, setiap ponsel yang dimiliki pengguna punya penyimpanan yang terbatas. Untuk harga, beberapa pengguna memiliki ekspektasi bahwa aplikasi bersifat gratis atau dengan harga terjangkau. Masalah-masalah ini harus diperhatikan jika kita ingin menargetkan lebih banyak pengguna dari berbagai wilayah, yang tentunya memiliki kecepatan internet, mata uang dan nilai tukar yang berbeda.
+
+Maka kita akan mengajukan beberapa pertanyaan terkait dengan ukuran dan harga suatu aplikasi.
+
+-   Apakah ukuran aplikasi mempengaruhi *ratingnya*?
+
+-   Apakah pengguna menoleransi ukuran aplikasi kompleks yang besar atau mereka lebih memilih aplikasi sederhana yang ringan saja?
+
+-   Apakah harga aplikasi mempengaruhi *rating*?
+
+-   Apakah pengguna selalu lebih memilih aplikasi gratis ketimbang aplikasi berbayar?
+
+Nah, kami menemukan bahwa mayoritas aplikasi yang memiliki *rating* teratas di Google Play (*rating* di atas 4) memiliki ukuran antara 2MB hingga 20MB. Kami juga menemukan bahwa sebagian besar aplikasi memiliki harga kurang dari \$10.
+
+```{python}
+# Impor modul
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_style("darkgrid")
+import warnings
+warnings.filterwarnings("ignore")
+
+# Memilih baris di mana 'Rating' dan 'Size' tidak kosong (null)
+apps_with_size_and_rating_present = apps[(~apps['Rating'].isnull()) & (~apps['Size'].isnull())]
+
+# Memfilter kategori yang setidaknya memiliki 250 aplikasi
+large_categories = apps_with_size_and_rating_present.groupby('Category').filter(lambda x: len(x) >= 250)
+
+# Membuat plot size vs. rating
+plt1 = sns.jointplot(x = large_categories['Size'], y = large_categories['Rating'], kind = 'hex')
+
+# Memperlihatkan plot
+plt.show()
+```
+
+```{python}
+# Memilih aplikasi yang 'Type'-nya 'Paid'
+paid_apps = apps_with_size_and_rating_present[apps_with_size_and_rating_present['Type'] == 'Paid']
+
+# Membuat plot price vs. rating
+plt2 = sns.jointplot(x = paid_apps['Price'], y = paid_apps['Rating'])
+
+# Memperlihatkan plot
+plt.show()
+```
+
+## Hubungan antara Kategori dan Harga dalam Aplikasi
+
+Nah, sekarang kita masuk ke bagian tersulit. Bagaimana cara perusahaan dan pengembang menentukan keputusan akhir? Strategi monetisasi apa yang dapat diterapkan perusahaan untuk memaksimalkan keuntungan mereka? Tarif dari sebuah aplikasi sangat berhubungan erat dengan fitur, kompleksitas, dan platform yang disediakan.
+
+Ada banyak faktor yang harus disadari ketika menentukan strategi penetapan tarif bagi suatu aplikasi. Penting untuk kita mengetahui seberapa ingin para pengguna untuk merogoh kocek mereka untuk membayar aplikasi. Penerapan strategi harga yang salah dapat menyebabkan ketidakinginan pengguna memakai bahkan untuk mengunduh aplikasi., Pengguna yang potensial bisa saja mengurungkan niat mereka untuk memakai aplikasi ketika mereka melihat tarif yang terlalu tinggi, atau mereka juga bisa saja menghapus aplikasi yang telah mereka pakai ketika mengetahui ada terlalu banyak iklan.
+
+Kategori yang berbeda tentunya harga yang berbeda pula. Beberapa aplikasi sederhana dan digunakan sehari-hari, seperti kalkulator, seharusnya dibiarkan gratis. Tetapi, akan lebih pantas untuk memberikan tarif kepada, misalnya, aplikasi kesehatan yang bisa mendiagnosa pasien diabetes. Penelitian di bawah ini memperlihatkan bahwa aplikasi *Medic* dan *Family* adalah yang termahal. Bahkan, beberapa aplikasi memiliki harga di atas \$80. Semua aplikasi Game memiliki tarif di bawah \$20.
+
+```{python}
+fig, ax = plt.subplots()
+fig.set_size_inches(15, 8)
+
+# Memilih kategori aplikasi populer
+popular_app_cats = apps[apps.Category.isin(['GAME', 'FAMILY', 'PHOTOGRAPHY',
+                                            'MEDICAL', 'TOOLS', 'FINANCE',
+                                            'LIFESTYLE','BUSINESS'])]
+
+# Mengetahui tren harga dengan membuat plot Price vs. Kategori
+ax = sns.stripplot(x = popular_app_cats['Price'], y = popular_app_cats['Category'], jitter=True, linewidth=1)
+ax.set_title('Tren penerapan harga aplikasi per kategori')
+
+# Memperlihatkan plot
+plt.show()
+```
+
+```{python}
+# Aplikasi yang memiliki tarif di atas 200
+apps_above_200 = apps[apps['Price'] > 200]
+apps_above_200[['Category', 'App', 'Price']]
+```
+
+## Memfilter Aplikasi Sampah
+
+Jika kita melihat dari data di atas sebenarnya ada beberapa aplikasi yang terlampau mahal padahal sebenarnya hanya aplikasi 'sampah' (anjir): aplikasi yang sebenarnya tidak punya tujuan untuk apa aplikasi tersebut dibuat. Beberapa pengembang aplikasi membuat aplikasi sampah seperti *I Am Rich Premium* atau *most expensive app (H)* hanya untuk lelucon atau untuk menguji *skill* pengembangan aplikasi mereka.
+
+Mari kita memfilter aplikasi-aplikasi sampah ini dan membuat kembali visualisasinya.
+
+```{python}
+# Memilih aplikasi yang harganya di bawah 100
+apps_under_100 = popular_app_cats[popular_app_cats['Price'] < 100]
+
+fig, ax = plt.subplots()
+fig.set_size_inches(15, 8)
+
+# Mencari tahu price vs. category dalam aplikasi otentik
+ax = sns.stripplot(x = 'Price', y = 'Category', data = apps_under_100, jitter=True, linewidth=1)
+ax.set_title('Tren penerapan harga aplikasi setelah memfilter aplikasi sampah')
+
+# Memperlihatkan plot
+plt.show()
+```
+
+## Popularitas Aplikasi Berbayar vs. Aplikasi Gratis
+
+Terdapat 5 tipe strategi penetapan harga untuk aplikasi di Google Play Store saat ini: *free, freemium, paid, paymium,* dan *subscription*. Mari kita fokus pada aplikasi gratis dan berbayar. Karakteristik aplikasi gratis adalah:
+
+-   Dapat diunduh secara gratis.
+
+-   Pemasukan utama lebih sering berasal dari iklan.
+
+-   Sebagian besar dibuat oleh perusahaan yang memiliki produk lain dan aplikasi tersebut adalah tambahan dari produk lain tersebut.
+
+-   Dapat berperan sebagai cara untuk mengenali pengguna, berkomunikasi, atau aplikasi pelayanan pengguna.
+
+Beberapa karakteristik aplikasi berbayar adalah:
+
+-   Pengguna diharuskan untuk membayar sekali untuk mengunduh aplikasi tersebut dan menggunakannya.
+
+-   Pengguna tak dapat merasakan pengalaman seutuhnya dari aplikasi tersebut sebelum membelinya.
+
+Apakah aplikasi berbayar terpasang sama banyaknya seperti aplikasi gratis? Dalam penelitian di bawah ditemukan bahwa aplikasi berbayar memiliki jumlah pemasangan yang lebih rendah dibandingkan aplikasi gratis.
+
+```{python}
+trace0 = go.Box(
+    # Data for paid apps
+    y = apps[apps['Type'] == 'Paid']['Installs'],
+    name = 'Paid'
+)
+
+trace1 = go.Box(
+    # Data for free apps
+    y = apps[apps['Type'] == 'Free']['Installs'],
+    name = 'Free'
+)
+
+layout = go.Layout(
+    title = "Number of downloads of paid apps vs. free apps",
+    yaxis = dict(title = "Log number of downloads",
+                type = 'log',
+                autorange = True)
+)
+
+# Add trace0 and trace1 to a list for plotting
+data = [trace0, trace1]
+plotly.offline.plot({'data': data, 'layout': layout})
+```
+
+![](img/Popularitas%20Aplikasi.png)
+
+## Analisis Sentimen dalam Review dari Pengguna
+
+Menggali informasi tentang *review* pengguna untuk mengetahui bagaimana orang menilai sebuah produk, *brand*, atau jasa dapat dilakukan dengan menerapkan teknik bernama Analisis Sentimen (*Sentiment Analysis*). *Review* dari pengguna aplikasi dapat dianalisis untuk mengidentifikasi *mood* pengguna: positif, negatif, atau netral selama menggunakan aplikasi. Misalnya, kata-kata positif dalam sebuah *review* biasanya mengandung kata '*amazing* (menakjubkan)', '*friendly* (ramah)', '*good* (bagus)', '*great* (mantap)', dan *love* (cinta)'. Kata-kata negatif biasanya mengandung kata seperti'*malware* (virus)','*hate* (benci)','*problem* (masalah), '*refund* (pengembalian dana)', dan '*incompetent* (tak berkompeten).
+
+Dengan membuat plot skor polaritas sentimen dari *review* pengguna aplikasi berbayar dan gratis, kita menemukan bahwa aplikasi gratis menerima banyak komentar-komentar pedas, yang diindikasikan oleh sumbu-y yang memanjang ke angka negatif. *Review* untuk aplikasi berbayar tidak menerima pesan negatif sesering aplikasi berbayar. Hal ini mengindikasikan sesuatu terkait dengan kualitas aplikasi, yang artinya: **aplikasi berbayar memiliki kualitas yang lebih baik dibandingkan aplikasi gratis**. Skor polaritas median untuk aplikasi berbayar agak lebih tinggi dibandingkan aplikasi gratis.
+
+```{python}
+# Memuat user_reviews.csv
+reviews_df = pd.read_csv('datasets/user_reviews.csv')
+
+# Menggabungkan kedua dataframe
+merged_df = apps.merge(reviews_df)
+
+# Menghilangkan datum null dari kolom Sentiment dan Review
+merged_df = merged_df.dropna(subset = ['Sentiment', 'Review'])
+
+sns.set_style('ticks')
+fig, ax = plt.subplots()
+fig.set_size_inches(11, 8)
+
+# Polaritas sentimen review pengguna untuk aplikasi berbayar vs. aplikasi gratis
+ax = sns.boxplot(x = 'Type', y = 'Sentiment_Polarity', data = merged_df)
+ax.set_title('Distribusi Polaritas Sentimen')
+
+# Menampilkan plot
+plt.show()
+```
+
+Dalam tulisan ini, kita telah menganalisa sekitar sepuluh ribu aplikasi dari Google Play Store. Kita dapat menggunakan penemuan ini untuk memberikan informasi terkait keputusan apakah kita perlu untuk membuat aplikasi kita sendiri.
+
+::: callout-important
+Tulisan ini adalah salah satu hasil kerja saya dalam *career path* *Data Scientist with Python* di Datacamp.
+:::
+
+***Salam Maria, penuh rahmat, Tuhan sertamu*****.**

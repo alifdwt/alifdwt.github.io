@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Musim Semi Peking"
+  # Add site url (without trailing / at the end)
+  # site_url :
+  # Add description: 
+  description: "Ini adalah blog saya mengenai ilmu data"
+  navbar:
+    right:
+      - icon: twitter
+        href: https://twitter.com/alifdewantaraa
+      - icon: linkedin
+        href: https://www.linkedin.com/in/alifdewantaraa/
+      - icon: github
+        href: https://github.com/alifdewantaraa
+      # Add RSS feed to navbar
+      - icon: rss
+        href: blog.xml
+  page-footer:
+    right:
+      - text: "Alif Putra Dewantara"
+    left:
+      - href: https://www.quarto.org
+        text: Dibuat dengan Quarto
+    
+  page-navigation: true
+format:
+  html:
+    theme:
+      flatly
+      # theme.scss
+
+editor: visual
+

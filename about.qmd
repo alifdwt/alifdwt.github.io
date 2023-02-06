@@ -1,0 +1,23 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/alifdewantaraa
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/alifdewantaraa/
+    - icon: github
+      text: Github
+      href: https://github.com/alifdewantaraa
+page-layout: article
+comments: false
+citation: false
+---
+
+Halo semua! Perkenalkan, saya Alif!
+
+Latar belakang pendidikan saya adalah Ilmu Sejarah. Saya sedang mencoba mempelajari teknologi di bidang data.

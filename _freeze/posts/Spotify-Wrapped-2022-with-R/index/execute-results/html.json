@@ -1,0 +1,14 @@
+{
+  "hash": "a77025f8cf75601cb5e271907709b34c",
+  "result": {
+    "markdown": "---\ntitle: \"Saya membuat Spotify Wrapped 2022 dengan R\"\nauthor: \"Alif Dewantara\"\ndate: \"2023-01-23\"\ncategories: \n  - Analisis Data\n  - R\nimage: \"spotify2022.png\"\n---\n\n\n## Pendahuluan dan Tujuan\n\nJadi sekitar akhir November 2022 tuh saya dapet notifikasi dari aplikasi Spotify bahwa mereka telah mempublikasikan rangkuman dari kegiatan saya di aplikasi tersebut sepanjang tahun 2022. Semua rangkuman itu dikumpulkan dalam satu proyek audiovisual: ***Spotify Wrapped 2022***\n\n![](f81b00ac-f.png){fig-align=\"center\" width=\"204\"}\n\nSebenernya sih semua laporannya cukup akurat ya. Tapi rasanya ada yang aneh: Genre **Indonesian Pop** ada di urutan kedua teratas. Padahal saya agak jarang dengerin lagu Indonesia. Ya paling kalo lagi ngumpul bareng temen aja, atau kalo lagi pengen *relate* sama musik lokal terkini.\n\nLalu dalam sejenak secercah budi dari Dewi Saraswati tiba pada akal saya. *\"Bagaimana kalo saya membuat analisis Spotify Wrapped saya sendiri?\".*\n\nDalam data akun saya yang di-*request* dari Spotify API, ada tujuh variabel dalam riwayat penggunaan Spotify selama setahun kemarin (yang dikumpulkan dalam berkas `StreamingHistory.json`).\n\n1.  `Artist Name` : Nama artis/penyanyi.\n\n2.  `End Time` : Tanggal dan waktu lagu tersebut selesai diputar (dalam format UTC).\n\n3.  `Ms Played` : Lamanya waktu lagu tersebut diputar (dalam mili detik).\n\n4.  `Track Name` : Nama lagu\n\nAgar laporan ini semakin punya nilai kegunaan, saya akan menambahkan beberapa berkas pendukung.\n\nTujuan:\n\n-   Menganalisa **riwayat pemakaian** Spotify saya selama tahun 2022\n\n-   Mengenali **genre dan jenis** musik apa saja yang saya sukai\n\n-   Dan lain-lain\n\n## Pembahasan\n\n### Pengaturan Awal\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#import libraries\n\n#setting default theme\n```\n:::\n\n\n### Mengambil Data\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#Importing dataset\n```\n:::\n\n\n### Mengatur Data\n\nDalam dataset ini, baris `Ms Played` masih dalam bentuk '*string*'. Untuk analisa data, `Ms Played` harus diubah menjadi format `date`.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

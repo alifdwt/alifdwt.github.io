@@ -1,0 +1,62 @@
+---
+title: "Saya membuat Spotify Wrapped 2022 dengan R"
+description: |
+  Memahami penggunaan Spotify saya selama tahun 2022.
+author: "Alif Dewantara"
+title-block-banner: true
+date: "2023-01-23"
+categories: 
+  - Analisis Data
+  - R
+image: "spotify2022.png"
+---
+
+## Pendahuluan dan Tujuan
+
+Jadi sekitar akhir November 2022 tuh saya dapet notifikasi dari aplikasi Spotify bahwa mereka telah mempublikasikan rangkuman dari kegiatan saya di aplikasi tersebut sepanjang tahun 2022. Semua rangkuman itu dikumpulkan dalam satu proyek audiovisual: ***Spotify Wrapped 2022***
+
+![](f81b00ac-f.png){fig-align="center" width="204"}
+
+Sebenernya sih semua laporannya cukup akurat ya. Tapi rasanya ada yang aneh: Genre **Indonesian Pop** ada di urutan kedua teratas. Padahal saya agak jarang dengerin lagu Indonesia. Ya paling kalo lagi ngumpul bareng temen aja, atau kalo lagi pengen *relate* sama musik lokal terkini.
+
+Lalu dalam sejenak secercah budi dari Dewi Saraswati tiba pada akal saya. *"Bagaimana kalo saya membuat analisis Spotify Wrapped saya sendiri?".*
+
+Dalam data akun saya yang di-*request* dari Spotify API, ada tujuh variabel dalam riwayat penggunaan Spotify selama setahun kemarin (yang dikumpulkan dalam berkas `StreamingHistory.json`).
+
+1.  `Artist Name` : Nama artis/penyanyi.
+
+2.  `End Time` : Tanggal dan waktu lagu tersebut selesai diputar (dalam format UTC).
+
+3.  `Ms Played` : Lamanya waktu lagu tersebut diputar (dalam mili detik).
+
+4.  `Track Name` : Nama lagu
+
+Agar laporan ini semakin punya nilai kegunaan, saya akan menambahkan beberapa berkas pendukung.
+
+Tujuan:
+
+-   Menganalisa **riwayat pemakaian** Spotify saya selama tahun 2022
+
+-   Mengenali **genre dan jenis** musik apa saja yang saya sukai
+
+-   Dan lain-lain
+
+## Pembahasan
+
+### Pengaturan Awal
+
+```{r}
+#import libraries
+
+#setting default theme
+```
+
+### Mengambil Data
+
+```{r}
+#Importing dataset
+```
+
+### Mengatur Data
+
+Dalam dataset ini, baris `Ms Played` masih dalam bentuk '*string*'. Untuk analisa data, `Ms Played` harus diubah menjadi format `date`.
