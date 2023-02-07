@@ -1,5 +1,6 @@
 ---
-title: "Musim Semi Peking"
+title: "Blog"
+description: Mengejar mimpi, melampaui batas
 listing:
   fields: [image, title, description, date, reading-time, categories]
   contents: posts

@@ -3,35 +3,53 @@ project:
   output-dir: docs
 
 website:
-  title: "Musim Semi Peking"
-  # Add site url (without trailing / at the end)
-  # site_url :
+  title: "Alif Dewantara"
   # Add description: 
-  description: "Ini adalah blog saya mengenai ilmu data"
+  description: "Jejaring Pribadi"
+  # Add site url (without trailing / at the end)
+  site-url : alifdwt.github.io
+  search:
+    location: navbar
+    type: overlay
+  favicon: img/favicon-32x32.png
+#  sidebar:
+#    style: docked
+#    tools: 
+#      - icon: github
+#        href: https://github.com/alifdwt
   navbar:
     right:
+      - text: "About"
+        file: about.qmd
       - icon: twitter
-        href: https://twitter.com/alifdewantaraa
+        href: https://twitter.com/alifdwt
       - icon: linkedin
-        href: https://www.linkedin.com/in/alifdewantaraa/
+        href: https://www.linkedin.com/in/alifdwt/
       - icon: github
-        href: https://github.com/alifdewantaraa
+        href: https://github.com/alifdwt
       # Add RSS feed to navbar
       - icon: rss
         href: blog.xml
   page-footer:
+    left: 
+      - text: "Musim Semi Peking - 2023"
     right:
-      - text: "Alif Putra Dewantara"
-    left:
       - href: https://www.quarto.org
-        text: Dibuat dengan Quarto
+        text: Dibuat oleh R dan Quarto
     
   page-navigation: true
 format:
   html:
     theme:
-      flatly
-      # theme.scss
-
+      # flatly
+      theme.scss
+    toc: true
+    toc-location: left
+    code-link: true
+    anchor-sections: true
+    fig-cap-location: margin
+    reference-location: margin
+    footnotes-hover: true
+    highlight-style: monokai
+    
 editor: visual
-

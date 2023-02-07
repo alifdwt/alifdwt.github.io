@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2023-02-06">
 <meta name="description" content="Menganalisa dan mencari strategi pemasaran aplikasi di Google Play.">
 
-<title>Musim Semi Peking - Pangsa Pasar Aplikasi Android di Google Play</title>
+<title>Alif Dewantara - Pangsa Pasar Aplikasi Android di Google Play</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,6 +96,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../img/favicon-32x32.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -147,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -155,7 +156,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Musim Semi Peking</span>
+    <span class="navbar-title">Alif Dewantara</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -163,18 +164,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/alifdewantaraa"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/alifdwt"><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/alifdewantaraa/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/alifdwt/"><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/alifdewantaraa"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/alifdwt"><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -190,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Pangsa Pasar Aplikasi Android di Google Play</h1>
@@ -229,8 +234,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#aplikasi-aplikasi-dalam-google-play-store-dan-review-nya" id="toc-aplikasi-aplikasi-dalam-google-play-store-dan-review-nya" class="nav-link active" data-scroll-target="#aplikasi-aplikasi-dalam-google-play-store-dan-review-nya">Aplikasi-Aplikasi dalam Google Play Store dan Review-nya</a></li>
+  <li><a href="#pembersihan-data-data-cleaning" id="toc-pembersihan-data-data-cleaning" class="nav-link" data-scroll-target="#pembersihan-data-data-cleaning">Pembersihan Data (<em>Data Cleaning</em>)</a></li>
+  <li><a href="#membenarkan-tipe-data" id="toc-membenarkan-tipe-data" class="nav-link" data-scroll-target="#membenarkan-tipe-data">Membenarkan Tipe Data</a></li>
+  <li><a href="#mengkategorisasikan-aplikasi" id="toc-mengkategorisasikan-aplikasi" class="nav-link" data-scroll-target="#mengkategorisasikan-aplikasi">Mengkategorisasikan Aplikasi</a></li>
+  <li><a href="#distribusi-rating-aplikasi" id="toc-distribusi-rating-aplikasi" class="nav-link" data-scroll-target="#distribusi-rating-aplikasi">Distribusi Rating Aplikasi</a></li>
+  <li><a href="#ukuran-dan-harga-suatu-aplikasi" id="toc-ukuran-dan-harga-suatu-aplikasi" class="nav-link" data-scroll-target="#ukuran-dan-harga-suatu-aplikasi">Ukuran dan Harga suatu Aplikasi</a></li>
+  <li><a href="#hubungan-antara-kategori-dan-harga-dalam-aplikasi" id="toc-hubungan-antara-kategori-dan-harga-dalam-aplikasi" class="nav-link" data-scroll-target="#hubungan-antara-kategori-dan-harga-dalam-aplikasi">Hubungan antara Kategori dan Harga dalam Aplikasi</a></li>
+  <li><a href="#memfilter-aplikasi-sampah" id="toc-memfilter-aplikasi-sampah" class="nav-link" data-scroll-target="#memfilter-aplikasi-sampah">Memfilter Aplikasi Sampah</a></li>
+  <li><a href="#popularitas-aplikasi-berbayar-vs.-aplikasi-gratis" id="toc-popularitas-aplikasi-berbayar-vs.-aplikasi-gratis" class="nav-link" data-scroll-target="#popularitas-aplikasi-berbayar-vs.-aplikasi-gratis">Popularitas Aplikasi Berbayar vs.&nbsp;Aplikasi Gratis</a></li>
+  <li><a href="#analisis-sentimen-dalam-review-dari-pengguna" id="toc-analisis-sentimen-dalam-review-dari-pengguna" class="nav-link" data-scroll-target="#analisis-sentimen-dalam-review-dari-pengguna">Analisis Sentimen dalam Review dari Pengguna</a></li>
+  </ul>
+</nav>
+</nav>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -564,7 +588,7 @@ dtype: object</code></pre>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Memperlihatkan plot</span></span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-8-output-1.png" width="566" height="566"></p>
+<p><img src="index_files/figure-html/cell-8-output-1.png" class="" width="566" height="566"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="8">
@@ -577,7 +601,7 @@ dtype: object</code></pre>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Memperlihatkan plot</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-9-output-1.png" width="566" height="566"></p>
+<p><img src="index_files/figure-html/cell-9-output-1.png" class="" width="566" height="566"></p>
 </div>
 </div>
 </section>
@@ -602,7 +626,7 @@ dtype: object</code></pre>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Memperlihatkan plot</span></span>
 <span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-10-output-1.png" width="1265" height="669"></p>
+<p><img src="index_files/figure-html/cell-10-output-1.png" class="" width="1265" height="669"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="10">
@@ -749,7 +773,7 @@ dtype: object</code></pre>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Memperlihatkan plot</span></span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-12-output-1.png" width="1265" height="669"></p>
+<p><img src="index_files/figure-html/cell-12-output-1.png" class="" width="1265" height="669"></p>
 </div>
 </div>
 </section>
@@ -822,7 +846,7 @@ dtype: object</code></pre>
 <span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Menampilkan plot</span></span>
 <span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-14-output-1.png" width="898" height="669"></p>
+<p><img src="index_files/figure-html/cell-14-output-1.png" class="" width="898" height="669"></p>
 </div>
 </div>
 <p>Dalam tulisan ini, kita telah menganalisa sekitar sepuluh ribu aplikasi dari Google Play Store. Kita dapat menggunakan penemuan ini untuk memberikan informasi terkait keputusan apakah kita perlu untuk membuat aplikasi kita sendiri.</p>
@@ -984,14 +1008,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://www.quarto.org">Dibuat dengan Quarto</a>
+ Musim Semi Peking - 2023
   </li>  
 </ul>
     </div>   
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Alif Putra Dewantara
+    <a class="nav-link" href="https://www.quarto.org">Dibuat oleh R dan Quarto</a>
   </li>  
 </ul>
     </div>
