@@ -1,0 +1,211 @@
+---
+title: "Saya membuat Spotify Wrapped dengan R - Part 1"
+format: 
+  html: 
+    df-print: paged
+description: |
+  Memahami penggunaan Spotify saya selama tahun 2022, dan tahun-tahun sebelumnya.
+author: "Alif Dewantara"
+title-block-banner: true
+date: "2023-01-23"
+categories: 
+  - Analisis Data
+  - R
+comments: 
+  utterances: 
+    repo: quarto-dev/quarto-web
+    theme: github-light
+    issue-term: title
+image: "spotify2022.png"
+---
+
+## Pendahuluan dan Tujuan
+
+Jadi sekitar akhir November 2022 tuh saya dapet notifikasi dari aplikasi Spotify bahwa mereka telah mempublikasikan rangkuman dari kegiatan saya di aplikasi tersebut sepanjang tahun 2022. Semua rangkuman itu dikumpulkan dalam satu proyek audiovisual: ***Spotify Wrapped 2022***
+
+![](f81b00ac-f.png){fig-align="center" width="204"}
+
+Sebenernya sih semua laporannya cukup akurat ya. Tapi rasanya ada yang aneh: Genre **Indonesian Pop** ada di urutan kedua teratas. Padahal saya agak jarang dengerin lagu Indonesia. Ya paling kalo lagi ngumpul bareng temen aja, atau kalo lagi pengen *relate* sama musik lokal terkini.
+
+Lalu dalam sejenak secercah budi dari Dewi Saraswati tiba pada akal saya. *"Bagaimana kalo saya membuat analisis Spotify Wrapped saya sendiri?".*
+
+Dalam data akun saya yang di-*request* dari Spotify API, ada tujuh variabel dalam riwayat penggunaan Spotify selama setahun kemarin (yang dikumpulkan dalam berkas `StreamingHistory.json`).
+
+1.  `Artist Name` : Nama artis/penyanyi.
+
+2.  `End Time` : Tanggal dan waktu lagu tersebut selesai diputar (dalam format UTC).
+
+3.  `Ms Played` : Lamanya waktu lagu tersebut diputar (dalam mili detik).
+
+4.  `Track Name` : Nama lagu
+
+Agar laporan ini semakin punya nilai kegunaan, saya akan menambahkan beberapa berkas pendukung.
+
+Tujuan:
+
+-   Menganalisa **riwayat pemakaian** Spotify saya selama tahun 2022
+
+-   Mengenali **genre dan jenis** musik apa saja yang saya sukai
+
+-   Dan lain-lain
+
+## Pembahasan
+
+### Pengaturan Awal
+
+```{r}
+# Memuat library
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(jsonlite)
+library(dygraphs)
+```
+
+### Mengambil Data
+
+```{r}
+# Mengambil dataset
+spotify1 <- fromJSON("datasets/endsong_0.json")
+spotify2 <- fromJSON("datasets/endsong_1.json")
+spotify3 <- fromJSON("datasets/endsong_2.json")
+spotify4 <- fromJSON("datasets/endsong_3.json")
+```
+
+```{r}
+# Menggabungkan dataset
+spotify <- rbind(spotify1, spotify2, spotify3, spotify4)
+glimpse(spotify)
+```
+
+## Pembersihan data dan Membenarkan Data
+
+```{r}
+# Membersihkan data
+spotify$ts <- gsub("T", " ", spotify$ts)
+spotify$ts <- gsub("Z", "", spotify$ts)
+
+# Mengubah zona waktu timestamp
+spotify$ts <- as.POSIXct(spotify$ts, tz="Europe/London")
+spotify$ts <- lubridate::with_tz(spotify$ts, "Asia/Jakarta")
+```
+
+### Mengatur Data
+
+```{r}
+# Mengonversi mikrosekon menjadi menit
+spotify$minutes_played <- spotify$ms_played / 60000
+```
+
+## Analisis Data 2022
+
+### Mengambil data Spotify tahun 2022
+
+```{r}
+# Mengambil data Spotify hanya tahun 2022
+spotify2022 <- subset(spotify, ts > "2022-01-01 00:00:00" & ts  < "2022-12-31 23:59:59")
+```
+
+### Lagu, artis, dan album
+
+```{r}
+# Menghitung lagu, artis, dan lagu unik
+print(paste("Lagu yang saya telusuri selama tahun 2022 adalah sebanyak:", n_distinct(spotify2022$master_metadata_track_name)))
+print(paste("Artis yang saya telusuri selama tahun 2022 adalah sebanyak:", n_distinct(spotify2022$master_metadata_album_artist_name)))
+print(paste("Lagu yang saya telusuri selama tahun 2022 adalah sebanyak:", n_distinct(spotify2022$master_metadata_album_album_name)))
+
+# Menghitung menit total selama 2022
+print(paste("Saya mendengarkan musik di tahun 2022 selama:", round(sum(spotify2022$minutes_played),0)))
+```
+
+#### Lagu apakah yang paling sering saya dengar?
+
+```{r}
+# Mengetahui lagu paling sering didengar
+toptrack2022 <- spotify2022 %>%
+  count(master_metadata_track_name, sort = TRUE)
+toptrack2022
+```
+
+```{r}
+# Membuat plot toptrack2022
+toptrack2022 %>%
+  head(10) %>%
+  ggplot(aes(x=reorder(master_metadata_track_name, n), y=n))+
+    geom_col(aes(fill=master_metadata_track_name), show.legend = FALSE)+
+    geom_text(aes(label=n), position=position_dodge(width=0), size=3)+
+    coord_flip()+
+    labs(title = "Lagu Teratas 2022",
+         x=NULL,
+         y="Jumlah Putar")
+```
+
+{{< video https://youtu.be/8MG–WuNW1Y title = "韋禮安 WeiBird《如果可以 Red Scarf》MV - 電影「月老」主題曲導演親剪音樂視角版" >}}
+
+#### Siapa artis yang paling sering saya nikmati karyanya?
+
+```{r}
+# Mendapatkan angka teratas artis 2022
+topartist2022 <- spotify2022 %>%
+  count(master_metadata_album_artist_name, sort = TRUE)
+topartist2022
+```
+
+```{r}
+# Membuat plot artis teratas 2022
+topartist2022 %>%
+  head(10) %>%
+  ggplot(aes(x=reorder(master_metadata_album_artist_name, n), y=n))+
+           geom_col(aes(fill=master_metadata_album_artist_name), show.legend = FALSE)+
+  geom_text(aes(label=n), position=position_dodge2(width=0), size=3) +
+           coord_flip()+
+           labs(title = "Artis Teratas 2022",
+                x=NULL,
+                y="Jumlah putar")
+```
+
+### Waktu
+
+#### Pada jam berapakah saya mendengarkan Spotify?
+
+```{r}
+# Membuat data listen per hour
+spotify2022$hour <- as.numeric(format(spotify2022$ts, '%H'))
+listenperhour <- aggregate(spotify2022$master_metadata_track_name, by=list(spotify2022$hour), FUN=length)
+
+# Membuat plot listen per hour
+ggplot(listenperhour, aes(x=Group.1, y=x)) +
+  geom_col(fill="#1db954") +
+  labs(x="Jam",
+       y=NULL,
+       title="Seberapa sering saya mendengarkan Spotify per Jam") +
+  scale_x_continuous(breaks = seq(0,23,1))
+```
+
+#### Berapa menit penggunaan Spotify saya per hari selama 2022?
+
+```{r}
+# Menghitung total menit per hari
+daily_minutes_2022 <- spotify2022 %>%
+  group_by(Date = as.Date(ts)) %>%
+  summarize(sum_minute = sum(minutes_played))
+daily_minutes_2022_df <- data.frame(daily_minutes_2022)
+rownames(daily_minutes_2022_df) <- daily_minutes_2022_df$Date
+daily_minutes_2022_df <- daily_minutes_2022_df %>%
+  select(sum_minute)
+
+# Membuat plot interaktif
+dygraph(daily_minutes_2022_df, main = "Total Menit Penggunaan Spotify per Hari")
+```
+
+```{r}
+spotify$year <- as.numeric(format(spotify$ts, '%Y'))
+listenperyear <- spotify %>%
+  group_by(year) %>%
+  summarise(sum_minutes = round(sum(minutes_played),0))
+
+ggplot(listenperyear, aes(x=year, y=sum_minutes)) +
+  geom_col(fill="#1db954") +
+  geom_text(aes(label=sum_minutes), position=position_stack(vjust=0.5), size=3) +
+  scale_x_continuous(breaks = seq(2016,2022,1))
+```

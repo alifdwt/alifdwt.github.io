@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-description: Mengejar mimpi, melampaui batas
+description: Seputar data dan teknologi.
 listing:
   fields: [image, title, description, date, reading-time, categories]
   contents: posts

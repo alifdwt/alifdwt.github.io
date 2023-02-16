@@ -129,7 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="floating nav-fixed slimcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -174,12 +174,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Dokter Semmelweis dan Temuan dalam Mencuci Tangan</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Dokter Semmelweis dan Temuan dalam Mencuci Tangan</h1>
+      <h1 class="title d-none d-lg-block">Dokter Semmelweis dan Temuan dalam Mencuci Tangan</h1>
                   <div>
         <div class="description">
           <p>Mengetahui dan menganalisa metode cuci tangan di Rumah Sakit Umum Vienna di abad ke-19.</p>
@@ -215,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -234,17 +242,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="perkenalkan-ia-dr.-ignaz-semmelweis" class="level2 page-columns page-full">
+<section id="perkenalkan-ia-dr.-ignaz-semmelweis" class="level2">
 <h2 class="anchored" data-anchor-id="perkenalkan-ia-dr.-ignaz-semmelweis">Perkenalkan, ia Dr.&nbsp;Ignaz Semmelweis</h2>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
 <p><a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.merdeka.com%2Fjabar%2F5-fakta-ignaz-semmelweis-pelopor-cuci-tangan-yang-selamatkan-banyak-orang-kln.html&amp;psig=AOvVaw2Ab27GG4AbeYdWog120_Xg&amp;ust=1675622543148000&amp;source=images&amp;cd=vfe&amp;ved=0CBEQjhxqFwoTCIjAksbC_PwCFQAAAAAdAAAAABAE"><img src="Ignaz Semmelweils.jpeg" class="img-fluid figure-img" width="435"></a></p>
-<p></p><figcaption class="figure-caption margin-caption">Dr.&nbsp;Ignaz Semmelweis</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Dr.&nbsp;Ignaz Semmelweis</figcaption><p></p>
 </figure>
 </div>
 <p>Dokter Semmelweis lahir di Austria-Hungaria pada tahun 1818, dan aktif bekerja di Rumah Sakit Umum Vienna. Saat itu, Dr.&nbsp;Semmelweis menemukan adanya penyakit yang sering ditemuinya di rumah sakit: <a href="https://en.wikipedia.org/wiki/Postpartum_infections"><em>childbed fever</em></a> (demam kasur), yakni penyakit yang disebabkan oleh infeksi bakteri yang menyerang saluran reproduksi perempuan setelah melahirkan atau keguguran. Ia bekerja keras mencari cara untuk mengatasi penyakit ini, sebab pada tahun 1840-an, 10% wanita yang melahirkan di Rumah Sakit Umum Vienna meninggal karena terinfeksi. Dr.&nbsp;Semmelweis sangat memikirkan hal ini karena ia tahu penyebab utama demam tersebut: tangan-tangan para dokter yang telah terkontaminasi saat memindahkan bayi. Sayangnya, staf rumah sakit saat itu tak ada yang mengindahkan sarannya untuk mencuci tangan!</p>
@@ -312,7 +320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Proportion deaths'</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-4-output-1.png" class="" width="597" height="429"></p>
+<p><img src="index_files/figure-html/cell-4-output-1.png" width="597" height="429"></p>
 </div>
 </div>
 </section>
@@ -350,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Proportion deaths'</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-6-output-1.png" class="" width="597" height="401"></p>
+<p><img src="index_files/figure-html/cell-6-output-1.png" width="597" height="401"></p>
 </div>
 </div>
 <p>Proporsi kematian menurun drastis pada musim panas (Juni) 1847, yakni saat kampanye cuci tangan dimulai oleh Dr.&nbsp;Semmelweis</p>
@@ -369,7 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Proportion deaths'</span>)</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-7-output-1.png" class="" width="597" height="401"></p>
+<p><img src="index_files/figure-html/cell-7-output-1.png" width="597" height="401"></p>
 </div>
 </div>
 <p>Grafik di atas menunjukkan bahwa mencuci tangan memberikan efek yang luar biasa. Seluar biasa apakah cuci tangan mengurangi rata-rata proporsi kematian per bulan?</p>
@@ -568,7 +576,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Musim Semi Peking - 2023
+ 2023 | Musim Semi Peking
   </li>  
 </ul>
     </div>   

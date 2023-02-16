@@ -4,16 +4,14 @@ project:
 
 website:
   title: "Alif Dewantara"
-  # Add description: 
   description: "Jejaring Pribadi"
-  # Add site url (without trailing / at the end)
   site-url : alifdwt.github.io
   search:
     location: navbar
     type: overlay
   favicon: img/favicon-32x32.png
-#  sidebar:
-#    style: docked
+  sidebar:
+    style: docked
 #    tools: 
 #      - icon: github
 #        href: https://github.com/alifdwt
@@ -32,7 +30,7 @@ website:
         href: blog.xml
   page-footer:
     left: 
-      - text: "Musim Semi Peking - 2023"
+      - text: "2023 | Musim Semi Peking"
     right:
       - href: https://www.quarto.org
         text: Dibuat oleh R dan Quarto
@@ -47,9 +45,11 @@ format:
     toc-location: left
     code-link: true
     anchor-sections: true
-    fig-cap-location: margin
+    fig-cap-location: bottom
     reference-location: margin
     footnotes-hover: true
     highlight-style: monokai
-    
+    # code-summary: Lihat Kode
+    # code-fold: true
+
 editor: visual

@@ -11,6 +11,11 @@ date: "2023-02-09"
 categories: 
   - Analisis Data
   - R
+comments: 
+  utterances: 
+    repo: quarto-dev/quarto-web
+    theme: dark-blue
+    issue-term: title
 image: "Nobel_Prize.png"
 ---
 
@@ -45,7 +50,9 @@ nobelbersih2 <- subset(nobelkotor, select = -c(Overall.motivation, Geo.Shape)) %
 
 # Menghapus sisa spasi yang ada di dalam kolom
 nobelbersih2$Lat <- trimws(nobelbersih2$Lat)
+nobelbersih2$Lat <- as.double(nobelbersih2$Lat)
 nobelbersih2$Lon <- trimws(nobelbersih2$Lon)
+nobelbersih2$Lon <- as.double(nobelbersih2$Lon)
 ```
 
 ```{r}
@@ -61,7 +68,7 @@ nobel[nobel == ''] <- NA
 # Memuat file dunia
 world_country <- read.csv('datasets/world_country_and_usa_states_latitude_and_longitude_values.csv')
 
-# Menggabungkan kedua file
+# Membuang kolom yang tidak diinginkan
 world_country <- subset(world_country, select = -c(usa_state_code, usa_state_latitude, usa_state_longitude, usa_state))
 
 # Menghilangkan values yang kosong
@@ -69,6 +76,10 @@ world_country <- drop_na(world_country)
 ```
 
 ## Siapa Saja Peraih Penghargaan Nobel?
+
+```{r}
+head(nobel, 5)
+```
 
 Dengan melihat lima orang awal pemenang penghargaan, atau yang biasa disebut sebagai *Nobel laureates*, kita dapat melihat seseorang: Wilhelm Conrad Rontgen. Mungkin kita langsung tahu apa kontribusi beliau dalam ilmu pengetahuan. Yep, ia adalah penemu mesin X-ray, yang biasa disebut oleh masyarakat sebagai mesin Rontgen (*ronsen*). Menariknya, kita bisa lihat bahwa semua pemenang Nobel tahun 1901 berasal dari Eropa. Lalu, bagaimana dengan pemenang Nobel dari 1901 sampai 2022?
 
@@ -103,6 +114,14 @@ ggplot(nobel_country_count, aes(map_id = country)) +
   geom_map(aes(fill = n), map = world_map) +
   expand_limits(x=world_map$long, y=world_map$lat) +
   labs(title = "Peta Tempat Lahir Para Peraih Nobel")
+```
+
+```{r}
+# Membuat peta
+library(leaflet)
+leaflet() %>%
+    addTiles() %>%
+    addMarkers(lng = nobel$Lon, lat = nobel$Lat)
 ```
 
 ## Ada Indonesia Coy!

@@ -8,6 +8,11 @@ date: "2023-02-06"
 categories: 
   - Analisis Data
   - Python
+comments: 
+  utterances: 
+    repo: quarto-dev/quarto-web
+    theme: github-light
+    issue-term: title
 image: "Logo Google Play.png"
 ---
 
@@ -110,15 +115,15 @@ num_apps_in_category = apps['Category'].value_counts()
 # Mengurutkan num_apps_in_category dalam urutan menurun (descending) berdasarkan jumlah aplikasi dalam tiap kategori
 sorted_num_apps_in_category = num_apps_in_category.sort_values(ascending=False)
 
+# Membuat plot
 data = [go.Bar(
         x = num_apps_in_category.index, # index = category name
         y = num_apps_in_category.values, # value = count
 )]
 
-plotly.offline.plot(data)
+# Menampilkan data
+plotly.offline.iplot(data)
 ```
-
-![](img/Kategorisasi%20aplikasi.png)
 
 ## Distribusi Rating Aplikasi
 
@@ -149,10 +154,8 @@ layout = {'shapes': [{
           }]
           }
 
-plotly.offline.plot({'data': data, 'layout': layout})
+plotly.offline.iplot({'data': data, 'layout': layout})
 ```
-
-![](img/Distribusi%20Rating%20Aplikasi.png)
 
 ## Ukuran dan Harga suatu Aplikasi
 
@@ -296,10 +299,8 @@ layout = go.Layout(
 
 # Add trace0 and trace1 to a list for plotting
 data = [trace0, trace1]
-plotly.offline.plot({'data': data, 'layout': layout})
+plotly.offline.iplot({'data': data, 'layout': layout})
 ```
-
-![](img/Popularitas%20Aplikasi.png)
 
 ## Analisis Sentimen dalam Review dari Pengguna
 

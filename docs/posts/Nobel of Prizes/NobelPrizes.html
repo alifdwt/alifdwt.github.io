@@ -132,7 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="floating nav-fixed slimcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -177,12 +177,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Visualisasi Sejarah Para Peraih Penghargaan Nobel</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Visualisasi Sejarah Para Peraih Penghargaan Nobel</h1>
+      <h1 class="title d-none d-lg-block">Visualisasi Sejarah Para Peraih Penghargaan Nobel</h1>
                   <div>
         <div class="description">
           <p>Mari kita menelaah orang-orang hebat dari 100 tahun yang lalu hingga sekarang.</p>
@@ -218,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -243,18 +251,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="peraih-penghargaan-nobel" class="level2 page-columns page-full">
+<section id="peraih-penghargaan-nobel" class="level2">
 <h2 class="anchored" data-anchor-id="peraih-penghargaan-nobel">Peraih Penghargaan Nobel</h2>
 <p>Penghargaan Nobel mungkin adalah salah satu penghargaan paling terkenal di dunia ilmu pengetahuan. Selain kehormatan, gengsi, dan nominal uang yang tidak sedikit, penerima Nobel juga mendapatkan medali emas yang terdapat cetakan Alfred Nobel (1833 - 1896), sang pencetus penghargaan tersebut. Setiap tahunnya penghargaan tersebut diberikan pada ilmuwan dan para sarjana di bidang kimia, sastra, fisika, psikologi atau kesehatan, ekonomi, dan perdamaian. Penghargaan Nobel pertama kali diberikan pada tahun 1901, dan saat itu penghargaan tersebut sangatlah Eropa-sentris dan sebagian besar didapatkan oleh pria. Benarkah demikian?</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
 <p><a href="https://cruxnow.com/news-analysis/2022/10/why-dont-popes-ever-win-the-nobel-peace-prize"><img src="nobel.webp" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption margin-caption">Penghargaan Nobel (Sumber: cruxnow.com)</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Penghargaan Nobel (Sumber: cruxnow.com)</figcaption><p></p>
 </figure>
 </div>
 <p>Mari kita cari tahu! <a href="https://public.opendatasoft.com/explore/dataset/nobel-prize-laureates/table">Yayasan Nobel</a> telah membuat dataset yang berisi semua pemenang penghargaan dari 1901 sampai 2022. Pertama-tama, kita akan memuat dataset yang akan kita pakai:</p>
@@ -412,7 +420,7 @@ $ Geo.Point.2D         &lt;chr&gt; "45.68753333949257, -112.49433391594603", "45
 </div>
 </div>
 </section>
-<section id="ada-indonesia-coy" class="level2 page-columns page-full">
+<section id="ada-indonesia-coy" class="level2">
 <h2 class="anchored" data-anchor-id="ada-indonesia-coy">Ada Indonesia Coy!</h2>
 <p>Menariknya, jika kita melakukan proses menyatukan data <code>Nobel</code> dan <code>World_country</code> di atas, kita akan mendapatkan tempat tanggal lahir negara dalam konteks sosial-politik zaman sekarang. Sebenarnya, hal ini dilakukan untuk mempermudah pembuatan peta para peraih Nobel di atas. Kelebihan lain dari metode ini adalah kita akan mendapatkan data peraih Nobel yang lahir di <strong>Indonesia</strong>. Pemenang itu ialah Willem Einthoven. Hal ini tentu akan lebih sulit kita dapatkan jika tanpa menggunakan data <code>world_country</code>, karena dalam data <code>Nobel</code>, Einthoven tertulis lahir di <em>Java Dutch East Indies (now Indonesia)</em>. Hal ini dapat terjadi karena pada saat Einthoven lahir, Semarang masih berada dalam kekuasaan Pemerintah Kolonial Hindia Belanda.</p>
 <div class="cell">
@@ -428,10 +436,10 @@ $ Geo.Point.2D         &lt;chr&gt; "45.68753333949257, -112.49433391594603", "45
 </div>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
 <p><img src="img/Willem Einthoven.webp" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption margin-caption">Willem Einthoven, seorang ilmuan kesehatan kelahiran Semarang, 21 Mei 1860, yang berjasa dalam penemuan alat elektrokardiogram.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Willem Einthoven, seorang ilmuan kesehatan kelahiran Semarang, 21 Mei 1860, yang berjasa dalam penemuan alat elektrokardiogram.</figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -508,7 +516,7 @@ $ Geo.Point.2D         &lt;chr&gt; "45.68753333949257, -112.49433391594603", "45
 </div>
 </div>
 </section>
-<section id="wanita-pertama-pemenang-penghargaan-nobel" class="level2 page-columns page-full">
+<section id="wanita-pertama-pemenang-penghargaan-nobel" class="level2">
 <h2 class="anchored" data-anchor-id="wanita-pertama-pemenang-penghargaan-nobel">Wanita Pertama Pemenang Penghargaan Nobel</h2>
 <p>Plot di atas walau terlihat agak berantakan, namun ia memperlihatkan tren dan pola yang cukup menarik. Wanita pemenang Nobel lebih banyak berkiprah di bidang <strong>sastra</strong>, <strong>kimia</strong>, dan <strong>perdamaian</strong>. Walau tren di bidang kesehatan cukup banyak di tahun 1990-an, namun menurun hingga tahun 2022.</p>
 <p>Melihat data di atas, mungkin muncul rasa penasaran: “Siapakah wanita pertama yang memenangkan penghargaan Nobel? Kategori apa?”</p>
@@ -529,10 +537,10 @@ $ Geo.Point.2D         &lt;chr&gt; "45.68753333949257, -112.49433391594603", "45
 </div>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
 <p><img src="img/202101071227-main.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption margin-caption">Marie Curie, Wanita Pertama Peraih Nobel</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Marie Curie, Wanita Pertama Peraih Nobel</figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -639,13 +647,13 @@ $ Geo.Point.2D         &lt;chr&gt; "45.68753333949257, -112.49433391594603", "45
 </div>
 </div>
 </section>
-<section id="sekarang-giliranmu" class="level2 page-columns page-full">
+<section id="sekarang-giliranmu" class="level2">
 <h2 class="anchored" data-anchor-id="sekarang-giliranmu">Sekarang Giliranmu!</h2>
 <p>Yes! Akhirnya kita berada pada penghujung tulisan. Sekarang giliranmu untuk meraih Nobel di masa yang akan datang. Tak perlu cemas, kita bisa lihat bahwa John Goodenough berusia <strong>97 tahun</strong> ketika mendapatkan medali Nobel di bidang kimia, karena kontribusinya dalam perkembangan baterai lithium-ion! Kita juga harus punya semangat seperti Malala Yousafzai yang mendapatkan medali Nobel Perdamaian saat berumur <strong>17 tahun</strong> karena perjuangannya terhadap kebebasan dan pendidikan kepada anak-anak.</p>
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
 <p><a href="https://www.nobelprize.org/prizes/peace/2014/yousafzai/lecture/"><img src="img/malalaquote2.webp" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption margin-caption">“Aku adalah salah satu dari 66 juta wanita yang tercabut pendidikannya” -Malala Yousafzai</figcaption><p></p>
+<p></p><figcaption class="figure-caption">“Aku adalah salah satu dari 66 juta wanita yang tercabut pendidikannya” -Malala Yousafzai</figcaption><p></p>
 </figure>
 </div>
 <p>Sekian dan terima kasih.</p>
@@ -788,13 +796,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="quarto-dev/quarto-web" issue-term="title" theme="dark-blue" crossorigin="anonymous" async="">
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- Musim Semi Peking - 2023
+ 2023 | Musim Semi Peking
   </li>  
 </ul>
     </div>   
