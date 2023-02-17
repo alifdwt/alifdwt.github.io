@@ -10,8 +10,8 @@ website:
     location: navbar
     type: overlay
   favicon: img/favicon-32x32.png
-  sidebar:
-    style: docked
+#  sidebar:
+#    style: docked
 #    tools: 
 #      - icon: github
 #        href: https://github.com/alifdwt
