@@ -1,0 +1,306 @@
+---
+title: "Saya membuat Spotify Wrapped 2022 akun saya sendiri"
+format: 
+  html: 
+    df-print: paged
+description: |
+  Memahami penggunaan Spotify saya selama tahun 2022, dan tahun-tahun sebelumnya.
+author: "Alif Dewantara"
+title-block-banner: true
+date: "2023-01-23"
+categories: 
+  - Analisis Data
+  - Python
+  - Musik
+comments: 
+  utterances: 
+    repo: quarto-dev/quarto-web
+    theme: github-light
+    issue-term: title
+image: "spotify2022.png"
+---
+
+# Bab 1A, Pengambilan Data dari Spotify (*Audio Features*)
+
+```{python load_module}
+# Memuat modul
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
+import pandas as pd
+import requests
+import shutil
+```
+
+```{python write_api}
+# Ambil client_id dan client_secret dari developer.spotify.com
+client_id = '3ff80dfa932f42ccba937689112ebaf8'
+client_secret = 'b222a7c17fda476aa56057b10f263a7d'
+```
+
+```{python set_api}
+# Mengatur Spotify API
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
+  client_id=client_id,
+  client_secret=client_secret),
+  requests_timeout=30)
+```
+
+```{python get_pl}
+# Membuat fungsi utk mendapatkan id playlist
+def get_playlist_id(playlist_name):
+    results = sp.search(q=playlist_name, type='playlist')
+    ids = [playlist.get('id') for playlist in results.get('playlists').get('items')]
+    return ids[0]
+
+
+def get_playlist_tracks(playlist_id, n_tracks):
+    data = pd.DataFrame()
+    #spotify API sets a default limit of 100 tracks, to get all we need to invoke offset
+    for i in range(0,n_tracks,100):
+        results = sp.playlist_tracks(playlist_id,limit=100, offset=i)
+        #shape json into dataframe
+        track_ids = [track.get('track').get('id') for track in results.get('items')]
+        df = pd.DataFrame()
+        df['id'] = track_ids
+        df['track'] = [track.get('track').get('name') for track in results.get('items')]
+        df['artist_id'] = [track.get('track').get('artists')[0].get('id') for track in results.get('items')]
+        df['artist'] = [track.get('track').get('artists')[0].get('name') for track in results.get('items')]
+        df['album_id'] = [track.get('track').get('album').get('id') for track in results.get('items')]
+        df['album'] = [track.get('track').get('album').get('name') for track in results.get('items')]
+        df['release_date'] = [track.get('track').get('album').get('release_date') for track in results.get('items')]
+        df['link'] = [track.get('track').get('href') for track in results.get('items')]
+        #get audio features, merge with df
+        track_features = sp.audio_features(track_ids)
+        df_features = pd.DataFrame.from_dict(track_features)
+        df = df.merge(df_features, on='id', how='left')
+        #merge with data
+        data = pd.concat([data,df])
+    return data
+```
+
+```{python cnt_pl}
+# Mengumpulkan nama playlist
+playlist_count = {"LAGU PRANCIS [Mawar itu merah, Sept 2015]": 62,
+                  "LAGU SPANYOL [Marakas, Juli 2017]": 11,
+                  "LAGU ARAB [Dalil Hati, Feb 2017]": 227,
+                  "LAGU PERSIA [seribu satu malam, Des 2017]": 27,
+                  "LAGU TURKI [Musafir Yogyakarta, Jan 2017]": 107,
+                  "LAGU INDIA-PAKISTAN [Pahatan Ajanta, Feb 2018]": 271,
+                  "LAGU JEPANG [Cahaya, Okt 2016]": 42,
+                  "LAGU ROHANI [Prancis, Romantik, dan Katolik, Jul 2019]": 67,
+                  "LAGU ITALIA [Barok, Okt 2015]": 30,
+                  "Harmoni 2000-2005": 95,
+                  "INSTRUMENTAL [Pagi kita bertemu, 13-16 Juli 2015]": 40,
+                  "Putih Abu-abu 2014-2017": 94,
+                  "LAGU TIONGKOK [Musim Semi Peking, Juli 2022]": 21}
+
+playlists = [k for k in playlist_count]
+```
+
+```{python pl_id}
+# Mengambil id playlist
+playlist_ids = {}
+for playlist in playlists:
+    playlist_ids[playlist] = get_playlist_id(playlist)
+
+playlist_ids
+```
+
+```{python get_pl_track}
+# Mendapatkan data playlist
+prancis = get_playlist_tracks('7ttFWlWYKHxPmKFpNZExRg',62)
+spanyol = get_playlist_tracks('4MT7AmSA3zzUc5l61UAaWq',11)
+arab = get_playlist_tracks('6cHxqtzE8Q3eTg5XT1NgeS',227)
+persia = get_playlist_tracks('52S8xpzB4MKpzzu9DaNb8q',27)
+turki = get_playlist_tracks('39knIyzVLQmi7wnee38sjd',107)
+india = get_playlist_tracks('2F8zqd7gXM3jp0z4wmJ160',271)
+jepang = get_playlist_tracks('1XNY4ejPLXJ8DihepAvVfP',42)
+italia = get_playlist_tracks('03JLnQaku3cL4NaWfCMkaU',30)
+harmoni = get_playlist_tracks('7Fz6Bcbjj2p5zguRQrHshR',95)
+instrumen = get_playlist_tracks('7r7MnB3tJUEx09toHMzSqk',40)
+putihabu = get_playlist_tracks('0UkVGHTgobH8rY04n38ucq',94)
+tiongkok = get_playlist_tracks('1AmXLjWvrjQxjshRhjw2sp',21)
+```
+
+```{python}
+# Memasukan data asal playlist ke dalam dataframe
+prancis['asal_playlist'] = 'prancis'
+spanyol['asal_playlist'] = 'spanyol'
+arab['asal_playlist'] = 'arab'
+persia['asal_playlist'] = 'persia'
+turki['asal_playlist'] = 'turki'
+india['asal_playlist'] = 'india'
+jepang['asal_playlist'] = 'jepang'
+italia['asal_playlist'] = 'italia'
+harmoni['asal_playlist'] = 'harmoni'
+instrumen['asal_playlist'] = 'instrumen'
+putihabu['asal_playlist'] = 'putihabu'
+tiongkok['asal_playlist'] = 'tiongkok'
+
+# Menyatukan data playlist
+df_songs = pd.concat([prancis, spanyol, arab, persia, turki, india, jepang, italia, harmoni, instrumen, putihabu, tiongkok])
+```
+
+```{python rincian}
+df_songs.shape
+df_songs.asal_playlist.value_counts()
+```
+
+```{python ekspor_data}
+# Mengekspor data ke dalam .csv
+df_songs.to_csv('datasets/audio_features.csv', index=False)
+```
+
+## Mengambil Data Artis
+
+```{python data_artis}
+# Membuat fungsi utk mendapatkan data artis
+def get_artist_details(artist_id):
+    d = {}
+    results = sp.artist(artist_id)
+    d['artist_id'] = artist_id
+    d['artist'] = results.get('name')
+    if len(results.get('images'))>0:
+        d['image'] = results.get('images')[0].get('url')
+    else:
+        d['image'] = ''
+    d['genres'] = str(results.get('genres'))
+    d['popularity'] = results.get('popularity')
+    d['link'] = results.get('href')
+    if len(results.get('followers'))>0:
+        d['followers'] = results.get('followers').get('total')
+    else:
+        d['followers'] = None
+    return d
+```
+
+```{python artists}
+artists = list(set([artist for artist in df_songs['artist_id']]))
+artist_data = []
+for artist in artists:
+    data = get_artist_details(artist)
+    artist_data.append(data)
+```
+
+```{python artis_df}
+# Membuat dataframe data artis dan menyimpannya dalam .csv
+df_artists = pd.DataFrame(artist_data)
+df_artists.to_csv('datasets/artists.csv')
+```
+
+## Mengunduh Gambar Artis
+
+```{python ambil_gambar}
+# Mengambil gambar artis
+# Kode diambil dari - https://towardsdatascience.com/how-to-download-an-image-using-python-38a75cfa21c    
+def get_image(image_url, filename):
+    # Open the url image, set stream to True, this will return the stream content.
+    r = requests.get(image_url, stream = True)
+
+    # Check if the image was retrieved successfully
+    if r.status_code == 200:
+        # Set decode_content value to True, otherwise the downloaded image file's size will be zero.
+        r.raw.decode_content = True
+
+        # Open a local file with wb ( write binary ) permission.
+        with open(filename,'wb') as f:
+            shutil.copyfileobj(r.raw, f)
+       # print('Image sucessfully Downloaded: ',filename)
+    else:
+        print('Image Couldn\'t be retreived', filename)
+```
+
+```{python ambil_gambar2}
+df_artists.set_index('artist_id',inplace=True)
+```
+
+```{python}
+# Mengambil gambar artis
+# Diambil dari StackOverflow https://stackoverflow.com/questions/51486297/cropping-an-image-in-a-circular-way-using-python
+import numpy as np
+from PIL import Image, ImageDraw
+
+
+def crop_center(pil_img, crop_width, crop_height):
+    img_width, img_height = pil_img.size
+    return pil_img.crop(((img_width - crop_width) // 2,
+                         (img_height - crop_height) // 2,
+                         (img_width + crop_width) // 2,
+                         (img_height + crop_height) // 2))
+
+def crop_max_square(pil_img):
+    return crop_center(pil_img, min(pil_img.size), min(pil_img.size))
+
+def crop_image(image_path, new_path):
+    img=Image.open(image_path).convert("RGB")
+    img = crop_max_square(img)
+    npImage=np.array(img)
+    h,w=img.size
+    alpha = Image.new('L', img.size,0)
+    draw = ImageDraw.Draw(alpha)
+    draw.pieslice([0,0,h,w],0,360,fill=255)
+    npAlpha=np.array(alpha)
+    npImage=np.dstack((npImage,npAlpha))
+    Image.fromarray(npImage).save(new_path)
+```
+
+```{python mengambil_gambar}
+import os 
+files = os.listdir('datasets/images/artists')
+file_paths = ['datasets/images/artists/' + file for file in files]
+
+for path in file_paths:
+    new_path = 'datasets/images/cropped_artists/' + path[18:]
+    crop_image(path, new_path)
+```
+
+# Bab 1B, Pengambilan Data dari Genius (Lirik Lagu)
+
+```{python mengimpor_modul}
+# Mengimpor modul
+from lyricsgenius import Genius
+from requests.exceptions import Timeout
+import json
+```
+
+```{python memuat_token}
+token = 'CBz5kXqTsseg-LNqSrGv4VwKgs48RqQiHYALieK4ncX4AKNLaVOvm25HI-gqNnKO'
+genius = Genius(token,skip_non_songs=True,
+          excluded_terms=["(Remix)", "(Live)"],
+          timeout=60,
+          retries=2, 
+          verbose=False)
+```
+
+```{python memuat_data_pl}
+# Memuat data playlist
+songs = pd.read_csv('datasets/audio_features.csv')
+songs.set_index('id',inplace=True)
+songs.head(5)
+```
+
+```{python data_lirik}
+# Mengambil data lirik
+data_lyrics = []
+for index in songs.index:
+    data = pd.DataFrame()
+    track = songs.loc[index]['track']
+    artist = songs.loc[index]['artist']
+    res = genius.search_song(title=track, artist=artist)
+    if res != None:
+        lyrics = res.lyrics
+        data = {'id': index, 'track': track, 'artist': artist, 'lyrics': lyrics}
+        data_lyrics.append(data)
+
+df_lyrics = pd.DataFrame(data_lyrics)
+df_lyrics.head(5)
+```
+
+```{python df_lyrics}
+pd.DataFrame(data_lyrics)
+```
+
+```{python simpan_lirik}
+# Menyimpan lirik
+df_lyrics.to_csv('datasets/lyrics.csv')
+```
