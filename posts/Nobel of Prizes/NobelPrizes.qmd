@@ -2,7 +2,7 @@
 title: "Visualisasi Sejarah Para Peraih Penghargaan Nobel"
 format: 
   html: 
-    df-print: paged
+    df-print: kable
 description: |
   Mari kita menelaah orang-orang hebat dari 100 tahun yang lalu hingga sekarang.
 author: "Alif Dewantara"
@@ -14,7 +14,7 @@ categories:
 comments: 
   utterances: 
     repo: quarto-dev/quarto-web
-    theme: dark-blue
+    theme: github-light
     issue-term: title
 image: "Nobel_Prize.png"
 ---
@@ -27,22 +27,22 @@ Penghargaan Nobel mungkin adalah salah satu penghargaan paling terkenal di dunia
 
 Mari kita cari tahu! [Yayasan Nobel](https://public.opendatasoft.com/explore/dataset/nobel-prize-laureates/table) telah membuat dataset yang berisi semua pemenang penghargaan dari 1901 sampai 2022. Pertama-tama, kita akan memuat dataset yang akan kita pakai:
 
-```{r}
+```{r load_library, message=FALSE}
 # Memuat library
 library(dplyr)
-library(tidyverse)
+library(tidyr)
 library(ggplot2)
+library(ggthemes)
 
 # Membaca dataset Nobel Prize
 nobelkotor <- read.csv('datasets/nobel-prize-laureates.csv')
-glimpse(nobelkotor)
 ```
 
 ## Pembersihan Data (*Data Cleaning*) dan Membenarkan Tipe Data
 
 Sebelum melakukan *Exproratory Data Analysis* (EDA), hal yang biasa dilakukan oleh seorang analis adalah melakukan pembersihan data dan membenarkan tipe data:
 
-```{r}
+```{r data_cleaning, warning=FALSE}
 # Membersihkan data yang takkan dipakai, memisahkan Geo.Shape menjadi Latitude dan Longitude
 nobelbersih2 <- subset(nobelkotor, select = -c(Overall.motivation, Geo.Shape)) %>%
   arrange(Id) %>%
@@ -53,9 +53,7 @@ nobelbersih2$Lat <- trimws(nobelbersih2$Lat)
 nobelbersih2$Lat <- as.double(nobelbersih2$Lat)
 nobelbersih2$Lon <- trimws(nobelbersih2$Lon)
 nobelbersih2$Lon <- as.double(nobelbersih2$Lon)
-```
 
-```{r}
 # Mengubah tipe data Born (tanggal lahir) dan Died (tanggal wafat) menjadi tipe Date (tanggal)
 nobel <- nobelbersih2 %>%
   mutate_at(c('Born', 'Died'), as.Date)
@@ -78,7 +76,7 @@ world_country <- drop_na(world_country)
 ## Siapa Saja Peraih Penghargaan Nobel?
 
 ```{r}
-head(nobel, 5)
+head(nobel%>%select(-Motivation), 5)
 ```
 
 Dengan melihat lima orang awal pemenang penghargaan, atau yang biasa disebut sebagai *Nobel laureates*, kita dapat melihat seseorang: Wilhelm Conrad Rontgen. Mungkin kita langsung tahu apa kontribusi beliau dalam ilmu pengetahuan. Yep, ia adalah penemu mesin X-ray, yang biasa disebut oleh masyarakat sebagai mesin Rontgen (*ronsen*). Menariknya, kita bisa lihat bahwa semua pemenang Nobel tahun 1901 berasal dari Eropa. Lalu, bagaimana dengan pemenang Nobel dari 1901 sampai 2022?
@@ -113,15 +111,13 @@ world_map <- map_data("world")
 ggplot(nobel_country_count, aes(map_id = country)) +
   geom_map(aes(fill = n), map = world_map) +
   expand_limits(x=world_map$long, y=world_map$lat) +
-  labs(title = "Peta Tempat Lahir Para Peraih Nobel")
-```
-
-```{r}
-# Membuat peta
-library(leaflet)
-leaflet() %>%
-    addTiles() %>%
-    addMarkers(lng = nobel$Lon, lat = nobel$Lat)
+  labs(title = "Peta Tempat Lahir Para Peraih Nobel") +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        rect = element_blank())
 ```
 
 ## Ada Indonesia Coy!
@@ -162,7 +158,7 @@ ggplot(prop_usa_winners, aes(x=decade, y=mean_usa)) +
   labs(title="Dominasi Amerika Serikat dalam Penghargaan Nobel")
 ```
 
-```{r}
+```{r message=FALSE}
 # Membuat pengelompokan berdasarkan kategori Nobel
 prop_category <- nobel %>%
   group_by(decade, Category) %>%
@@ -170,14 +166,15 @@ prop_category <- nobel %>%
 
 ggplot(prop_category, aes(x=decade, y=mean, color=Category)) +
   geom_line() +
-  labs(title="Dominasi AS per Kategori Nobel")
+  labs(title="Dominasi AS per Kategori Nobel") +
+  theme_few()
 ```
 
 ## Eksistensi Wanita dalam Penghargaan Nobel
 
 Sebelumnya, kita sudah melihat bahwa ada perbedaan jumlah yang cukup besar dalam peraihan Nobel antara pria dan wanita. Lalu, kategori apa saja yang umum ditempuh oleh wanita dalam ilmu pengetahuan?
 
-```{r}
+```{r message=FALSE}
 # Menghitung proporsi pemenang wanita per dekade
 nobel$female_winner <- nobel$Gender == 'female'
 prop_female_winners <- nobel %>%
@@ -187,7 +184,8 @@ prop_female_winners <- nobel %>%
 # Membuat plot
 ggplot(prop_female_winners, aes(x=decade, y=mean_fem, color=Category)) +
   geom_line() +
-  labs(title="Wanita dalam Penghargaan Nobel per Kategori Ilmu")
+  labs(title="Wanita dalam Penghargaan Nobel per Kategori Ilmu") +
+  theme_few()
 ```
 
 ## Wanita Pertama Pemenang Penghargaan Nobel
@@ -203,7 +201,7 @@ first_female <- head(nobel %>%
   arrange(Year), 1)
 
 # Print wanita pertama
-first_female
+first_female%>%select(-Motivation)
 ```
 
 ![Marie Curie, Wanita Pertama Peraih Nobel](img/202101071227-main.jpg)
@@ -216,7 +214,7 @@ Untuk sebagian besar ilmuan/penulis/aktivis, memenangkan penghargaan Nobel tentu
 dup_name <- nobel %>%
   group_by(Firstname, Surname) %>%
   filter(n()>1)
-dup_name
+dup_name%>%select(-Motivation)
 ```
 
 ## Berapa Umur Para Ilmuan saat Meraih Nobel?
@@ -225,7 +223,7 @@ Daftar nama berulang di atas memunculkan satu nama yang mungkin sudah tidak asin
 
 Nah, mari kita lihat di umur berapa para peraih Nobel mendapatkan penghargaan? (Biar bisa ngira-ngira "kapan ya gue bisa kek mereka?")
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 # Menghitung umur peraih Nobel
 nobel['BornYear'] <- substr(nobel$Born,1,4)
 nobel['age'] <- nobel$Year - as.integer(nobel$BornYear)
@@ -245,7 +243,7 @@ Kita juga dapat melihat kepadatan titik pada grafik di atas cenderung naik diban
 
 Sekarang, mari kita lihat umur penerima Nobel per kategori ilmu:
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 # Sama seperti plot di atas, namun dibagi per kategori
 ggplot(nobel, aes(x=Year, y=age)) +
   geom_point() +

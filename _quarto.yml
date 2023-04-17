@@ -10,8 +10,8 @@ website:
     location: navbar
     type: overlay
   favicon: img/favicon-32x32.png
-#  sidebar:
-#    style: docked
+  sidebar:
+    style: docked
 #    tools: 
 #      - icon: github
 #        href: https://github.com/alifdwt
@@ -39,17 +39,19 @@ website:
 format:
   html:
     theme:
-      # flatly
-      theme.scss
+      flatly
+      # theme.scss
     toc: true
     toc-location: left
     code-link: true
     anchor-sections: true
     fig-cap-location: bottom
+    fig-align: center
+    fig-responsive: true
     reference-location: margin
     footnotes-hover: true
-    highlight-style: monokai
-    # code-summary: Lihat Kode
-    # code-fold: true
+    highlight-style: dracula
+    code-summary: Lihat Kode
+    code-fold: true
 
 editor: visual

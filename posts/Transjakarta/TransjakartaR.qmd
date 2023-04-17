@@ -2,7 +2,7 @@
 title: Statistik Penumpang Transportasi Jakarta Tahun 2021
 format: 
   html: 
-    df-print: paged
+    df-print: kable
 description: |
   Mengetahui statistik moda transportasi jalanan di DKI Jakarta.
 author: "Alif Dewantara"
@@ -25,12 +25,11 @@ image: "logo-transjakarta.png"
 
 Transjakarta merupakan sistem transportasi publik utama di Jakarta. Selain karena harganya yang sangat terjangkau, Transjakarta menjadi moda transportasi favorit masyarakat karena ia menjangkau sebagian besar wilayah di Provinsi Daerah Khusus Ibukota Jakarta. Pertama kali beroperasi di Jakarta pada tahun 2004 dengan trayek Koridor 1: Blok M - Kota, kini Transjakarta telah memiliki lebih dari 100 trayek yang melayani kebutuhan transportasi masyarakat ibukota. Seberapa besar masyarakat menggunakan moda transportasi ini? Mari kita mencari tahu melalui analisis data berikut ini.
 
-```{r load_library}
+```{r load_library, warning=FALSE, message=FALSE}
 # Memuat library
 library(dplyr)
 library(ggplot2)
 library(ggthemes)
-library(tidyverse)
 library(dygraphs)
 library(scales)
 ```
@@ -113,12 +112,12 @@ tj2021$kode_trayek <- factor(tj2021$kode_trayek, levels = warna_rute$kode_trayek
 
 Setelah melalui proses pembersihan data di atas, dan penggabungan datasets, proses selanjutnya adalah menghitung `jumlah_penumpang` per `trayek` per tahun. Kode di bawah mengikutsertakan `kode_trayek` agar memudahkan proses pemberian warna pada plot.
 
-```{r}
+```{r jml2021, warning=FALSE, message=FALSE}
 # Mendapatkan jumlah total per trayek per tahun
 jmltrayek2021 <- tj2021 %>%
   group_by(kode_trayek, trayek, jenis) %>%
   summarize(jumlah_penumpang = sum(jumlah_penumpang))
-jmltrayek2021
+head(jmltrayek2021, 10)
 ```
 
 ### Bus Rapid Transit (BRT)
@@ -166,7 +165,7 @@ Sekarang mari kita mencari tahu data tentang Transjakarta jenis Angkutan Umum In
 
 [![Bus Metrotrans di Senayan, salah satu moda transportasi berbasis Angkutan Umum Integrasi.](https://upload.wikimedia.org/wikipedia/commons/1/18/Metrotrans_at_Senayan.jpg){fig-alt="Tni fans111, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons"}](https://commons.wikimedia.org/wiki/File:Metrotrans_at_Senayan.jpg)
 
-Bagaimana antusias masyarakat Jakarta dalam menggunakan AUT, tabel di bawah adalah data yang telah dikumpulkan sepanjang tahun 2021:
+Bagaimana antusias masyarakat Jakarta dalam menggunakan AUT, tabel di bawah adalah lima teratas data yang telah dikumpulkan sepanjang tahun 2021:
 
 ```{r table_aut2021}
 # Mendapatkan data angkutan umum terintegrasi
@@ -174,7 +173,7 @@ aut2021 <- jmltrayek2021 %>%
   filter(jenis == 'Angkutan Umum Integrasi') %>%
   select(kode_trayek, trayek, jumlah_penumpang) %>%
   arrange(desc(jumlah_penumpang))
-aut2021
+head(aut2021, 5)
 ```
 
 Yap, ternyata AUT memiliki trayek yang lebih banyak dibandingkan dengan BRT. Hal ini terjadi karena jalur *busway* memerlukan lebar jalan yang luas, dan hanya segelintir jalanan di Jakarta yang bisa dipasangkan jalur *busway*. Oleh karenanya, AUT masih menggunakan jalan utama dan halte di pinggir jalan dalam hal antar jemput penumpang. Dengan ini, maka AUT lebih bisa menjangkau pemukiman/pusat kegiatan yang tidak memiliki jalanan luas yang memadai.
@@ -209,7 +208,7 @@ mikro2021 <- jmltrayek2021 %>%
   filter(jenis == 'Mikrotrans') %>%
   select(kode_trayek, trayek, jumlah_penumpang) %>%
   arrange(desc(jumlah_penumpang))
-mikro2021
+head(mikro2021, 5)
 ```
 
 Mikrotrans memiliki trayek paling banyak dalam jenis transportasi Transjakarta. Tentunya hal ini disebabkan karena ukuran kendaraan yang kecil sehingga dapat menjangkau sebagian besar wilayah Jakarta yang memiliki lebar jalan yang tak luas. Selain itu, Mikrotrans juga menjangkau masyarakat mengengah ke bawah yang biasanya tinggal di jalan sempit, dan dengan tarif yang masih digratiskan oleh pemerintah Jakarta, menyebabkan Mikrotrans menjadi moda transportasi yang diminati oleh warga Jakarta.
@@ -229,14 +228,14 @@ ggplot(mikro2021, aes(x=reorder(trayek, jumlah_penumpang), y=jumlah_penumpang)) 
 
 Sebelumnya kita sudah mendapatkan statistik penggunaan Transjakarta di tahun 2021. Lalu bagaimana dengan jumlah penumpang per bulannya?
 
-```{r tabel_jmlbulan}
+```{r tabel_jmlbulan, message=FALSE}
 # Mendapatkan jumlah penumpang per bulan
 jmlbulan <- tj2021 %>%
   group_by(bulan, nama_bulan, jenis) %>%
   summarize(jumlah_penumpang = sum(jumlah_penumpang))
 ```
 
-```{r jmlbulan, fig.width=10, fig.height=5}
+```{r jmlbulan, fig.width=10, fig.height=5, warning=FALSE, message=FALSE}
 # Membuat plot jmlbulan
 ggplot(jmlbulan, aes(x=bulan, y=jumlah_penumpang, color = jenis)) +
   geom_line(size = 1.5, alpha = 0.8) +

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -129,7 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="floating nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -174,12 +174,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Dokter Semmelweis dan Temuan dalam Mencuci Tangan</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Dokter Semmelweis dan Temuan dalam Mencuci Tangan</h1>
+      <h1 class="title d-none d-lg-block">Dokter Semmelweis dan Temuan dalam Mencuci Tangan</h1>
                   <div>
         <div class="description">
           <p>Mengetahui dan menganalisa metode cuci tangan di Rumah Sakit Umum Vienna di abad ke-19.</p>
@@ -215,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -250,6 +258,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dokter Semmelweis lahir di Austria-Hungaria pada tahun 1818, dan aktif bekerja di Rumah Sakit Umum Vienna. Saat itu, Dr.&nbsp;Semmelweis menemukan adanya penyakit yang sering ditemuinya di rumah sakit: <a href="https://en.wikipedia.org/wiki/Postpartum_infections"><em>childbed fever</em></a> (demam kasur), yakni penyakit yang disebabkan oleh infeksi bakteri yang menyerang saluran reproduksi perempuan setelah melahirkan atau keguguran. Ia bekerja keras mencari cara untuk mengatasi penyakit ini, sebab pada tahun 1840-an, 10% wanita yang melahirkan di Rumah Sakit Umum Vienna meninggal karena terinfeksi. Dr.&nbsp;Semmelweis sangat memikirkan hal ini karena ia tahu penyebab utama demam tersebut: tangan-tangan para dokter yang telah terkontaminasi saat memindahkan bayi. Sayangnya, staf rumah sakit saat itu tak ada yang mengindahkan sarannya untuk mencuci tangan!</p>
 <p>Maka di sini, kita akan bersama-sama menganalisa kembali data yang membuat Dr.&nbsp;Semmelweis menemukan pentingnya <strong>mencuci tangan</strong>. Kita bisa memulainya dengan melihat data yang membuat Semmelweis menyadari bahwa ada yang salah dalam prosedur Rumah Sakit Umum Vienna.</p>
 <div class="cell" data-execution_count="1">
+<details>
+<summary>Lihat Kode</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import modul</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -259,6 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print yearly</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(yearly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>    year  births  deaths    clinic
 0   1841    3036     237  clinic 1
@@ -281,6 +292,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Tabel di atas tadi memberi informasi terkait angka para ibu yang melahirkan (<code>births</code>) di dua klinik (<code>clinic</code>) milik Rumah Sakit Vienna antara tahun 1841 sampai 1846 (<code>year</code>). Kalian mungkin sadar bahwa proses melahirkan di tahun tersebut sangat riskan, dan angka kematian (<code>deaths</code>) ibu yang melahirkan, sebagian besar terjadi akibat demam kasur.</p>
 <p>Kita bisa lihat dengan lebih jelas jika kita melihatnya dari proporsi kematian para ibu berdasarkan angka ibu yang melahirkan (<code>proportion_deaths</code>). Mari kita fokus pada proporsi kematian di Klinik 1.</p>
 <div class="cell" data-execution_count="2">
+<details>
+<summary>Lihat Kode</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengkalkulasi proporsi kematian per angka kelahiran</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>yearly[<span class="st">'proportion_deaths'</span>] <span class="op">=</span> yearly[<span class="st">'deaths'</span>]<span class="op">/</span>yearly[<span class="st">'births'</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -290,6 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out yearly1</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(yearly1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   year  births  deaths    clinic  proportion_deaths
 0  1841    3036     237  clinic 1           0.078063
@@ -305,12 +319,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="kematian-di-klinik">Kematian di klinik</h2>
 <p>Jika kita membuat memvisualisasikan <code>proportion_deaths</code> kedua klinik dalam <em>line chart</em>, kita akan melihat adanya suatu pola.</p>
 <div class="cell" data-execution_count="3">
+<details>
+<summary>Lihat Kode</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot proporsi kematian per tahun di kedua klinik</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> yearly1.plot(x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'proportion_deaths'</span>, label<span class="op">=</span><span class="st">'clinic 1'</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>yearly2.plot(x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'proportion_deaths'</span>, label<span class="op">=</span><span class="st">'clinic 2'</span>, ax<span class="op">=</span>ax)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Proportion deaths'</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-4-output-1.png" width="597" height="429"></p>
 </div>
@@ -323,6 +340,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Perlu diketahui bahwa kesadaran mencuci tangan di masa itu tidak sebaik sekarang. Perintah Dr.&nbsp;Semmelweis tersebut tentu saja dianggap kontroversial dan aneh. Penduduk Vienna pada masa itu juga belum tahu tentang adanya bakteri.</p>
 <p>Nah, mari kita sekarang membuka data yang baru, yakni data bulanan dari klinik 1 untuk melihat apakah kampanye cuci tangan ini memberikan efek.</p>
 <div class="cell" data-execution_count="4">
+<details>
+<summary>Lihat Kode</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membaca datasets/monthly_deaths.csv ke dalam monthly</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>monthly <span class="op">=</span> pd.read_csv(<span class="st">'datasets/monthly_deaths.csv'</span>, parse_dates<span class="op">=</span>[<span class="st">'date'</span>])</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -331,6 +350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out lima baris awal monthly</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(monthly.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        date  births  deaths  proportion_deaths
 0 1841-01-01     254      37           0.145669
@@ -345,10 +365,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="efek-mencuci-tangan">Efek mencuci tangan</h2>
 <p>Data di atas sudah berhasil dimuat, maka kita dapat melihat proporsi kematian di tahun tersebut. Dalam plot ini kita tak akan memberi tanda tentang kapan kampanye cuci tangan ini dimulai, tetapi kampanye tersebut telah mengurangi angka kematian dengan sangat signifikan sehingga kalian bisa tahu hanya dengan melihat plot di bawah.</p>
 <div class="cell" data-execution_count="5">
+<details>
+<summary>Lihat Kode</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot proporsi kematian</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> monthly.plot(x<span class="op">=</span><span class="st">'date'</span>, y<span class="op">=</span><span class="st">'proportion_deaths'</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Proportion deaths'</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-6-output-1.png" width="597" height="401"></p>
 </div>
@@ -356,6 +379,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Proporsi kematian menurun drastis pada musim panas (Juni) 1847, yakni saat kampanye cuci tangan dimulai oleh Dr.&nbsp;Semmelweis</p>
 <p>Efek mencuci tangan akan lebih terlihat jelas jika kita membuat grafik seperti ini.</p>
 <div class="cell" data-execution_count="6">
+<details>
+<summary>Lihat Kode</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tanggal dimulainya kampanye cuci tangan</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>handwashing_start <span class="op">=</span> pd.to_datetime(<span class="st">'1847-06-01'</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -368,17 +393,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>after_washing.plot(x<span class="op">=</span><span class="st">'date'</span>, y<span class="op">=</span><span class="st">'proportion_deaths'</span>, label<span class="op">=</span><span class="st">'After handwashing'</span>, ax<span class="op">=</span>ax)</span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Proportion deaths'</span>)</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="index_files/figure-html/cell-7-output-1.png" width="597" height="401"></p>
 </div>
 </div>
 <p>Grafik di atas menunjukkan bahwa mencuci tangan memberikan efek yang luar biasa. Seluar biasa apakah cuci tangan mengurangi rata-rata proporsi kematian per bulan?</p>
 <div class="cell" data-execution_count="7">
+<details>
+<summary>Lihat Kode</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rata-rata perbedaan proporsi kematian saat kampanye cuci tangan</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>before_proportion <span class="op">=</span> before_washing.proportion_deaths</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>after_proportion <span class="op">=</span> after_washing.proportion_deaths</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>mean_diff <span class="op">=</span> after_proportion.mean() <span class="op">-</span> before_proportion.mean() </span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>-0.08395660751183336</code></pre>
 </div>
@@ -389,6 +418,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Kampanye cuci tangan telah mengurangi angka kematian secara signifikan! Jika sebelumnya rata-rata proporsi kematian adalah 10%, kini berkurang sebanyak 8% menjadi 2%.</p>
 <p>Agar kalian mendapatkan gambaran terkait seberapa penting mencuci tangan dalam mengurangi kematian, kita dapat membuat <em>confidence interval</em>.</p>
 <div class="cell" data-execution_count="8">
+<details>
+<summary>Lihat Kode</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> percentile</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A bootstrap analysis of the reduction of deaths due to handwashing</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>boot_mean_diff <span class="op">=</span> []</span>
@@ -400,6 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating a 95% confidence interval from boot_mean_diff </span></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>confidence_interval <span class="op">=</span> percentile(boot_mean_diff, [<span class="fl">2.5</span>, <span class="fl">97.5</span>])</span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(confidence_interval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[-0.10145617 -0.06734784]</code></pre>
 </div>

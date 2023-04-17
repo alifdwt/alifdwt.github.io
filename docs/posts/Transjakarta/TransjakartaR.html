@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -125,8 +125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-
-<script src="../../site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <script src="../../site_libs/jquery-1.11.1/jquery.min.js"></script>
 <link href="../../site_libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
 <script src="../../site_libs/dygraphs-1.1.1/dygraph-combined.js"></script>
@@ -135,13 +134,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
 <script src="../../site_libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
 <script src="../../site_libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
-<link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 </head>
 
-<body class="floating nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -186,12 +183,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Statistik Penumpang Transportasi Jakarta Tahun 2021</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Statistik Penumpang Transportasi Jakarta Tahun 2021</h1>
+      <h1 class="title d-none d-lg-block">Statistik Penumpang Transportasi Jakarta Tahun 2021</h1>
                   <div>
         <div class="description">
           <p>Mengetahui statistik moda transportasi jalanan di DKI Jakarta.</p>
@@ -227,7 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -264,149 +269,255 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="transjakarta-moda-transportasinya-orang-jakarta">Transjakarta, Moda Transportasinya Orang Jakarta</h2>
 <p>Transjakarta merupakan sistem transportasi publik utama di Jakarta. Selain karena harganya yang sangat terjangkau, Transjakarta menjadi moda transportasi favorit masyarakat karena ia menjangkau sebagian besar wilayah di Provinsi Daerah Khusus Ibukota Jakarta. Pertama kali beroperasi di Jakarta pada tahun 2004 dengan trayek Koridor 1: Blok M - Kota, kini Transjakarta telah memiliki lebih dari 100 trayek yang melayani kebutuhan transportasi masyarakat ibukota. Seberapa besar masyarakat menggunakan moda transportasi ini? Mari kita mencari tahu melalui analisis data berikut ini.</p>
 <div class="cell">
+<details>
+<summary>Lihat Kode</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Memuat library</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages
-───────────────────────────────────────
-tidyverse 1.3.2 ──</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>✔ tibble  3.1.8     ✔ purrr   0.3.5
-✔ tidyr   1.2.1     ✔ stringr 1.4.1
-✔ readr   2.1.3     ✔ forcats 0.5.2
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dygraphs)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'scales'
-
-The following object is masked from 'package:purrr':
-
-    discard
-
-The following object is masked from 'package:readr':
-
-    col_factor</code></pre>
-</div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dygraphs)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="jakarta-open-data" class="level2">
 <h2 class="anchored" data-anchor-id="jakarta-open-data">Jakarta Open Data</h2>
 <p>Datasets di bawah ini berisi Data Penumpang Bus Transjakarta Tahun 2021, yang didapatkan dari <a href="https://data.jakarta.go.id/dataset/data-penumpang-bus-transjakarta-januari-2021">Jakarta Open Data</a>, Dinas Perhubungan Provinsi DKI Jakarta. Dataset dibuat pada 12 April 2022 dan memiliki frekuensi penerbitan satu bulan sekali. Untuk mendapatkan data tahunan, maka diperlukan penyatuan 12 data bulanan.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Memuat dataset bulanan</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>jan2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-januari-2021.csv"</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>feb2021 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-februari-2021.csv"</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>mar2021 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-maret-2021.csv"</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>apr2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-april-2021.csv"</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>mei2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-mei-2021.csv"</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>jun2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-juni-2021.csv"</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>jul2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-juli-2021.csv"</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>agu2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-agustus-2021.csv"</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>sep2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-september-2021.csv"</span>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>okt2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-oktober-2021.csv"</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>nov2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-november-2021.csv"</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>des2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-desember-2021.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Memuat dataset bulanan</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>jan2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-januari-2021.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>feb2021 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-februari-2021.csv"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>mar2021 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-maret-2021.csv"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>apr2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-april-2021.csv"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>mei2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-mei-2021.csv"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>jun2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-juni-2021.csv"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>jul2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-juli-2021.csv"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>agu2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-agustus-2021.csv"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>sep2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-september-2021.csv"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>okt2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-oktober-2021.csv"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>nov2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-november-2021.csv"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>des2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-desember-2021.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat dataset tahunan</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>tj2021 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(jan2021, feb2021, mar2021, apr2021, mei2021, jun2021, jul2021, agu2021, sep2021, okt2021, nov2021, des2021)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Menampilkan 5 baris pertama tj2021</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tj2021, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat dataset tahunan</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tj2021 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(jan2021, feb2021, mar2021, apr2021, mei2021, jun2021, jul2021, agu2021, sep2021, okt2021, nov2021, des2021)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Menampilkan 5 baris pertama tj2021</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tj2021, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["tahun"],"name":[1],"type":["int"],"align":["right"]},{"label":["bulan"],"name":[2],"type":["int"],"align":["right"]},{"label":["jenis"],"name":[3],"type":["chr"],"align":["left"]},{"label":["kode_trayek"],"name":[4],"type":["chr"],"align":["left"]},{"label":["trayek"],"name":[5],"type":["chr"],"align":["left"]},{"label":["jumlah_penumpang"],"name":[6],"type":["int"],"align":["right"]}],"data":[{"1":"2021","2":"1","3":"Mikrotrans","4":"JAK.88","5":"Terminal Tanjung Priok - Ancol Barat","6":"1473","_rn_":"1"},{"1":"2021","2":"1","3":"Mikrotrans","4":"JAK.85","5":"Bintara - Cipinang Indah","6":"20280","_rn_":"2"},{"1":"2021","2":"1","3":"Mikrotrans","4":"JAK.84","5":"Terminal Kampung Melayu - Kapin Raya","6":"28779","_rn_":"3"},{"1":"2021","2":"1","3":"Mikrotrans","4":"JAK.80","5":"Rawa Buaya - Rawa Kompeni","6":"54998","_rn_":"4"},{"1":"2021","2":"1","3":"Mikrotrans","4":"JA.77","5":"Tanjung Priok - Jembatan Item","6":"60284","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 41%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">tahun</th>
+<th style="text-align: right;">bulan</th>
+<th style="text-align: left;">jenis</th>
+<th style="text-align: left;">kode_trayek</th>
+<th style="text-align: left;">trayek</th>
+<th style="text-align: right;">jumlah_penumpang</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Mikrotrans</td>
+<td style="text-align: left;">JAK.88</td>
+<td style="text-align: left;">Terminal Tanjung Priok - Ancol Barat</td>
+<td style="text-align: right;">1473</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Mikrotrans</td>
+<td style="text-align: left;">JAK.85</td>
+<td style="text-align: left;">Bintara - Cipinang Indah</td>
+<td style="text-align: right;">20280</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Mikrotrans</td>
+<td style="text-align: left;">JAK.84</td>
+<td style="text-align: left;">Terminal Kampung Melayu - Kapin Raya</td>
+<td style="text-align: right;">28779</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Mikrotrans</td>
+<td style="text-align: left;">JAK.80</td>
+<td style="text-align: left;">Rawa Buaya - Rawa Kompeni</td>
+<td style="text-align: right;">54998</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Mikrotrans</td>
+<td style="text-align: left;">JA.77</td>
+<td style="text-align: left;">Tanjung Priok - Jembatan Item</td>
+<td style="text-align: right;">60284</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <p>Dalam dataset ini terdapat beberapa kesalahan ketik dan <em>input</em> yang menyebabkan proses analisis data tidak berjalan sempurna. Maka dari itu, diperlukan pembenaran data seperti yang sudah dilakukan pada kotak kode di bawah ini. Selain melakukan proses <em>data cleaning</em>, juga dilakukan proses menambah kolom <code>nama_bulan</code> dengan cara mengambil abreviasi 12 angka <code>bulan</code> dalam datasets tersebut.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membenarkan data saltik</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Ggadung"</span>, <span class="st">"Gadung"</span>, tj2021<span class="sc">$</span>trayek)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Ttanjung"</span>, <span class="st">"Tanjung"</span>, tj2021<span class="sc">$</span>trayek)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Ppulo"</span>, <span class="st">"Pulo"</span>, tj2021<span class="sc">$</span>trayek)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"PIK - Balai Kota"</span>, <span class="st">"Pantai Maju - Balai Kota"</span>, tj2021<span class="sc">$</span>trayek)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Pinang Ranti - Kampung Rambutan"</span>, <span class="st">"Kampung Rambutan - Pinang Ranti"</span>, tj2021<span class="sc">$</span>trayek)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Gondangdia - Cikini via Kramat Jaya"</span>, <span class="st">"Gondangdia - Cikini via Kramat Raya"</span>, tj2021<span class="sc">$</span>trayek)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Membenarkan kode trayek</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Pantai Maju - Balai Kota"</span>] <span class="ot">&lt;-</span> <span class="st">"1A"</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Sentraland Cengkareng - Puri Kembangan"</span>] <span class="ot">&lt;-</span> <span class="st">"3E"</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Tanjung Priok - Jembatan Item"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.77"</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Cililitan - Condet via Kayu Manis"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.37"</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Kampung Rambutan - Pinang Ranti"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.71"</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Tongtek - Cililitan"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.43"</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Gondangdia - Cikini via Kramat Raya"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.10B"</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek[tj2021<span class="sc">$</span>kode_trayek <span class="sc">==</span> <span class="st">"JAK.10A"</span>] <span class="ot">&lt;-</span> <span class="st">"Gondangdia - Cikini via Salemba Raya"</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek[tj2021<span class="sc">$</span>kode_trayek <span class="sc">==</span> <span class="st">"JAK.10B"</span>] <span class="ot">&lt;-</span> <span class="st">"Gondangdia - Cikini via Kramat Raya"</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan nama bulan</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>nama_bulan <span class="ot">&lt;-</span> month.abb[tj2021<span class="sc">$</span>bulan]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membenarkan data saltik</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Ggadung"</span>, <span class="st">"Gadung"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Ttanjung"</span>, <span class="st">"Tanjung"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Ppulo"</span>, <span class="st">"Pulo"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"PIK - Balai Kota"</span>, <span class="st">"Pantai Maju - Balai Kota"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Pinang Ranti - Kampung Rambutan"</span>, <span class="st">"Kampung Rambutan - Pinang Ranti"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Gondangdia - Cikini via Kramat Jaya"</span>, <span class="st">"Gondangdia - Cikini via Kramat Raya"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Membenarkan kode trayek</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Pantai Maju - Balai Kota"</span>] <span class="ot">&lt;-</span> <span class="st">"1A"</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Sentraland Cengkareng - Puri Kembangan"</span>] <span class="ot">&lt;-</span> <span class="st">"3E"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Tanjung Priok - Jembatan Item"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.77"</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Cililitan - Condet via Kayu Manis"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.37"</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Kampung Rambutan - Pinang Ranti"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.71"</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Tongtek - Cililitan"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.43"</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Gondangdia - Cikini via Kramat Raya"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.10B"</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek[tj2021<span class="sc">$</span>kode_trayek <span class="sc">==</span> <span class="st">"JAK.10A"</span>] <span class="ot">&lt;-</span> <span class="st">"Gondangdia - Cikini via Salemba Raya"</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek[tj2021<span class="sc">$</span>kode_trayek <span class="sc">==</span> <span class="st">"JAK.10B"</span>] <span class="ot">&lt;-</span> <span class="st">"Gondangdia - Cikini via Kramat Raya"</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan nama bulan</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>nama_bulan <span class="ot">&lt;-</span> month.abb[tj2021<span class="sc">$</span>bulan]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Selain dataset dari Jakarta Open Data di atas, kami juga memuat dataset yang diambil dari transjakarta.co.id. Dataset tersebut adalah <code>routes.csv</code> yang berisi rincian trayek-trayek seluruh moda transportasi yang dikendalikan oleh PT. Transportasi Jakarta. Tetapi dalam dataset tersebut, kami hanya mengambil kolom <code>route_color</code> yang akan digunakan untuk warna <em>bar chart</em> yang mewakili trayek-trayek. Dataframe <code>rute</code> dan <code>tj2021</code> dapat disatukan dengan menggunakan kunci berupa <code>kode_trayek</code> yang ada di kedua datasets tersebut.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Memuat data rute</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>rute <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'datasets/routes.csv'</span>) </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Hanya mengambil data yang diinginkan</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>warna_rute <span class="ot">&lt;-</span> rute <span class="sc">%&gt;%</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(route_id, route_color) <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kode_trayek =</span> route_id)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>warna_rute<span class="sc">$</span>route_color <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^"</span>, <span class="st">"#"</span>, warna_rute<span class="sc">$</span>route_color)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#warna_rute &lt;- merge(x=warna_rute, y=tj2021[ , c("kode_trayek", "trayek")], by="kode_trayek", all.x = TRUE)</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#warna_rute &lt;- warna_rute[!duplicated(warna_rute$kode_trayek), ]</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#row.names(warna_rute) &lt;- NULL</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Menghubungkan dataset</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek <span class="ot">&lt;-</span> <span class="fu">factor</span>(tj2021<span class="sc">$</span>kode_trayek, <span class="at">levels =</span> warna_rute<span class="sc">$</span>kode_trayek)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Memuat data rute</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>rute <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'datasets/routes.csv'</span>) </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Hanya mengambil data yang diinginkan</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>warna_rute <span class="ot">&lt;-</span> rute <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(route_id, route_color) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kode_trayek =</span> route_id)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>warna_rute<span class="sc">$</span>route_color <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^"</span>, <span class="st">"#"</span>, warna_rute<span class="sc">$</span>route_color)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#warna_rute &lt;- merge(x=warna_rute, y=tj2021[ , c("kode_trayek", "trayek")], by="kode_trayek", all.x = TRUE)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#warna_rute &lt;- warna_rute[!duplicated(warna_rute$kode_trayek), ]</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#row.names(warna_rute) &lt;- NULL</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Menghubungkan dataset</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek <span class="ot">&lt;-</span> <span class="fu">factor</span>(tj2021<span class="sc">$</span>kode_trayek, <span class="at">levels =</span> warna_rute<span class="sc">$</span>kode_trayek)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="apa-trayek-yang-dilayani-oleh-transjakarta" class="level2">
 <h2 class="anchored" data-anchor-id="apa-trayek-yang-dilayani-oleh-transjakarta">Apa Trayek yang Dilayani oleh Transjakarta?</h2>
 <p>Setelah melalui proses pembersihan data di atas, dan penggabungan datasets, proses selanjutnya adalah menghitung <code>jumlah_penumpang</code> per <code>trayek</code> per tahun. Kode di bawah mengikutsertakan <code>kode_trayek</code> agar memudahkan proses pemberian warna pada plot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan jumlah total per trayek per tahun</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>jmltrayek2021 <span class="ot">&lt;-</span> tj2021 <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(kode_trayek, trayek, jenis) <span class="sc">%&gt;%</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">jumlah_penumpang =</span> <span class="fu">sum</span>(jumlah_penumpang))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'kode_trayek', 'trayek'. You can override
-using the `.groups` argument.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>jmltrayek2021</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan jumlah total per trayek per tahun</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>jmltrayek2021 <span class="ot">&lt;-</span> tj2021 <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(kode_trayek, trayek, jenis) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">jumlah_penumpang =</span> <span class="fu">sum</span>(jumlah_penumpang))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(jmltrayek2021, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["kode_trayek"],"name":[1],"type":["fct"],"align":["left"]},{"label":["trayek"],"name":[2],"type":["chr"],"align":["left"]},{"label":["jenis"],"name":[3],"type":["chr"],"align":["left"]},{"label":["jumlah_penumpang"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"Blok M - Kota","3":"BRT","4":"10079752"},{"1":"2","2":"Pulo Gadung 1 - Harmoni","3":"BRT","4":"3836531"},{"1":"3","2":"Kalideres - Pasar Baru","3":"BRT","4":"5250726"},{"1":"4","2":"Pulo Gadung 2 - Tosari","3":"BRT","4":"3032454"},{"1":"5","2":"Kampung Melayu - Ancol","3":"BRT","4":"4902814"},{"1":"6","2":"Ragunan - Dukuh Atas 2","3":"BRT","4":"3996604"},{"1":"7","2":"Kampung Rambutan - Kampung Melayu","3":"BRT","4":"4372447"},{"1":"8","2":"Lebak Bulus - Harmoni","3":"BRT","4":"5122397"},{"1":"9","2":"Pinang Ranti - Pluit","3":"BRT","4":"7694406"},{"1":"10","2":"Tanjung Priok - PGC 2","3":"BRT","4":"4262272"},{"1":"11","2":"Pulo Gebang - Kampung Melayu","3":"BRT","4":"1603385"},{"1":"12","2":"Penjaringan - Sunter Bouleverd Barat","3":"BRT","4":"1620307"},{"1":"13","2":"Ciledug - Tendean","3":"BRT","4":"3337261"},{"1":"10K","2":"Tanjung Priok - Senen via Taman  BMW","3":"Angkutan Umum Integrasi","4":"363490"},{"1":"11D","2":"Pulo Gebang - Pulo Gadung 2 via PIK","3":"Angkutan Umum Integrasi","4":"560742"},{"1":"11Q","2":"Kampung Melayu - Pulo Gebang via BKT","3":"Angkutan Umum Integrasi","4":"104856"},{"1":"12A","2":"Pelabuhan Kaliadem - Kota","3":"Angkutan Umum Integrasi","4":"1463"},{"1":"12B","2":"Pluit - Senen","3":"Angkutan Umum Integrasi","4":"100512"},{"1":"1A","2":"Pantai Maju - Balai Kota","3":"Angkutan Umum Integrasi","4":"651544"},{"1":"1B","2":"Stasiun Palmerah - Tosari","3":"Angkutan Umum Integrasi","4":"232479"},{"1":"1C","2":"Pesanggrahan - Blok M","3":"Angkutan Umum Integrasi","4":"161025"},{"1":"1E","2":"Pondok  Labu - Blok M","3":"Angkutan Umum Integrasi","4":"659247"},{"1":"1F","2":"Stasiun Palmerah - Bundaran Senayan","3":"Angkutan Umum Integrasi","4":"94517"},{"1":"1H","2":"Tanah Abang - Stasiun Gondangdia","3":"Angkutan Umum Integrasi","4":"388240"},{"1":"1M","2":"Meruya - Blok M","3":"Angkutan Umum Integrasi","4":"236641"},{"1":"1N","2":"Tanah Abang - Blok M","3":"Angkutan Umum Integrasi","4":"100625"},{"1":"1P","2":"Senen - Bundaran Senayan","3":"Angkutan Umum Integrasi","4":"85028"},{"1":"1Q","2":"Rempoa - Blok M","3":"Angkutan Umum Integrasi","4":"268975"},{"1":"1R","2":"Senen - Tanah Abang","3":"Angkutan Umum Integrasi","4":"137259"},{"1":"2P","2":"Gondangdia - Senen","3":"Angkutan Umum Integrasi","4":"12812"},{"1":"2Q","2":"Gondangdia - Balai Kota","3":"Angkutan Umum Integrasi","4":"24472"},{"1":"3E","2":"Puri Kembangan - Sentraland Cengkareng","3":"Angkutan Umum Integrasi","4":"65393"},{"1":"3E","2":"Sentraland Cengkareng - Puri Kembangan","3":"Angkutan Umum Integrasi","4":"172441"},{"1":"4B","2":"Stasiun Manggarai - UI","3":"Angkutan Umum Integrasi","4":"352440"},{"1":"4F","2":"Pinang Ranti - Pulo Gadung","3":"Angkutan Umum Integrasi","4":"378156"},{"1":"5B","2":"Stasiun Tebet - Bidara Cina","3":"Angkutan Umum Integrasi","4":"74920"},{"1":"5F","2":"Kampung Melayu - Tanah Abang","3":"Angkutan Umum Integrasi","4":"169302"},{"1":"5M","2":"Kampung Melayu - Tanah Abang via Cikini","3":"Angkutan Umum Integrasi","4":"792133"},{"1":"6C","2":"Stasin Tebet - Karet via Patra Kuningan","3":"Angkutan Umum Integrasi","4":"883116"},{"1":"6H","2":"Senen - Lebak Bulus","3":"Angkutan Umum Integrasi","4":"181727"},{"1":"6M","2":"Stasiun Manggarai - Blok  M","3":"Angkutan Umum Integrasi","4":"224848"},{"1":"6N","2":"Ragunan - Blok M via Kemang","3":"Angkutan Umum Integrasi","4":"193746"},{"1":"6Q","2":"Dukuh Atas - Casablanca via Epicentrum Raya","3":"Angkutan Umum Integrasi","4":"608"},{"1":"7A","2":"Kampung Rambutan - Lebak Bulus","3":"Angkutan Umum Integrasi","4":"629150"},{"1":"7B","2":"Kampung Rambutan - Blok M","3":"Angkutan Umum Integrasi","4":"781188"},{"1":"7D","2":"Pancoran - TMII","3":"Angkutan Umum Integrasi","4":"215598"},{"1":"7P","2":"Pondok Kelapa - BKN","3":"Angkutan Umum Integrasi","4":"249940"},{"1":"8C","2":"Kebayoran Lama - Tanah Abang","3":"Angkutan Umum Integrasi","4":"101780"},{"1":"8D","2":"Joglo - Blok M","3":"Angkutan Umum Integrasi","4":"291028"},{"1":"8E","2":"Bintaro - Blok M","3":"Angkutan Umum Integrasi","4":"188271"},{"1":"8K","2":"Batu Sari-Tanah Abang","3":"Angkutan Umum Integrasi","4":"81314"},{"1":"9D","2":"Pasar Minggu - Tanah Abang","3":"Angkutan Umum Integrasi","4":"772295"},{"1":"9E","2":"Kebayoran Lama - Jelambar","3":"Angkutan Umum Integrasi","4":"149602"},{"1":"9H","2":"Cipedak - Blok M","3":"Angkutan Umum Integrasi","4":"129145"},{"1":"JAK.01","2":"Tanjung Priok - Plumpang","3":"Mikrotrans","4":"733728"},{"1":"JAK.02","2":"Kampung Melayu - Duren Sawit","3":"Mikrotrans","4":"564695"},{"1":"JAK.03","2":"Lebak Bulus - Andara","3":"Mikrotrans","4":"410165"},{"1":"JAK.04","2":"Grogol - Tubagus Angke","3":"Mikrotrans","4":"599651"},{"1":"JAK.05","2":"Semper - Rorotan","3":"Mikrotrans","4":"799610"},{"1":"JAK.06","2":"Kampung Rambutan - Pondok Gede","3":"Mikrotrans","4":"837406"},{"1":"JAK.07","2":"Tanah Abang - Grogol via Tawakal","3":"Mikrotrans","4":"598084"},{"1":"JAK.08","2":"Roxy - Benhil","3":"Mikrotrans","4":"404771"},{"1":"JAK.09","2":"Roxy Mas - Karet","3":"Mikrotrans","4":"281827"},{"1":"JAK.10","2":"Tanah Abang - Kota","3":"Mikrotrans","4":"583116"},{"1":"JAK.10A","2":"Gondangdia - Cikini via Salemba Raya","3":"Mikrotrans","4":"100536"},{"1":"JAK.10B","2":"Gondangdia - Cikini via Kramat Raya","3":"Mikrotrans","4":"14057"},{"1":"JAK.11","2":"Tanah Abang - Kebayoran Lama","3":"Mikrotrans","4":"861127"},{"1":"JAK.112","2":"Terminal Tanah Merah - Pulo Gadung","3":"Mikrotrans","4":"657001"},{"1":"JAK.117","2":"Tanjung Priok - Tanah Merdeka","3":"Mikrotrans","4":"979674"},{"1":"JAK.12","2":"Tanah Abang - Kebayoran Lama via Pos Pengumben","3":"Mikrotrans","4":"783420"},{"1":"JAK.13","2":"Tanah Abang - Kota Intan via Jembatan Lima","3":"Mikrotrans","4":"205995"},{"1":"JAK.14","2":"Tanah Abang - Meruya","3":"Mikrotrans","4":"1013340"},{"1":"JAK.15","2":"Bulak Turi - Tanjung Priok","3":"Mikrotrans","4":"1463311"},{"1":"JAK.17","2":"Senen - Pulo Gadung","3":"Mikrotrans","4":"507296"},{"1":"JAK.18","2":"Kalibata - Kuningan","3":"Mikrotrans","4":"396761"},{"1":"JAK.20","2":"Cawang UKI - Lubang Buaya","3":"Mikrotrans","4":"699372"},{"1":"JAK.21","2":"Cililitan - Dwikora","3":"Mikrotrans","4":"748415"},{"1":"JAK.22","2":"Dwikora - Penas Kalimalang","3":"Mikrotrans","4":"297091"},{"1":"JAK.24","2":"Senen - Pulo Gadung via Kelapa Gading","3":"Mikrotrans","4":"896833"},{"1":"JAK.25","2":"Kp. Rambutan - Kalisari","3":"Mikrotrans","4":"660193"},{"1":"JAK.26","2":"Rawamangun - Duren Sawit","3":"Mikrotrans","4":"481389"},{"1":"JAK.27","2":"Pulo Gebang - Rorotan","3":"Mikrotrans","4":"565192"},{"1":"JAK.28","2":"Kp. Rambutan - Taman Wiladatika","3":"Mikrotrans","4":"767487"},{"1":"JAK.29","2":"Tanjung Priok - Sukapura","3":"Mikrotrans","4":"1325037"},{"1":"JAK.30","2":"Grogol - Meruya via Roxy","3":"Mikrotrans","4":"1614991"},{"1":"JAK.31","2":"Blok M - Andara","3":"Mikrotrans","4":"725980"},{"1":"JAK.32","2":"Lebak Bulus - Petukangan","3":"Mikrotrans","4":"978979"},{"1":"JAK.33","2":"Pulo Gadung - Kota","3":"Mikrotrans","4":"616576"},{"1":"JAK.34","2":"Rawamangun - Klender","3":"Mikrotrans","4":"836522"},{"1":"JAK.35","2":"Pangkalan  Jati - Rawamangun","3":"Mikrotrans","4":"385223"},{"1":"JAK.36","2":"Cilangkap - Cililitan","3":"Mikrotrans","4":"937522"},{"1":"JAK.37","2":"Cililitan - Condet via Kayu Manis","3":"Mikrotrans","4":"1511182"},{"1":"JAK.38","2":"Bulak Ringin - Kampung Rambutan","3":"Mikrotrans","4":"557196"},{"1":"JAK.39","2":"Kalimalang - Duren Sawit","3":"Mikrotrans","4":"721752"},{"1":"JAK.40","2":"Harapan Baru - Pulo Gebang via Rawa Kuning","3":"Mikrotrans","4":"491640"},{"1":"JAK.41","2":"Kampung Melayu - Pulo Gadung","3":"Mikrotrans","4":"455606"},{"1":"JAK.42","2":"Kampung Melayu - Pondok Kelapa","3":"Mikrotrans","4":"781804"},{"1":"JAK.44","2":"Andara - Stasiun Universitas Pancasila","3":"Mikrotrans","4":"745812"},{"1":"JAK.45","2":"Lebak Bulus - Ragunan","3":"Mikrotrans","4":"598690"},{"1":"JAK.46","2":"Pasar Minggu - Jagakarsa","3":"Mikrotrans","4":"933161"},{"1":"JAK.47","2":"Pasar Minggu - Ciganjur via KB Ragunan","3":"Mikrotrans","4":"580838"},{"1":"JAK.49","2":"Lebak Bulus - Cipulir","3":"Mikrotrans","4":"493083"},{"1":"JAK.50","2":"Kalideres - Puri Kembangan","3":"Mikrotrans","4":"769350"},{"1":"JAK.51","2":"Taman Kota - Budi Luhur","3":"Mikrotrans","4":"1211167"},{"1":"JAK.52","2":"Kalideres - Muara Angke","3":"Mikrotrans","4":"722455"},{"1":"JAK.53","2":"Grogol - Pos Pengumben via Slipi","3":"Mikrotrans","4":"457224"},{"1":"JAK.54","2":"Grogol - Benhil","3":"Mikrotrans","4":"454035"},{"1":"JAK.56","2":"Grogol - Srengseng","3":"Mikrotrans","4":"600121"},{"1":"JAK.58","2":"Cilingcing - Rorotan","3":"Mikrotrans","4":"1117752"},{"1":"JAK.59","2":"Rawamangun - Tanah Merah","3":"Mikrotrans","4":"949741"},{"1":"JAK.60","2":"Kelapa Gading - Rusun Kemayoran","3":"Mikrotrans","4":"801800"},{"1":"JAK.61","2":"Cempaka Putih - Pulo Gadung via Kelapa Gading","3":"Mikrotrans","4":"434260"},{"1":"JAK.64","2":"Lenteng Agung - Aseli","3":"Mikrotrans","4":"552420"},{"1":"JAK.71","2":"Kampung Rambutan - Pinang Ranti","3":"Mikrotrans","4":"1977472"},{"1":"JAK.72","2":"Kampung Rambutan - Pasar Rebo via Poncol","3":"Mikrotrans","4":"1077147"},{"1":"JAK.73","2":"Jambore Cibubur - Pasar Rebo","3":"Mikrotrans","4":"849616"},{"1":"JAK.74","2":"Terminal Rawamangun - Cipinang Muara","3":"Mikrotrans","4":"510100"},{"1":"JAK.75","2":"Cililitan - Kp. Pulo","3":"Mikrotrans","4":"573061"},{"1":"JAK.77","2":"Tanjung Priok - Jembatan Item","3":"Mikrotrans","4":"765514"},{"1":"JAK.80","2":"Rawa Buaya - Rawa Kompeni","3":"Mikrotrans","4":"724712"},{"1":"JAK.84","2":"Terminal Kampung Melayu - Kapin Raya","3":"Mikrotrans","4":"481820"},{"1":"JAK.85","2":"Bintara - Cipinang Indah","3":"Mikrotrans","4":"334063"},{"1":"JAK.88","2":"Terminal Tanjung Priok - Ancol Barat","3":"Mikrotrans","4":"332037"},{"1":"GR4","2":"Taman Kota Intan - Museum Bahari","3":"Angkutan Umum Integrasi","4":"232"},{"1":"GR5","2":"Kota Tua Explorer","3":"Angkutan Umum Integrasi","4":"376"},{"1":"NA","2":"Ragunan - Departemen Pertanian","3":"Angkutan Umum Integrasi","4":"1386"},{"1":"NA","2":"Ragunan - Stasin MRT Fatmawati","3":"Angkutan Umum Integrasi","4":"13006"},{"1":"NA","2":"Stasiun Manggarai - Ragunan","3":"Angkutan Umum Integrasi","4":"377"},{"1":"NA","2":"Tanah Abang Explorer","3":"Angkutan Umum Integrasi","4":"3945"},{"1":"NA","2":"Tongtek - Cililitan","3":"Mikrotrans","4":"1016797"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 49%">
+<col style="width: 8%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">kode_trayek</th>
+<th style="text-align: left;">trayek</th>
+<th style="text-align: left;">jenis</th>
+<th style="text-align: right;">jumlah_penumpang</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Blok M - Kota</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">10079752</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Pulo Gadung 1 - Harmoni</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">3836531</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Kalideres - Pasar Baru</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">5250726</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Pulo Gadung 2 - Tosari</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">3032454</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Kampung Melayu - Ancol</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">4902814</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Ragunan - Dukuh Atas 2</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">3996604</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Kampung Rambutan - Kampung Melayu</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">4372447</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Lebak Bulus - Harmoni</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">5122397</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Pinang Ranti - Pluit</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">7694406</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">Tanjung Priok - PGC 2</td>
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">4262272</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -421,38 +532,116 @@ using the `.groups` argument.</code></pre>
 </div>
 <p>Lalu, seberapa banyak masyarakat Jakarta yang menggunakan <em>busway</em>? Trayek apa saja yang dikategorikan sebagai BRT? Pertanyaan tersebut dapat dijawab dengan tabel di bawah ini:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan data jumlah penumpang BRT dalam setahun</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>brt2021 <span class="ot">&lt;-</span> jmltrayek2021 <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jenis <span class="sc">==</span> <span class="st">'BRT'</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(kode_trayek, trayek, jumlah_penumpang) <span class="sc">%&gt;%</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(jumlah_penumpang))</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>brt2021</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan data jumlah penumpang BRT dalam setahun</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>brt2021 <span class="ot">&lt;-</span> jmltrayek2021 <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jenis <span class="sc">==</span> <span class="st">'BRT'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(kode_trayek, trayek, jumlah_penumpang) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(jumlah_penumpang))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>brt2021</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["kode_trayek"],"name":[1],"type":["fct"],"align":["left"]},{"label":["trayek"],"name":[2],"type":["chr"],"align":["left"]},{"label":["jumlah_penumpang"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"Blok M - Kota","3":"10079752"},{"1":"9","2":"Pinang Ranti - Pluit","3":"7694406"},{"1":"3","2":"Kalideres - Pasar Baru","3":"5250726"},{"1":"8","2":"Lebak Bulus - Harmoni","3":"5122397"},{"1":"5","2":"Kampung Melayu - Ancol","3":"4902814"},{"1":"7","2":"Kampung Rambutan - Kampung Melayu","3":"4372447"},{"1":"10","2":"Tanjung Priok - PGC 2","3":"4262272"},{"1":"6","2":"Ragunan - Dukuh Atas 2","3":"3996604"},{"1":"2","2":"Pulo Gadung 1 - Harmoni","3":"3836531"},{"1":"13","2":"Ciledug - Tendean","3":"3337261"},{"1":"4","2":"Pulo Gadung 2 - Tosari","3":"3032454"},{"1":"12","2":"Penjaringan - Sunter Bouleverd Barat","3":"1620307"},{"1":"11","2":"Pulo Gebang - Kampung Melayu","3":"1603385"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">kode_trayek</th>
+<th style="text-align: left;">trayek</th>
+<th style="text-align: right;">jumlah_penumpang</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Blok M - Kota</td>
+<td style="text-align: right;">10079752</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Pinang Ranti - Pluit</td>
+<td style="text-align: right;">7694406</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Kalideres - Pasar Baru</td>
+<td style="text-align: right;">5250726</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Lebak Bulus - Harmoni</td>
+<td style="text-align: right;">5122397</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Kampung Melayu - Ancol</td>
+<td style="text-align: right;">4902814</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Kampung Rambutan - Kampung Melayu</td>
+<td style="text-align: right;">4372447</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">Tanjung Priok - PGC 2</td>
+<td style="text-align: right;">4262272</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Ragunan - Dukuh Atas 2</td>
+<td style="text-align: right;">3996604</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Pulo Gadung 1 - Harmoni</td>
+<td style="text-align: right;">3836531</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">Ciledug - Tendean</td>
+<td style="text-align: right;">3337261</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Pulo Gadung 2 - Tosari</td>
+<td style="text-align: right;">3032454</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">Penjaringan - Sunter Bouleverd Barat</td>
+<td style="text-align: right;">1620307</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">Pulo Gebang - Kampung Melayu</td>
+<td style="text-align: right;">1603385</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <p>Ada 13 trayek yang dilayani oleh BRT Transjakarta. Tentunya, data di atas akan lebih menarik jika disajikan dalam bentuk <em>bar chart</em> seperti di bawah ini:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot brt2021</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(brt2021, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(kode_trayek, jumlah_penumpang), <span class="at">y=</span>jumlah_penumpang)) <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>kode_trayek), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">round</span>(jumlah_penumpang <span class="sc">/</span> <span class="fl">1e6</span>, <span class="dv">2</span>), <span class="st">"Juta"</span>))) <span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Jumlah Penumpang BRT Transjakarta 2021"</span>,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span><span class="st">"Berapa jumlah penumpang per trayek BRT Transjakarta?"</span>,</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>,</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Jumlah Penumpang"</span>) <span class="sc">+</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_fivethirtyeight</span>() <span class="sc">+</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>()) <span class="sc">+</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> warna_rute<span class="sc">$</span>route_color) <span class="sc">+</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">breaks =</span> brt2021<span class="sc">$</span>kode_trayek,</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> brt2021<span class="sc">$</span>trayek) <span class="sc">+</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"Jt"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot brt2021</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(brt2021, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(kode_trayek, jumlah_penumpang), <span class="at">y=</span>jumlah_penumpang)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>kode_trayek), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">round</span>(jumlah_penumpang <span class="sc">/</span> <span class="fl">1e6</span>, <span class="dv">2</span>), <span class="st">"Juta"</span>))) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Jumlah Penumpang BRT Transjakarta 2021"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span><span class="st">"Berapa jumlah penumpang per trayek BRT Transjakarta?"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Jumlah Penumpang"</span>) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_fivethirtyeight</span>() <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>()) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> warna_rute<span class="sc">$</span>route_color) <span class="sc">+</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">breaks =</span> brt2021<span class="sc">$</span>kode_trayek,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> brt2021<span class="sc">$</span>trayek) <span class="sc">+</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"Jt"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="TransjakartaR_files/figure-html/brt2021-1.png" class="img-fluid" width="960"></p>
 </div>
@@ -468,35 +657,78 @@ using the `.groups` argument.</code></pre>
 <p></p><figcaption class="figure-caption">Bus Metrotrans di Senayan, salah satu moda transportasi berbasis Angkutan Umum Integrasi.</figcaption><p></p>
 </figure>
 </div>
-<p>Bagaimana antusias masyarakat Jakarta dalam menggunakan AUT, tabel di bawah adalah data yang telah dikumpulkan sepanjang tahun 2021:</p>
+<p>Bagaimana antusias masyarakat Jakarta dalam menggunakan AUT, tabel di bawah adalah lima teratas data yang telah dikumpulkan sepanjang tahun 2021:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan data angkutan umum terintegrasi</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>aut2021 <span class="ot">&lt;-</span> jmltrayek2021 <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jenis <span class="sc">==</span> <span class="st">'Angkutan Umum Integrasi'</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(kode_trayek, trayek, jumlah_penumpang) <span class="sc">%&gt;%</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(jumlah_penumpang))</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>aut2021</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan data angkutan umum terintegrasi</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>aut2021 <span class="ot">&lt;-</span> jmltrayek2021 <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jenis <span class="sc">==</span> <span class="st">'Angkutan Umum Integrasi'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(kode_trayek, trayek, jumlah_penumpang) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(jumlah_penumpang))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aut2021, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["kode_trayek"],"name":[1],"type":["fct"],"align":["left"]},{"label":["trayek"],"name":[2],"type":["chr"],"align":["left"]},{"label":["jumlah_penumpang"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"6C","2":"Stasin Tebet - Karet via Patra Kuningan","3":"883116"},{"1":"5M","2":"Kampung Melayu - Tanah Abang via Cikini","3":"792133"},{"1":"7B","2":"Kampung Rambutan - Blok M","3":"781188"},{"1":"9D","2":"Pasar Minggu - Tanah Abang","3":"772295"},{"1":"1E","2":"Pondok  Labu - Blok M","3":"659247"},{"1":"1A","2":"Pantai Maju - Balai Kota","3":"651544"},{"1":"7A","2":"Kampung Rambutan - Lebak Bulus","3":"629150"},{"1":"11D","2":"Pulo Gebang - Pulo Gadung 2 via PIK","3":"560742"},{"1":"1H","2":"Tanah Abang - Stasiun Gondangdia","3":"388240"},{"1":"4F","2":"Pinang Ranti - Pulo Gadung","3":"378156"},{"1":"10K","2":"Tanjung Priok - Senen via Taman  BMW","3":"363490"},{"1":"4B","2":"Stasiun Manggarai - UI","3":"352440"},{"1":"8D","2":"Joglo - Blok M","3":"291028"},{"1":"1Q","2":"Rempoa - Blok M","3":"268975"},{"1":"7P","2":"Pondok Kelapa - BKN","3":"249940"},{"1":"1M","2":"Meruya - Blok M","3":"236641"},{"1":"1B","2":"Stasiun Palmerah - Tosari","3":"232479"},{"1":"6M","2":"Stasiun Manggarai - Blok  M","3":"224848"},{"1":"7D","2":"Pancoran - TMII","3":"215598"},{"1":"6N","2":"Ragunan - Blok M via Kemang","3":"193746"},{"1":"8E","2":"Bintaro - Blok M","3":"188271"},{"1":"6H","2":"Senen - Lebak Bulus","3":"181727"},{"1":"3E","2":"Sentraland Cengkareng - Puri Kembangan","3":"172441"},{"1":"5F","2":"Kampung Melayu - Tanah Abang","3":"169302"},{"1":"1C","2":"Pesanggrahan - Blok M","3":"161025"},{"1":"9E","2":"Kebayoran Lama - Jelambar","3":"149602"},{"1":"1R","2":"Senen - Tanah Abang","3":"137259"},{"1":"9H","2":"Cipedak - Blok M","3":"129145"},{"1":"11Q","2":"Kampung Melayu - Pulo Gebang via BKT","3":"104856"},{"1":"8C","2":"Kebayoran Lama - Tanah Abang","3":"101780"},{"1":"1N","2":"Tanah Abang - Blok M","3":"100625"},{"1":"12B","2":"Pluit - Senen","3":"100512"},{"1":"1F","2":"Stasiun Palmerah - Bundaran Senayan","3":"94517"},{"1":"1P","2":"Senen - Bundaran Senayan","3":"85028"},{"1":"8K","2":"Batu Sari-Tanah Abang","3":"81314"},{"1":"5B","2":"Stasiun Tebet - Bidara Cina","3":"74920"},{"1":"3E","2":"Puri Kembangan - Sentraland Cengkareng","3":"65393"},{"1":"2Q","2":"Gondangdia - Balai Kota","3":"24472"},{"1":"NA","2":"Ragunan - Stasin MRT Fatmawati","3":"13006"},{"1":"2P","2":"Gondangdia - Senen","3":"12812"},{"1":"NA","2":"Tanah Abang Explorer","3":"3945"},{"1":"12A","2":"Pelabuhan Kaliadem - Kota","3":"1463"},{"1":"NA","2":"Ragunan - Departemen Pertanian","3":"1386"},{"1":"6Q","2":"Dukuh Atas - Casablanca via Epicentrum Raya","3":"608"},{"1":"NA","2":"Stasiun Manggarai - Ragunan","3":"377"},{"1":"GR5","2":"Kota Tua Explorer","3":"376"},{"1":"GR4","2":"Taman Kota Intan - Museum Bahari","3":"232"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 57%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">kode_trayek</th>
+<th style="text-align: left;">trayek</th>
+<th style="text-align: right;">jumlah_penumpang</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">6C</td>
+<td style="text-align: left;">Stasin Tebet - Karet via Patra Kuningan</td>
+<td style="text-align: right;">883116</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5M</td>
+<td style="text-align: left;">Kampung Melayu - Tanah Abang via Cikini</td>
+<td style="text-align: right;">792133</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7B</td>
+<td style="text-align: left;">Kampung Rambutan - Blok M</td>
+<td style="text-align: right;">781188</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9D</td>
+<td style="text-align: left;">Pasar Minggu - Tanah Abang</td>
+<td style="text-align: right;">772295</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1E</td>
+<td style="text-align: left;">Pondok Labu - Blok M</td>
+<td style="text-align: right;">659247</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <p>Yap, ternyata AUT memiliki trayek yang lebih banyak dibandingkan dengan BRT. Hal ini terjadi karena jalur <em>busway</em> memerlukan lebar jalan yang luas, dan hanya segelintir jalanan di Jakarta yang bisa dipasangkan jalur <em>busway</em>. Oleh karenanya, AUT masih menggunakan jalan utama dan halte di pinggir jalan dalam hal antar jemput penumpang. Dengan ini, maka AUT lebih bisa menjangkau pemukiman/pusat kegiatan yang tidak memiliki jalanan luas yang memadai.</p>
 <p>Grafik di bawah adalah data jumlah penumpang AUT per tahun 2021:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot jumlah penumpang angkutan umum integrasi</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(aut2021, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(trayek, jumlah_penumpang), <span class="at">y=</span>jumlah_penumpang)) <span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>trayek), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">round</span>(jumlah_penumpang <span class="sc">/</span> <span class="fl">1e3</span>, <span class="dv">2</span>), <span class="st">"Rb"</span>))) <span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Jumlah Penumpang Angkutan Umum Integrasi 2021"</span>,</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Jumlah Penumpang"</span>) <span class="sc">+</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> warna_rute<span class="sc">$</span>route_color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot jumlah penumpang angkutan umum integrasi</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(aut2021, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(trayek, jumlah_penumpang), <span class="at">y=</span>jumlah_penumpang)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>trayek), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">round</span>(jumlah_penumpang <span class="sc">/</span> <span class="fl">1e3</span>, <span class="dv">2</span>), <span class="st">"Rb"</span>))) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Jumlah Penumpang Angkutan Umum Integrasi 2021"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Jumlah Penumpang"</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> warna_rute<span class="sc">$</span>route_color)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="TransjakartaR_files/figure-html/aut2021-1.png" class="img-fluid" width="960"></p>
 </div>
@@ -514,31 +746,69 @@ using the `.groups` argument.</code></pre>
 </div>
 <p>Apakah kehadiran Mikrotrans dimanfaatkan oleh masyarakat Jakarta? Trayek apa saja yang dilayani Mikrotrans? Mari kita lihat datanya!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengambil data pengguna jumlah pengguna Mikrotrans</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>mikro2021 <span class="ot">&lt;-</span> jmltrayek2021 <span class="sc">%&gt;%</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jenis <span class="sc">==</span> <span class="st">'Mikrotrans'</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(kode_trayek, trayek, jumlah_penumpang) <span class="sc">%&gt;%</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(jumlah_penumpang))</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>mikro2021</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengambil data pengguna jumlah pengguna Mikrotrans</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mikro2021 <span class="ot">&lt;-</span> jmltrayek2021 <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jenis <span class="sc">==</span> <span class="st">'Mikrotrans'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(kode_trayek, trayek, jumlah_penumpang) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(jumlah_penumpang))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mikro2021, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["kode_trayek"],"name":[1],"type":["fct"],"align":["left"]},{"label":["trayek"],"name":[2],"type":["chr"],"align":["left"]},{"label":["jumlah_penumpang"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"JAK.71","2":"Kampung Rambutan - Pinang Ranti","3":"1977472"},{"1":"JAK.30","2":"Grogol - Meruya via Roxy","3":"1614991"},{"1":"JAK.37","2":"Cililitan - Condet via Kayu Manis","3":"1511182"},{"1":"JAK.15","2":"Bulak Turi - Tanjung Priok","3":"1463311"},{"1":"JAK.29","2":"Tanjung Priok - Sukapura","3":"1325037"},{"1":"JAK.51","2":"Taman Kota - Budi Luhur","3":"1211167"},{"1":"JAK.58","2":"Cilingcing - Rorotan","3":"1117752"},{"1":"JAK.72","2":"Kampung Rambutan - Pasar Rebo via Poncol","3":"1077147"},{"1":"NA","2":"Tongtek - Cililitan","3":"1016797"},{"1":"JAK.14","2":"Tanah Abang - Meruya","3":"1013340"},{"1":"JAK.117","2":"Tanjung Priok - Tanah Merdeka","3":"979674"},{"1":"JAK.32","2":"Lebak Bulus - Petukangan","3":"978979"},{"1":"JAK.59","2":"Rawamangun - Tanah Merah","3":"949741"},{"1":"JAK.36","2":"Cilangkap - Cililitan","3":"937522"},{"1":"JAK.46","2":"Pasar Minggu - Jagakarsa","3":"933161"},{"1":"JAK.24","2":"Senen - Pulo Gadung via Kelapa Gading","3":"896833"},{"1":"JAK.11","2":"Tanah Abang - Kebayoran Lama","3":"861127"},{"1":"JAK.73","2":"Jambore Cibubur - Pasar Rebo","3":"849616"},{"1":"JAK.06","2":"Kampung Rambutan - Pondok Gede","3":"837406"},{"1":"JAK.34","2":"Rawamangun - Klender","3":"836522"},{"1":"JAK.60","2":"Kelapa Gading - Rusun Kemayoran","3":"801800"},{"1":"JAK.05","2":"Semper - Rorotan","3":"799610"},{"1":"JAK.12","2":"Tanah Abang - Kebayoran Lama via Pos Pengumben","3":"783420"},{"1":"JAK.42","2":"Kampung Melayu - Pondok Kelapa","3":"781804"},{"1":"JAK.50","2":"Kalideres - Puri Kembangan","3":"769350"},{"1":"JAK.28","2":"Kp. Rambutan - Taman Wiladatika","3":"767487"},{"1":"JAK.77","2":"Tanjung Priok - Jembatan Item","3":"765514"},{"1":"JAK.21","2":"Cililitan - Dwikora","3":"748415"},{"1":"JAK.44","2":"Andara - Stasiun Universitas Pancasila","3":"745812"},{"1":"JAK.01","2":"Tanjung Priok - Plumpang","3":"733728"},{"1":"JAK.31","2":"Blok M - Andara","3":"725980"},{"1":"JAK.80","2":"Rawa Buaya - Rawa Kompeni","3":"724712"},{"1":"JAK.52","2":"Kalideres - Muara Angke","3":"722455"},{"1":"JAK.39","2":"Kalimalang - Duren Sawit","3":"721752"},{"1":"JAK.20","2":"Cawang UKI - Lubang Buaya","3":"699372"},{"1":"JAK.25","2":"Kp. Rambutan - Kalisari","3":"660193"},{"1":"JAK.112","2":"Terminal Tanah Merah - Pulo Gadung","3":"657001"},{"1":"JAK.33","2":"Pulo Gadung - Kota","3":"616576"},{"1":"JAK.56","2":"Grogol - Srengseng","3":"600121"},{"1":"JAK.04","2":"Grogol - Tubagus Angke","3":"599651"},{"1":"JAK.45","2":"Lebak Bulus - Ragunan","3":"598690"},{"1":"JAK.07","2":"Tanah Abang - Grogol via Tawakal","3":"598084"},{"1":"JAK.10","2":"Tanah Abang - Kota","3":"583116"},{"1":"JAK.47","2":"Pasar Minggu - Ciganjur via KB Ragunan","3":"580838"},{"1":"JAK.75","2":"Cililitan - Kp. Pulo","3":"573061"},{"1":"JAK.27","2":"Pulo Gebang - Rorotan","3":"565192"},{"1":"JAK.02","2":"Kampung Melayu - Duren Sawit","3":"564695"},{"1":"JAK.38","2":"Bulak Ringin - Kampung Rambutan","3":"557196"},{"1":"JAK.64","2":"Lenteng Agung - Aseli","3":"552420"},{"1":"JAK.74","2":"Terminal Rawamangun - Cipinang Muara","3":"510100"},{"1":"JAK.17","2":"Senen - Pulo Gadung","3":"507296"},{"1":"JAK.49","2":"Lebak Bulus - Cipulir","3":"493083"},{"1":"JAK.40","2":"Harapan Baru - Pulo Gebang via Rawa Kuning","3":"491640"},{"1":"JAK.84","2":"Terminal Kampung Melayu - Kapin Raya","3":"481820"},{"1":"JAK.26","2":"Rawamangun - Duren Sawit","3":"481389"},{"1":"JAK.53","2":"Grogol - Pos Pengumben via Slipi","3":"457224"},{"1":"JAK.41","2":"Kampung Melayu - Pulo Gadung","3":"455606"},{"1":"JAK.54","2":"Grogol - Benhil","3":"454035"},{"1":"JAK.61","2":"Cempaka Putih - Pulo Gadung via Kelapa Gading","3":"434260"},{"1":"JAK.03","2":"Lebak Bulus - Andara","3":"410165"},{"1":"JAK.08","2":"Roxy - Benhil","3":"404771"},{"1":"JAK.18","2":"Kalibata - Kuningan","3":"396761"},{"1":"JAK.35","2":"Pangkalan  Jati - Rawamangun","3":"385223"},{"1":"JAK.85","2":"Bintara - Cipinang Indah","3":"334063"},{"1":"JAK.88","2":"Terminal Tanjung Priok - Ancol Barat","3":"332037"},{"1":"JAK.22","2":"Dwikora - Penas Kalimalang","3":"297091"},{"1":"JAK.09","2":"Roxy Mas - Karet","3":"281827"},{"1":"JAK.13","2":"Tanah Abang - Kota Intan via Jembatan Lima","3":"205995"},{"1":"JAK.10A","2":"Gondangdia - Cikini via Salemba Raya","3":"100536"},{"1":"JAK.10B","2":"Gondangdia - Cikini via Kramat Raya","3":"14057"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">kode_trayek</th>
+<th style="text-align: left;">trayek</th>
+<th style="text-align: right;">jumlah_penumpang</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">JAK.71</td>
+<td style="text-align: left;">Kampung Rambutan - Pinang Ranti</td>
+<td style="text-align: right;">1977472</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">JAK.30</td>
+<td style="text-align: left;">Grogol - Meruya via Roxy</td>
+<td style="text-align: right;">1614991</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">JAK.37</td>
+<td style="text-align: left;">Cililitan - Condet via Kayu Manis</td>
+<td style="text-align: right;">1511182</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">JAK.15</td>
+<td style="text-align: left;">Bulak Turi - Tanjung Priok</td>
+<td style="text-align: right;">1463311</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">JAK.29</td>
+<td style="text-align: left;">Tanjung Priok - Sukapura</td>
+<td style="text-align: right;">1325037</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <p>Mikrotrans memiliki trayek paling banyak dalam jenis transportasi Transjakarta. Tentunya hal ini disebabkan karena ukuran kendaraan yang kecil sehingga dapat menjangkau sebagian besar wilayah Jakarta yang memiliki lebar jalan yang tak luas. Selain itu, Mikrotrans juga menjangkau masyarakat mengengah ke bawah yang biasanya tinggal di jalan sempit, dan dengan tarif yang masih digratiskan oleh pemerintah Jakarta, menyebabkan Mikrotrans menjadi moda transportasi yang diminati oleh warga Jakarta.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot Mikrotrans</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mikro2021, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(trayek, jumlah_penumpang), <span class="at">y=</span>jumlah_penumpang)) <span class="sc">+</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>trayek), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">round</span>(jumlah_penumpang <span class="sc">/</span> <span class="fl">1e3</span>, <span class="dv">2</span>), <span class="st">"Rb"</span>))) <span class="sc">+</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Jumlah Penumpang Mikrotrans per Tahun 2021"</span>,</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Jumlah Penumpang"</span>) <span class="sc">+</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot Mikrotrans</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mikro2021, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(trayek, jumlah_penumpang), <span class="at">y=</span>jumlah_penumpang)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>trayek), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">round</span>(jumlah_penumpang <span class="sc">/</span> <span class="fl">1e3</span>, <span class="dv">2</span>), <span class="st">"Rb"</span>))) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Jumlah Penumpang Mikrotrans per Tahun 2021"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Jumlah Penumpang"</span>) <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="TransjakartaR_files/figure-html/Mikrotrans2021-1.png" class="img-fluid" width="960"></p>
 </div>
@@ -549,49 +819,57 @@ using the `.groups` argument.</code></pre>
 <h2 class="anchored" data-anchor-id="berapa-jumlah-penumpang-transjakarta-per-bulan-tahun-2021">Berapa Jumlah Penumpang Transjakarta per Bulan tahun 2021?</h2>
 <p>Sebelumnya kita sudah mendapatkan statistik penggunaan Transjakarta di tahun 2021. Lalu bagaimana dengan jumlah penumpang per bulannya?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan jumlah penumpang per bulan</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>jmlbulan <span class="ot">&lt;-</span> tj2021 <span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bulan, nama_bulan, jenis) <span class="sc">%&gt;%</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">jumlah_penumpang =</span> <span class="fu">sum</span>(jumlah_penumpang))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'bulan', 'nama_bulan'. You can override
-using the `.groups` argument.</code></pre>
-</div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan jumlah penumpang per bulan</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>jmlbulan <span class="ot">&lt;-</span> tj2021 <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bulan, nama_bulan, jenis) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">jumlah_penumpang =</span> <span class="fu">sum</span>(jumlah_penumpang))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot jmlbulan</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(jmlbulan, <span class="fu">aes</span>(<span class="at">x=</span>bulan, <span class="at">y=</span>jumlah_penumpang, <span class="at">color =</span> jenis)) <span class="sc">+</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Jumlah Penumpang Transjakarta per Bulan"</span>,</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Berapa jumlah penumpang Transportasi Jakarta per jenis transportasi per bulan?"</span>,</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Bulan"</span>,</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Jumlah Penumpang"</span>,</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Jenis"</span>) <span class="sc">+</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_fivethirtyeight</span>() <span class="sc">+</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>()) <span class="sc">+</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> jmlbulan<span class="sc">$</span>bulan,</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> jmlbulan<span class="sc">$</span>nama_bulan) <span class="sc">+</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"Jt"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot jmlbulan</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(jmlbulan, <span class="fu">aes</span>(<span class="at">x=</span>bulan, <span class="at">y=</span>jumlah_penumpang, <span class="at">color =</span> jenis)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Jumlah Penumpang Transjakarta per Bulan"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Berapa jumlah penumpang Transportasi Jakarta per jenis transportasi per bulan?"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Bulan"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Jumlah Penumpang"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Jenis"</span>) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_fivethirtyeight</span>() <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>()) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> jmlbulan<span class="sc">$</span>bulan,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> jmlbulan<span class="sc">$</span>nama_bulan) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"Jt"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="TransjakartaR_files/figure-html/jmlbulan-1.png" class="img-fluid" width="960"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat dataframe jmlbulan</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>jmlbulan_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(jmlbulan)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>jmlbulan_df<span class="sc">$</span>bulan <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^"</span>, <span class="st">"2021-"</span>, jmlbulan_df<span class="sc">$</span>bulan)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>jmlbulan_df<span class="sc">$</span>bulan <span class="ot">&lt;-</span> <span class="fu">paste0</span>(jmlbulan_df<span class="sc">$</span>bulan, <span class="st">"-1"</span>)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>jmlbulan_df<span class="sc">$</span>bulan <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(jmlbulan_df<span class="sc">$</span>bulan)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengubah bentuk dataframe</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>jmlbulan_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame.matrix</span>(<span class="fu">xtabs</span>(jumlah_penumpang<span class="sc">~</span>bulan<span class="sc">+</span>jenis, jmlbulan_df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat dataframe jmlbulan</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>jmlbulan_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(jmlbulan)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>jmlbulan_df<span class="sc">$</span>bulan <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^"</span>, <span class="st">"2021-"</span>, jmlbulan_df<span class="sc">$</span>bulan)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>jmlbulan_df<span class="sc">$</span>bulan <span class="ot">&lt;-</span> <span class="fu">paste0</span>(jmlbulan_df<span class="sc">$</span>bulan, <span class="st">"-1"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>jmlbulan_df<span class="sc">$</span>bulan <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(jmlbulan_df<span class="sc">$</span>bulan)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengubah bentuk dataframe</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>jmlbulan_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame.matrix</span>(<span class="fu">xtabs</span>(jumlah_penumpang<span class="sc">~</span>bulan<span class="sc">+</span>jenis, jmlbulan_df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot interaktif</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dygraph</span>(jmlbulan_df, <span class="at">main =</span> <span class="st">"Jumlah Penumpang Transjakarta per Jenis Kendaraan 2021"</span>, <span class="at">ylab =</span> <span class="st">"Jumlah Penumpang"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot interaktif</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dygraph</span>(jmlbulan_df, <span class="at">main =</span> <span class="st">"Jumlah Penumpang Transjakarta per Jenis Kendaraan 2021"</span>, <span class="at">ylab =</span> <span class="st">"Jumlah Penumpang"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-<div class="dygraphs html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e2c868f2564a068add6a" style="width:100%;height:303px;"></div>
-<script type="application/json" data-for="htmlwidget-e2c868f2564a068add6a">{"x":{"attrs":{"title":"Jumlah Penumpang Transjakarta per Jenis Kendaraan 2021","ylabel":"Jumlah Penumpang","labels":["month","Angkutan Umum Integrasi","BRT","Mikrotrans"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}}},"scale":"monthly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2020-12-31T17:00:00.000Z","2021-01-31T17:00:00.000Z","2021-02-28T17:00:00.000Z","2021-03-31T17:00:00.000Z","2021-04-30T17:00:00.000Z","2021-05-31T17:00:00.000Z","2021-06-30T17:00:00.000Z","2021-07-31T17:00:00.000Z","2021-08-31T17:00:00.000Z","2021-09-30T17:00:00.000Z","2021-10-31T17:00:00.000Z","2021-11-30T17:00:00.000Z"],[1144418,889506,1163835,1168871,1043163,1099961,573188,725174,990462,1128449,1354179,184],[4828190,4793696,5948741,5909231,5455493,5419422,2272391,2866177,4368891,5196358,5999289,6053477],[3824758,3698297,4482432,4546512,4324680,4527272,3737526,2906877,3172154,4341452,5064976,5288865]]},"evals":[],"jsHooks":[]}</script>
+<div class="dygraphs html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-202823247a1c093a7a8c" style="width:100%;height:303px;"></div>
+<script type="application/json" data-for="htmlwidget-202823247a1c093a7a8c">{"x":{"attrs":{"title":"Jumlah Penumpang Transjakarta per Jenis Kendaraan 2021","ylabel":"Jumlah Penumpang","labels":["month","Angkutan Umum Integrasi","BRT","Mikrotrans"],"legend":"auto","retainDateWindow":false,"axes":{"x":{"pixelsPerLabel":60}}},"scale":"monthly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2020-12-31T17:00:00.000Z","2021-01-31T17:00:00.000Z","2021-02-28T17:00:00.000Z","2021-03-31T17:00:00.000Z","2021-04-30T17:00:00.000Z","2021-05-31T17:00:00.000Z","2021-06-30T17:00:00.000Z","2021-07-31T17:00:00.000Z","2021-08-31T17:00:00.000Z","2021-09-30T17:00:00.000Z","2021-10-31T17:00:00.000Z","2021-11-30T17:00:00.000Z"],[1144418,889506,1163835,1168871,1043163,1099961,573188,725174,990462,1128449,1354179,184],[4828190,4793696,5948741,5909231,5455493,5419422,2272391,2866177,4368891,5196358,5999289,6053477],[3824758,3698297,4482432,4546512,4324680,4527272,3737526,2906877,3172154,4341452,5064976,5288865]]},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Grafik di atas menunjukkan bahwa terdapat penurunan penumpang secara drastis yang terjadi di bulan Juli 2021. Penurunan ini terjadi di seluruh jenis transportasi Transjakarta. Jika kalian tinggal di Jakarta dan sekitarnya, mungkin kalian ingat dengan wabah Covid-19 yang terjadi di bulan tersebut. Orang-orang yang terjangkit Covid-19 varian Delta mengalami kenaikan yang sangat pesat, yakni empat kali lipatnya dibandingkan dengan bulan Juni 2021.</p>
@@ -600,16 +878,37 @@ using the `.groups` argument.</code></pre>
 <section id="kesimpulan" class="level2">
 <h2 class="anchored" data-anchor-id="kesimpulan">Kesimpulan</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>total_penumpang <span class="ot">&lt;-</span> tj2021 <span class="sc">%&gt;%</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(jenis) <span class="sc">%&gt;%</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">jumlah_2021 =</span> <span class="fu">sum</span>(jumlah_penumpang))</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>total_penumpang</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Lihat Kode</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>total_penumpang <span class="ot">&lt;-</span> tj2021 <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(jenis) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">jumlah_2021 =</span> <span class="fu">sum</span>(jumlah_penumpang))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>total_penumpang</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["jenis"],"name":[1],"type":["chr"],"align":["left"]},{"label":["jumlah_2021"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"Angkutan Umum Integrasi","2":"11281390"},{"1":"BRT","2":"59111356"},{"1":"Mikrotrans","2":"49915801"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="kable-table">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">jenis</th>
+<th style="text-align: right;">jumlah_2021</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Angkutan Umum Integrasi</td>
+<td style="text-align: right;">11281390</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BRT</td>
+<td style="text-align: right;">59111356</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mikrotrans</td>
+<td style="text-align: right;">49915801</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
