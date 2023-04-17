@@ -1,8 +1,0 @@
-```{r}
-lirik_top50 <- lirik_top50_spacy %>%
-  select(id, track, artist, lyrics)
-```
-
-```{r}
-write.csv(lirik_top50, file = 'datasets/lirik_top50.csv')
-```
