@@ -1,0 +1,15 @@
+---
+title: "Proyek"
+listing:
+  fields: [image, title, description, date, reading-time, categories]
+  contents: proyek
+  sort: "date desc"
+  type: grid
+  grid-columns: 2
+  image-height: 240px
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: article
+title-block-banner: true
+---

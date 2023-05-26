@@ -1,15 +1,15 @@
 ---
-title: "Blog"
-description: Seputar data dan teknologi.
+title: "Selamat datang di blog saya yang membahas Analisis Data!"
+description: Di sini, saya akan membahas teknik-teknik dan alat-alat dalam analisis data, serta cara mengimplementasikannya dalam konteks bisnis dan organisasi. Saya juga akan membahas topik menarik seperti Machine Learning, Big Data, dan Artificial Intelligence dalam Analisis Data, serta memberikan sumber daya dan alat-alat untuk mempelajarinya. Dengan blog ini, saya berharap dapat memberikan wawasan dan pemahaman yang lebih baik tentang Analisis Data dan memberikan manfaat bagi pembaca yang ingin memperdalam pengetahuan tentang topik ini.
 listing:
   fields: [image, title, description, date, reading-time, categories]
   contents: posts
   sort: "date desc"
   type: grid
-  grid-columns: 3
+  grid-columns: 2
   image-height: 240px
   categories: true
-  sort-ui: true
+  sort-ui: false
   filter-ui: false
 page-layout: article
 title-block-banner: true

@@ -3,22 +3,31 @@ project:
   output-dir: docs
 
 website:
-  title: "Alif Dewantara"
+  title: |
+    <span style="display: flex;">Alif Dewantara</span>
+    <span style="font-size: 12.5px; font-weight: normal; display: flex ;">Data · Tech · Historian</span>
   description: "Jejaring Pribadi"
   site-url : alifdwt.github.io
   search:
     location: navbar
     type: overlay
   favicon: img/favicon-32x32.png
-  sidebar:
-    style: docked
+#  sidebar:
+#    style: docked
 #    tools: 
 #      - icon: github
 #        href: https://github.com/alifdwt
   navbar:
-    right:
+    pinned: true
+    logo: img/logo-circle.png
+    left:
       - text: "About"
         file: about.qmd
+      - text: "Proyek"
+        file: proyek.qmd
+      - text: "Blog"
+        file: index.qmd
+    right:
       - icon: twitter
         href: https://twitter.com/alifdwt
       - icon: linkedin
@@ -30,7 +39,7 @@ website:
         href: blog.xml
   page-footer:
     left: 
-      - text: "2023 | Musim Semi Peking"
+      - text: "© 2023 Musim Semi Peking"
     right:
       - href: https://www.quarto.org
         text: Dibuat oleh R dan Quarto
@@ -39,10 +48,10 @@ website:
 format:
   html:
     theme:
-      flatly
-      # theme.scss
+      # - simplex
+      - theme.scss
     toc: true
-    toc-location: left
+    toc-location: right
     code-link: true
     anchor-sections: true
     fig-cap-location: bottom

@@ -9,5 +9,11 @@
       "/posts/Handwashing/index.html",
       "/posts/Spotify-Wrapped-2022-with-R/SpotifyWrapped2022.html"
     ]
+  },
+  {
+    "listing": "/proyek.html",
+    "items": [
+      "/proyek/palmer-penguins/palmerpenguinsR.html"
+    ]
   }
 ]

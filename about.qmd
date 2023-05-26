@@ -1,8 +1,8 @@
 ---
 title: "About"
-image: profile.jpg
+image: img/logo-circle.png
 about:
-  template: jolla
+  template: trestles
   links:
     - icon: twitter
       text: Twitter
@@ -18,6 +18,8 @@ comments: false
 citation: false
 ---
 
-Halo semua! Perkenalkan, saya Alif!
+Halo, saya seorang analis data dengan latar belakang pendidikan ilmu sejarah. Meskipun tidak langsung berkaitan dengan bidang analis data, studi saya dalam ilmu sejarah memberikan saya keterampilan analitis yang kuat, kemampuan untuk mencari dan mengumpulkan data dengan efektif, serta kemampuan untuk memahami konteks historis yang kompleks.
 
-Latar belakang pendidikan saya adalah Ilmu Sejarah. Saya sedang mencoba mempelajari teknologi di bidang data.
+Sebagai seorang analis data, saya menggunakan keterampilan analisis saya untuk mengumpulkan, membersihkan, dan menganalisis data dalam berbagai bentuk dan ukuran. Saya menggunakan alat dan teknologi analisis data modern untuk membantu saya memahami pola dan tren dalam data, serta membuat rekomendasi dan keputusan bisnis yang didasarkan pada temuan data saya.
+
+Saya juga memiliki kemampuan komunikasi yang baik dan dapat menjelaskan hasil analisis data saya secara jelas dan efektif kepada orang-orang yang tidak memiliki latar belakang teknis. Saya percaya bahwa kombinasi latar belakang saya dalam ilmu sejarah dan keterampilan analisis data saya membuat saya unik dan efektif dalam mengeksplorasi data untuk mendapatkan wawasan berharga bagi organisasi atau bisnis.

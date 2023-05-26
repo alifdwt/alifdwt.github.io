@@ -1,29 +1,32 @@
 /*-- scss:defaults --*/
 
+// Color system //
 
-$white:    #fff !default;
+$white:    #ffffff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
+$gray-600: #868e96 !default;
 $gray-700: #495057 !default;
-$gray-800: #343a40 !default;
+$gray-800: #373a3c !default;
 $gray-900: #212529 !default;
-$black:    #000 !default;
+$black:    #000000 !default;
 
-$blue:    #2780e3 !default;
+$blue:    #001a41 !default;
+$gradient-blue : linear-gradient(75.07deg,#001a41 17.5%,#0e336c 105.9%) !default;
 $indigo:  #6610f2 !default;
 $purple:  #170C3A !default;
 $pink:    #A52C60 !default;
-$red:     #CF4446 !default;
+$red:     #ed0226 !default;
 $orange:  #EE6A24 !default;
 $light-orange:  #FB9E07 !default;
-$yellow:  #F6D645 !default;
+$yellow:  #f5fe7d !default;
 $green:   #118230 !default;
 $teal:    #20c997 !default;
 $cyan:    #3093CF !default;
+$darkslate:     #27292c !default;
 
 $primary:   $pink !default;
 $secondary: $gray-700 !default;
@@ -34,87 +37,89 @@ $danger:    $red !default;
 $light:     $gray-400 !default;
 $dark:      $black !default;
 
-// Fonts
-$font-family-sans-serif: "Libre Franklin" !default;
+// Fonts //
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Inter&display=swap");
 
-$headings-font-family: "Jost" !default;
-$headings-font-weight: 700 !default;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Inter" !default;
+$font-family-serif: "Inter" !default;
 
-$navbar-font-family: "Jost" !default;
-$toc-font-family: "Jost" !default;
-$footer-font-family: "Jost" !default;
+// Body //
+$body-color: $gray-900;
 
-$font-size-base: 0.9rem !default;
-
-// Body
-$body-color: $gray-900 !default;
-
-// Links
-$link-color: $orange !default;
-$link-decoration: none !default;
-$link-hover-color: $red !default;
+// Links //
+$link-color: $red;
+$link-decoration: none;
+$link-hover-color: $orange !default;
 $link-hover-decoration: underline !default;
 
-// Inline code
-$code-bg: $gray-200 !default;
-$code-color: $gray-900 !default;
+// Inline code //
+$code-bg: $gray-300;
+$code-color: $green;
 
-// Code copy
-$btn-code-copy-color-active: $orange !default;
+// Code copy //
+$btn-code-copy-color-active: $yellow;
 
-// TOC
-$toc-color: $orange;
+// TOC //
+$toc-color: $red;
 $toc-font-size: 1em;
 
-// Navbar
-$navbar-bg: $purple;
-$navbar-fg: $white !default;
-$navbar-hl: $light-orange !default;
+// Navbar //
+$navbar-bg: $blue;
+$navbar-fg: $white;
+$navbar-hl: $gray-400;
 
-// Footer
-$footer-bg: $gray-900 !default;
-$footer-fg: $gray-300 !default;
+// Footer //
+$footer-bg: $blue;
+$footer-fg: $white;
 
-/*-- scss:rutes --*/
+/*-- scss:rules --*/
 
-$web-font-path: "https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" !default;
-
-@if $web-font-path {
-    @import url($web-font-path);
+// Navbar //
+nav.navbar.navbar-expand-lg.navbar-dark {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-body {
-    -webkit-font-smoothing: antialiased;
+.navbar-dark .navbar-nav a.nav-link {
+  border-radius: 999px;
 }
 
-.rtl {
-    direction: rtl;
+.navbar-dark .navbar-nav a.nav-link:hover {
+  background-color: $red;
+  color: $white;
 }
 
-// Shrink blocks of code
-pre.text, pre.sourceCode, .cell-output pre {
-    font-size: 0.775em;
+.navbar-dark .navbar-nav .show>.nav-link, .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active {
+  background-color: $red;
+  color: $white;
 }
 
-.navbar {
-    font-family: $navbar-font-family;
+.navbar-nav.navbar-nav-scroll.ms-auto {
+    flex-direction: row;
 }
 
-// title banner
+.navbar-dark .navbar-brand {
+    font-weight: 700;
+}
+.navbar-logo {
+  max-height: 40px;
+}
+
+// Banner //
 .quarto-title-block .quarto-title-banner {
-    margin-bottom: 1em;
-    color: #fff;
-    background: $red;
+  background-image: $gradient-blue;
+  color: snow;
+  border-bottom-style: solid;
 }
 
-.quarto-title .quarto-categories {
-    margin-top: 1.5em;
+.quarto-title-banner .quarto-title h1.title {
+  font-weight: 800;
+}
 
-    .quarto-category {
-        background-color: shift-color($red, -25%);
-        border-color: shift-color($red, -45%);
-        color: $white;
-        font-size: .8em;
-        opacity: .9;
-    }
+// Card //
+.quarto-grid-item.card.h-100.card-left {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.quarto-grid-item.card.h-100.card-left:hover {
+  color: #d9230f;
 }
