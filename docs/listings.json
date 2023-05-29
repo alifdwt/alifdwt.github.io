@@ -13,7 +13,9 @@
   {
     "listing": "/proyek.html",
     "items": [
-      "/proyek/palmer-penguins/palmerpenguinsR.html"
+      "/proyek/old-faithful-shiny/old-faithful-shiny.html",
+      "/proyek/palmer-penguins/palmerpenguinsR.html",
+      "/proyek/old-faithful/old-faithful.html"
     ]
   }
 ]

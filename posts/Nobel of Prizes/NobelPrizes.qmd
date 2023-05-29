@@ -33,6 +33,9 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(ggthemes)
+library(highcharter)
+library(countrycode)
+library(data.table)
 
 # Membaca dataset Nobel Prize
 nobelkotor <- read.csv('datasets/nobel-prize-laureates.csv')
@@ -60,17 +63,11 @@ nobel <- nobelbersih2 %>%
 
 # Mengubah string kosong menjadi NA
 nobel[nobel == ''] <- NA
+
 ```
 
 ```{r}
-# Memuat file dunia
-world_country <- read.csv('datasets/world_country_and_usa_states_latitude_and_longitude_values.csv')
-
-# Membuang kolom yang tidak diinginkan
-world_country <- subset(world_country, select = -c(usa_state_code, usa_state_latitude, usa_state_longitude, usa_state))
-
-# Menghilangkan values yang kosong
-world_country <- drop_na(world_country)
+nobel$Born.country.code <- countrycode(nobel$Born.country.code, origin = "iso2c", destination = "iso3c")
 ```
 
 ## Siapa Saja Peraih Penghargaan Nobel?
@@ -93,31 +90,29 @@ nobel %>%
 ```
 
 ```{r}
-# Menyatukan data Nobel dan world_country untuk mendapatkan tempat lahir peraih Nobel lebih akurat
-nobel_country <- merge(nobel, world_country, by.x='Born.country.code', by.y='country_code', all.x = TRUE)
-
 # Menampilkan angka pemenang Nobel berdasarkan negara asal
-nobel_country_count <- nobel_country %>%
-  count(country, sort = TRUE) %>%
-  mutate(country = recode(country, 'United States' = 'USA'))
+nobel_country_count <- nobel %>%
+  count(Born.country.code) %>%
+  arrange(desc(n))
+setnames(nobel_country_count, "n", "jumlah")
+setnames(nobel_country_count, "Born.country.code", "kode_negara")
 head(nobel_country_count, 10)
 ```
 
 ```{r}
-# Mendapatkan data dunia
-world_map <- map_data("world")
-
-# Membuat peta para peraih Nobel berdasarkan negara
-ggplot(nobel_country_count, aes(map_id = country)) +
-  geom_map(aes(fill = n), map = world_map) +
-  expand_limits(x=world_map$long, y=world_map$lat) +
-  labs(title = "Peta Tempat Lahir Para Peraih Nobel") +
-  theme(axis.text.x = element_blank(),
-        axis.text.y = element_blank(),
-        axis.ticks = element_blank(),
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        rect = element_blank())
+hcmap(
+  "custom/world-robinson-lowres",
+  data = nobel_country_count,
+  name = "Asal Negara Para Pemenang Nobel",
+  value = "jumlah",
+  borderWidth = 0,
+  nullColor = "#d3d3d3",
+  joinBy = c("iso-a3", "kode_negara")
+) |>
+  hc_colorAxis(
+    stops = color_stops(colors = viridisLite::inferno(10, begin = 0.1)),
+    type = "logarithmic"
+  )
 ```
 
 ## Ada Indonesia Coy!
@@ -126,8 +121,8 @@ Menariknya, jika kita melakukan proses menyatukan data `Nobel` dan `World_countr
 
 ```{r}
 # Mendapatkan data peraih Nobel kelahiran Indonesia
-nobel_country %>%
-  filter(country == 'Indonesia')
+nobel %>%
+  filter(Born.country.code == 'IDN')
 ```
 
 ![Willem Einthoven, seorang ilmuan kesehatan kelahiran Semarang, 21 Mei 1860, yang berjasa dalam penemuan alat elektrokardiogram.](img/Willem%20Einthoven.webp)
@@ -138,7 +133,7 @@ Tentunya bukan hal yang mengejutkan jika Amerika Serikat menjadi negara dengan j
 
 ```{r}
 # Menghitung proporsi orang Amerika pemenang Nobel
-nobel$usa_born_winner <- nobel$Born.country == 'USA'
+nobel$usa_born_winner <- nobel$Born.country.code == 'USA'
 floor_decade <- function(value){ return(value - value %% 10) }
 nobel$decade <- floor_decade(nobel$Year)
 prop_usa_winners <- nobel %>%

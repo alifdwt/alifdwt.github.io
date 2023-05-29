@@ -2,42 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>alifdwt.github.io/about.html</loc>
-    <lastmod>2023-05-26T14:07:30.100Z</lastmod>
+    <lastmod>2023-05-29T18:39:13.004Z</lastmod>
   </url>
   <url>
     <loc>alifdwt.github.io/index.html</loc>
-    <lastmod>2023-05-26T15:14:07.877Z</lastmod>
+    <lastmod>2023-05-29T18:39:20.401Z</lastmod>
   </url>
   <url>
     <loc>alifdwt.github.io/posts/Handwashing/index.html</loc>
-    <lastmod>2023-05-26T14:07:33.349Z</lastmod>
+    <lastmod>2023-05-29T18:34:48.032Z</lastmod>
   </url>
   <url>
     <loc>alifdwt.github.io/posts/Netflix/NetflixR.html</loc>
-    <lastmod>2023-05-26T14:07:35.079Z</lastmod>
+    <lastmod>2023-05-29T18:34:54.408Z</lastmod>
   </url>
   <url>
     <loc>alifdwt.github.io/posts/Nobel of Prizes/NobelPrizes.html</loc>
-    <lastmod>2023-05-26T14:07:36.886Z</lastmod>
+    <lastmod>2023-05-29T18:35:05.135Z</lastmod>
   </url>
   <url>
     <loc>alifdwt.github.io/posts/Spotify-Wrapped-2022-with-R/SpotifyWrapped2022.html</loc>
-    <lastmod>2023-05-26T14:07:38.264Z</lastmod>
+    <lastmod>2023-05-29T18:35:20.842Z</lastmod>
   </url>
   <url>
     <loc>alifdwt.github.io/posts/The Android App Market/index.html</loc>
-    <lastmod>2023-05-26T14:07:39.333Z</lastmod>
+    <lastmod>2023-05-29T18:35:22.181Z</lastmod>
   </url>
   <url>
     <loc>alifdwt.github.io/posts/Transjakarta/TransjakartaR.html</loc>
-    <lastmod>2023-05-26T14:58:00.457Z</lastmod>
+    <lastmod>2023-05-29T18:35:26.869Z</lastmod>
+  </url>
+  <url>
+    <loc>alifdwt.github.io/proyek/old-faithful/old-faithful.html</loc>
+    <lastmod>2023-05-29T18:35:35.281Z</lastmod>
+  </url>
+  <url>
+    <loc>alifdwt.github.io/proyek/old-faithful-shiny/old-faithful-shiny.html</loc>
+    <lastmod>2023-05-29T18:35:37.885Z</lastmod>
   </url>
   <url>
     <loc>alifdwt.github.io/proyek/palmer-penguins/palmerpenguinsR.html</loc>
-    <lastmod>2023-05-26T15:14:13.417Z</lastmod>
+    <lastmod>2023-05-29T18:35:38.579Z</lastmod>
   </url>
   <url>
     <loc>alifdwt.github.io/proyek.html</loc>
-    <lastmod>2023-05-26T15:14:10.952Z</lastmod>
+    <lastmod>2023-05-29T18:36:45.285Z</lastmod>
   </url>
 </urlset>

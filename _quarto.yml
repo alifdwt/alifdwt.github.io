@@ -38,11 +38,8 @@ website:
       - icon: rss
         href: blog.xml
   page-footer:
-    left: 
-      - text: "© 2023 Musim Semi Peking"
-    right:
-      - href: https://www.quarto.org
-        text: Dibuat oleh R dan Quarto
+    center: 
+      - text: "Hak Cipta © 2023 Musim Semi Peking"
     
   page-navigation: true
 format:
@@ -62,5 +59,11 @@ format:
     highlight-style: dracula
     code-summary: Lihat Kode
     code-fold: true
+    
+    comments: 
+      utterances: 
+        repo: quarto-dev/quarto-web
+        theme: github-light
+        issue-term: title
 
 editor: visual

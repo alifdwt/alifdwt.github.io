@@ -1,0 +1,43 @@
+,artist_id,artist,image,genres,popularity,link,followers
+0,7Ln5yumFjHCkeZ8bAzHUcp,Yovie Widianto,https://i.scdn.co/image/ab6761610000e5eb5146b8acb026405ca1bd3060,['indonesian pop'],64,https://api.spotify.com/v1/artists/7Ln5yumFjHCkeZ8bAzHUcp,198778
+1,6FTLayBxjkQeanFdUusk1I,Fabio Asher,https://i.scdn.co/image/ab6761610000e5ebd7384b119d6cdaee014015ae,['indonesian pop'],65,https://api.spotify.com/v1/artists/6FTLayBxjkQeanFdUusk1I,736372
+2,4AK6F7OLvEQ5QYCBNiQWHq,One Direction,https://i.scdn.co/image/5bb443424a1ad71603c43d67f5af1a04da6bb3c8,"['boy band', 'pop', 'post-teen pop', 'talent show']",85,https://api.spotify.com/v1/artists/4AK6F7OLvEQ5QYCBNiQWHq,31158728
+3,0Pk4JEXgC64RBmovnQDZ27,Jogja Hip Hop Foundation,https://i.scdn.co/image/ab67616d0000b273de748fd3eed32d64ee85fce8,"['indonesian hip hop', 'lagu jawa']",62,https://api.spotify.com/v1/artists/0Pk4JEXgC64RBmovnQDZ27,623252
+4,3wOsYKZM0zcKNasi3I7fP4,Mahalini,https://i.scdn.co/image/ab6761610000e5ebb8333468abeb2e461d1ab5ea,['indonesian pop'],75,https://api.spotify.com/v1/artists/3wOsYKZM0zcKNasi3I7fP4,5636815
+5,0f6TyESD8E1mD2oLJ4TGv1,For Revenge,https://i.scdn.co/image/ab6761610000e5eb90bea89a7bd6082348d8b67e,"['bandung indie', 'indonesian emo', 'indonesian post-hardcore']",67,https://api.spotify.com/v1/artists/0f6TyESD8E1mD2oLJ4TGv1,330309
+6,1WX2v0BiEW19Vw7xmznLdZ,Vierra,https://i.scdn.co/image/ab6761610000e5ebce05aec92bc5b3e81205ff73,['indonesian pop'],65,https://api.spotify.com/v1/artists/1WX2v0BiEW19Vw7xmznLdZ,789213
+7,0kPb52ySN2k9P6wEZPTUzm,Tiara Andini,https://i.scdn.co/image/ab6761610000e5eb28747c69a86181ed0f08fd69,['indonesian pop'],73,https://api.spotify.com/v1/artists/0kPb52ySN2k9P6wEZPTUzm,3312848
+8,5y8tKLUfMvliMe8IKamR32,d4vd,https://i.scdn.co/image/ab6761610000e5ebad447187a35f422307e88ad3,"['bedroom pop', 'bedroom r&b']",80,https://api.spotify.com/v1/artists/5y8tKLUfMvliMe8IKamR32,1144283
+9,69bG9tC62d8oTFC9aTTosn,New West,https://i.scdn.co/image/ab6761610000e5ebfbf70d3071dbb808406e4031,['toronto indie'],73,https://api.spotify.com/v1/artists/69bG9tC62d8oTFC9aTTosn,214955
+10,4EiSzlOeMnJcp2U8ayCQ3a,Keisya Levronka,https://i.scdn.co/image/ab6761610000e5eb564e80739956f888f879a5cb,['indonesian pop'],66,https://api.spotify.com/v1/artists/4EiSzlOeMnJcp2U8ayCQ3a,2420255
+11,7FBcuc1gsnv6Y1nwFtNRCb,My Chemical Romance,https://i.scdn.co/image/ab6761610000e5eb9c00ad0308287b38b8fdabc2,"['emo', 'modern rock', 'pop punk', 'pov: indie', 'rock']",77,https://api.spotify.com/v1/artists/7FBcuc1gsnv6Y1nwFtNRCb,7660958
+12,2iDVt6mFbtbDEZG5ax0dTi,Tulus,https://i.scdn.co/image/ab6761610000e5ebb2dac5833519e3b4e5f7efdb,"['indonesian jazz', 'indonesian pop', 'indonesian singer-songwriter']",76,https://api.spotify.com/v1/artists/2iDVt6mFbtbDEZG5ax0dTi,11576066
+13,5LcNPa8f8bRmZqELgoRFkN,Raim Laode,https://i.scdn.co/image/ab6761610000e5eb8f5fe38a2d25be089bf281e4,[],69,https://api.spotify.com/v1/artists/5LcNPa8f8bRmZqELgoRFkN,224509
+14,4gzpq5DPGxSnKTe4SA8HAU,Coldplay,https://i.scdn.co/image/ab6761610000e5eb989ed05e1f0570cc4726c2d3,"['permanent wave', 'pop']",89,https://api.spotify.com/v1/artists/4gzpq5DPGxSnKTe4SA8HAU,44395426
+15,7G0kstl7VjhDSgFYOBaUS1,Aruma,https://i.scdn.co/image/ab6761610000e5ebaae124103dc588da02f4164b,[],64,https://api.spotify.com/v1/artists/7G0kstl7VjhDSgFYOBaUS1,175338
+16,11k3Y6uyixbyGfgPl8qZTZ,raissa anggiani,https://i.scdn.co/image/ab6761610000e5eb3caa88907c6be25fb118e510,"['indonesian lo-fi pop', 'indonesian pop']",67,https://api.spotify.com/v1/artists/11k3Y6uyixbyGfgPl8qZTZ,385708
+17,1JvbNeV9zG9Sew1JyaWsyx,Anggi Marito,https://i.scdn.co/image/ab6761610000e5eb604493f4d58b7d152a2d5f79,['indonesian pop'],70,https://api.spotify.com/v1/artists/1JvbNeV9zG9Sew1JyaWsyx,151844
+18,1v1khTmozNfxB2ET1Ep288,Last Child,https://i.scdn.co/image/ab6761610000e5eb4ffc34bf9985731438cc1b99,"['indonesian pop punk', 'indonesian rock']",70,https://api.spotify.com/v1/artists/1v1khTmozNfxB2ET1Ep288,3974190
+19,0YpfUFtmzwNGWjowRwoGel,Soegi Bornean,https://i.scdn.co/image/ab6761610000e5eb88ccaeab7a9c0a3edfc6e3e8,"['indonesian folk', 'semarang indie']",63,https://api.spotify.com/v1/artists/0YpfUFtmzwNGWjowRwoGel,155659
+20,5kjFzBMHeoAx9xksFSwfUW,yuji,https://i.scdn.co/image/ab6761610000e5eb086a60c6412e14d3e3bb56c8,[],64,https://api.spotify.com/v1/artists/5kjFzBMHeoAx9xksFSwfUW,134661
+21,2A7XpBQ8X227lVi5BphdPw,Awdella,https://i.scdn.co/image/ab6761610000e5ebf860c4a0a2665c0e008bd7d9,['indonesian pop'],64,https://api.spotify.com/v1/artists/2A7XpBQ8X227lVi5BphdPw,163135
+22,4ucwey7FxkHXkLK7jSfevU,Andra & The Backbone,https://i.scdn.co/image/ab67616d0000b2738a25f55567169ee8dbc97fcc,"['classic indonesian rock', 'indonesian rock']",63,https://api.spotify.com/v1/artists/4ucwey7FxkHXkLK7jSfevU,1293808
+23,6UZ0ba50XreR4TM8u322gs,JISOO,https://i.scdn.co/image/ab6761610000e5ebcb6017286dd64ca6b77c879f,['k-pop'],75,https://api.spotify.com/v1/artists/6UZ0ba50XreR4TM8u322gs,1053292
+24,51kyrUsAVqUBcoDEMFkX12,Hindia,https://i.scdn.co/image/ab6761610000e5eb324cea967a456ee680bf6b92,[],69,https://api.spotify.com/v1/artists/51kyrUsAVqUBcoDEMFkX12,1941039
+25,4bAgr9zaF0bpzVGHdHuf0f,Virgoun,https://i.scdn.co/image/ab6761610000e5eba99ec2b3bd22a84739aac218,"['indonesian pop', 'malaysian pop']",70,https://api.spotify.com/v1/artists/4bAgr9zaF0bpzVGHdHuf0f,5597342
+26,41MozSoPIsD1dJM0CLPjZF,BLACKPINK,https://i.scdn.co/image/ab6761610000e5ebc9690bc711d04b3d4fd4b87c,"['k-pop', 'k-pop girl group', 'pop']",86,https://api.spotify.com/v1/artists/41MozSoPIsD1dJM0CLPjZF,41205596
+27,66NmU5epI0ONGmdCRbLpmW,Feby Putri,https://i.scdn.co/image/ab6761610000e5ebab57b1cb1016bbd9cb26e4bf,['indonesian pop'],69,https://api.spotify.com/v1/artists/66NmU5epI0ONGmdCRbLpmW,2372154
+28,6ygKuZFz2sRggPZRaLHVHD,Aziz Hedra,https://i.scdn.co/image/ab6761610000e5ebc7a6184fb425283cba932db9,[],65,https://api.spotify.com/v1/artists/6ygKuZFz2sRggPZRaLHVHD,11310
+29,1Xyo4u8uXC1ZmMpatF05PJ,The Weeknd,https://i.scdn.co/image/ab6761610000e5eb01b9b4ec2a05d0805428acfa,"['canadian contemporary r&b', 'canadian pop', 'pop']",96,https://api.spotify.com/v1/artists/1Xyo4u8uXC1ZmMpatF05PJ,65289551
+30,3pc0bOVB5whxmD50W79wwO,keshi,https://i.scdn.co/image/ab6761610000e5ebd969cf117d0b0d4424bebdc5,['chill r&b'],79,https://api.spotify.com/v1/artists/3pc0bOVB5whxmD50W79wwO,2622227
+31,7vk5e3vY1uw9plTHJAMwjN,Alan Walker,https://i.scdn.co/image/ab6761610000e5ebbf753c009fd9c2d53351dd3c,['electro house'],81,https://api.spotify.com/v1/artists/7vk5e3vY1uw9plTHJAMwjN,38023371
+32,7tYKF4w9nC0nq9CsPZTHyP,SZA,https://i.scdn.co/image/ab6761610000e5eb7eb7f6371aad8e67e01f0a03,"['pop', 'r&b', 'rap']",90,https://api.spotify.com/v1/artists/7tYKF4w9nC0nq9CsPZTHyP,12683946
+33,4IWBUUAFIplrNtaOHcJPRM,James Arthur,https://i.scdn.co/image/ab6761610000e5eb63a65de1f3d0224a2a901343,"['pop', 'talent show', 'uk pop']",81,https://api.spotify.com/v1/artists/4IWBUUAFIplrNtaOHcJPRM,11842367
+34,5vTG3EyFrsARtIGDWZNRzu,Hal,https://i.scdn.co/image/ab6761610000e5ebac26be2305c3707ee134b18f,['indonesian folk'],63,https://api.spotify.com/v1/artists/5vTG3EyFrsARtIGDWZNRzu,179233
+35,20zafXaLhm5IcXnSU93rNn,Nadin Amizah,https://i.scdn.co/image/ab6761610000e5eb8f0388bc10b8074a06ed619e,['indonesian pop'],67,https://api.spotify.com/v1/artists/20zafXaLhm5IcXnSU93rNn,1472001
+36,5YGY8feqx7naU7z4HrwZM6,Miley Cyrus,https://i.scdn.co/image/ab6761610000e5eb7e8110a92ec2252f0821f8b8,['pop'],88,https://api.spotify.com/v1/artists/5YGY8feqx7naU7z4HrwZM6,20834142
+37,4GJ6xDCF5jaUqD6avOuQT6,FIFTY FIFTY,https://i.scdn.co/image/ab6761610000e5eb1193a00caa638c135ffc60ec,['k-pop girl group'],81,https://api.spotify.com/v1/artists/4GJ6xDCF5jaUqD6avOuQT6,739241
+38,6Ifk2cbxyVzT41jLexYCas,Budi Doremi,https://i.scdn.co/image/ab6761610000e5ebc6abbb6d49403b516404f450,['indonesian pop'],67,https://api.spotify.com/v1/artists/6Ifk2cbxyVzT41jLexYCas,1582757
+39,3tMTXQyRrPmMyHv5SoC0TV,Juicy Luicy,https://i.scdn.co/image/ab6761610000e5ebbcb780f4924009e8b2c1abe4,['indonesian pop'],68,https://api.spotify.com/v1/artists/3tMTXQyRrPmMyHv5SoC0TV,505226
+40,20wkVLutqVOYrc0kxFs7rA,Daniel Caesar,https://i.scdn.co/image/ab6761610000e5ebf99727ed9dbe47a59126e17e,['canadian contemporary r&b'],81,https://api.spotify.com/v1/artists/20wkVLutqVOYrc0kxFs7rA,4107147
+41,7Ln80lUS6He07XvHI8qqHH,Arctic Monkeys,https://i.scdn.co/image/ab6761610000e5eb7da39dea0a72f581535fb11f,"['garage rock', 'modern rock', 'permanent wave', 'rock', 'sheffield indie']",87,https://api.spotify.com/v1/artists/7Ln80lUS6He07XvHI8qqHH,19989858

@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-image','listing-title','listing-description','listing-date','listing-reading-time','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -175,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Interaktif">Interaktif <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Javascript">Javascript <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Interaktif">Interaktif <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Javascript">Javascript <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -188,7 +188,38 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-categories="Interaktif,Javascript" data-listing-file-modified-sort="1685031659953" data-listing-reading-time-sort="1.495">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1685284388415" data-listing-reading-time-sort="0.895">
+<a href="./proyek/old-faithful-shiny/old-faithful-shiny.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-img-bg" style="height: 240px;">
+&nbsp;
+</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Diamonds Explorer
+</h5>
+<div class="listing-reading-time card-text text-muted">
+0 min
+</div>
+<div class="card-text listing-description">
+
+<script type="application/shiny-prerendered" data-context="server-start">
+library(ggplot2)
+dataset <- diamonds
+</script><script type="application/shiny-prerendered" data-context="server">
+dataset <- reactive({
+  diamonds[sample(nrow(diamonds), input$sampleSize),]
+})
+ 
+output$plot <- renderPlot({
+  
+  p <- ggplot(dataset(), aes_string(x=input$x, y=input$y)) +…</script><script type="application/shiny-prerendered" data-context="server-extras"></script>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Interaktif,Javascript" data-listing-file-modified-sort="1685031659953" data-listing-reading-time-sort="1.495">
 <a href="./proyek/palmer-penguins/palmerpenguinsR.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="card-img-bg" style="height: 240px;">
@@ -211,6 +242,31 @@ Javascript
 </div>
 <div class="card-text listing-description">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam malesuada bibendum arcu vitae. Cursus…
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1730739600000" data-listing-file-modified-sort="1685209808043" data-listing-reading-time-sort="3.47">
+<a href="./proyek/old-faithful/old-faithful.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-img-bg" style="height: 240px;">
+&nbsp;
+</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Twitter Followers
+</h5>
+<div class="listing-reading-time card-text text-muted">
+3 min
+</div>
+<div class="card-text listing-description">
+Source: FiveThirtyEight
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Nov 5, 2024
+</div>
 </div>
 </div>
 </div>

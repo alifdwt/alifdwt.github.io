@@ -1,0 +1,175 @@
+---
+title: "Benarkah Orang Indonesia Suka Dengerin Lagu Sedih?"
+description: "Menganalisis Chart Top 50 Indonesia di akhir bulan Mei 2023 dalam Spotify"
+title-block-banner: true
+author: "Alif Dewantara"
+date: "2023-05-28"
+categories: 
+  - Analisis Data
+  - R
+draft: true
+---
+
+```{r library, message=FALSE, warning=FALSE, include=FALSE}
+library(readr)
+library(reactable)
+library(reactablefmtr)
+library(htmltools)
+library(dplyr)
+library(wordcloud2)
+library(highcharter)
+library(broom)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+options(reactable.static = TRUE)
+```
+
+```{css ref.label="styles", echo=FALSE}
+```
+
+```{r ref.label="font_styles", echo=FALSE}
+```
+
+# Lorem Ipsum Dolor sit Amet
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a erat tincidunt, fringilla erat nec, auctor felis. In tincidunt viverra congue. Nam ultrices purus non erat iaculis, eget vulputate nibh sollicitudin. Integer faucibus turpis id turpis egestas scelerisque. Curabitur felis urna, finibus in aliquet nec, tempor sed arcu. Donec tristique sollicitudin dui a interdum. Aliquam pellentesque, sem ac bibendum commodo, tellus augue molestie enim, ac sollicitudin tortor ligula vitae magna. Vestibulum pellentesque est in diam dictum rhoncus. Nunc massa metus, pharetra ut maximus et, viverra sed orci. Duis nec feugiat augue.
+
+## Suspendisse potenti
+
+Suspendisse potenti. Donec nec tortor dolor. Donec commodo accumsan dolor, eget sagittis eros malesuada in. Suspendisse cursus ornare gravida. Quisque dignissim massa elit, a commodo urna dapibus tristique. Quisque et neque a enim mattis sagittis. Mauris tincidunt metus mi, et auctor lorem sollicitudin sit amet. Morbi vitae laoreet nisl. Duis quis faucibus ante.
+
+```{r message=FALSE, warning=FALSE}
+audio_features <- read_csv("datasets/audio_features2.csv")
+songTable <- reactable(audio_features%>%select(numCharts,image,artist,track,genre,valence,danceability, acousticness,energy)%>%arrange(numCharts),
+                       searchable = TRUE,
+                       sortable = TRUE,
+                       theme = reactableTheme(
+                         cellStyle = list(display='flex',flexDirection='column',justifyContent='center'),
+                         style = list(fontFamily='Roboto'),
+                         backgroundColor = "#ffffff",
+                         color = "#000000",
+                         borderColor = "#303030"
+                       ),
+                       columns = list(
+                         numCharts = colDef(name = "No.", width = 50),
+                         image = colDef(name = "", cell = embed_img(height=50,width=50)),
+                         artist = colDef(name = 'ARTIST', html = TRUE, cell = function(value,index) {
+                           sprintf('<a style=text-decoration: none; color: #3dceee; href="%s" target="_blank">%s</a>',  audio_features$artist_url[index], value)
+                         }),
+                         track = colDef(name = 'TRACK', html = TRUE, cell = function(value,index) {
+                           sprintf('<a style=text-decoration: none; color: #3dceee; href="%s" target="_blank">%s</a>', audio_features$song_url[index], value)
+                         }),
+                         genre = colDef(name = 'GENRE', align = 'center', width = 80),
+                         valence = colDef(name = "VALENCE", style = color_scales(audio_features), align = "center", format = colFormat(digits = 2)),
+                         danceability = colDef(name = "DANCEABILITY", style = color_scales(audio_features), align = "center", format = colFormat(digits = 2)),
+                         acousticness = colDef(name = "ACOUSTICNESS", style = color_scales(audio_features), align = "center", format = colFormat(digits = 2)),
+                         energy = colDef(name = "ENERGY", style = color_scales(audio_features), align = "center", format = colFormat(digits = 2))
+                       ),
+                       compact = TRUE,
+                       class = "spotify-tbl")
+
+# Memunculkan tabel
+div(class = "spotify-table",
+    div(class = "spotify-header",
+        h2(class = "spotify-title", "Bagaimana Caramu Menggambarkan Lagu Kesukaanmu"),
+        "Fitur-fitur yang ada dalam top chart 50 Spotify Indonesia"),
+    songTable
+    )
+```
+
+Facilisis volutpat est velit egestas. Suspendisse ultrices gravida dictum fusce ut. In dictum non consectetur a erat nam at lectus. Lobortis feugiat vivamus at augue eget arcu. Consectetur adipiscing elit ut aliquam purus. Massa eget egestas purus viverra accumsan in nisl nisi scelerisque. Pretium aenean pharetra magna ac placerat. Aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer. In nisl nisi scelerisque eu. Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque. Maecenas sed enim ut sem viverra aliquet eget.
+
+```{r}
+audio_features %>%
+  hchart('scatter',
+         hcaes(x = danceability,
+               y = acousticness,
+               group = genre)) %>%
+  hc_tooltip(formatter = JS("function(){return
+                            '"))
+  hc_title(text = "Danceability vs Acousticness",
+           align = "center")
+```
+
+## Sed quis consectetur est
+
+Sed quis consectetur est, nec tempor lacus. Sed egestas urna sit amet mi pretium posuere. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur euismod nunc sed lectus congue suscipit. Fusce quis purus iaculis, imperdiet nulla vel, sagittis arcu. Proin sit amet lorem non magna vehicula rhoncus sit amet sit amet lorem. Cras blandit metus turpis, non tincidunt sapien fermentum nec. Cras tristique nibh nec urna vulputate pretium. Duis tincidunt ut risus ac accumsan. Praesent semper sodales feugiat.
+
+```{r message=FALSE, warning=FALSE}
+data_lyrics <- read_csv("datasets/data_lyrics.csv")
+```
+
+```{r message=FALSE, warning=FALSE}
+lyricsTable <- reactable(data_lyrics%>%select(numCharts,image,artist,track,language,emot_trust,emot_joy,emot_surprise,emot_anger,emot_disgust,emot_fear)%>%arrange(numCharts),
+                       searchable = TRUE,
+                       sortable = TRUE,
+                       theme = reactableTheme(
+                         cellStyle = list(display='flex',flexDirection='column',justifyContent='center'),
+                         style = list(fontFamily='Roboto'),
+                         backgroundColor = "#ffffff",
+                         color = "#000000",
+                         borderColor = "#303030"
+                       ),
+                       columns = list(
+                         numCharts = colDef(name = "No", width = 50),
+                         image = colDef(name = "", cell = embed_img(height=50,width=50)),
+                         artist = colDef(name = 'ARTIST', html = TRUE, cell = function(value,index) {
+                           sprintf('<a style=text-decoration: none; color: #3dceee; href="%s" target="_blank">%s</a>',  data_lyrics$artist_url[index], value)
+                         }),
+                         track = colDef(name = 'TRACK', html = TRUE, cell = function(value,index) {
+                           sprintf('<a style=text-decoration: none; color: #3dceee; href="%s" target="_blank">%s</a>', data_lyrics$song_url[index], value)
+                         }),
+                         language = colDef(name = 'LANGUAGE', align = 'center', width = 80),
+                         emot_trust = colDef(name = "TRUST", style = color_scales(data_lyrics), align = "center", format = colFormat(digits = 2)),
+                         emot_joy = colDef(name = "JOY", style = color_scales(data_lyrics), align = "center", format = colFormat(digits = 2)),
+                         emot_surprise = colDef(name = "SURPRISE", style = color_scales(data_lyrics), align = "center", format = colFormat(digits = 2)),
+                         emot_anger = colDef(name = "ANGER", style = color_scales(data_lyrics), align = "center", format = colFormat(digits = 2)),
+                         emot_disgust = colDef(name = "DISGUST", style = color_scales(data_lyrics), align = "center", format = colFormat(digits = 2)),
+                         emot_fear = colDef(name = "FEAR", style = color_scales(data_lyrics), align = "center", format = colFormat(digits = 2))
+                       ),
+                       compact = TRUE,
+                       class = "emot-tbl")
+
+# Memunculkan tabel
+div(class = "spotify-table",
+    div(class = "spotify-header",
+        h2(class = "spotify-title", "Emosi Apa yang Disampaikan oleh Lagu Kesukaanmu?"),
+        "Fitur-fitur emosi berdasarkan NLP NRCLex"),
+    lyricsTable
+    )
+```
+
+Suspendisse ac odio ante. Fusce tincidunt velit diam, pellentesque consectetur dolor tincidunt ut. Etiam eget sagittis libero. Mauris vel justo quam. Praesent gravida, nibh at pharetra faucibus, magna ligula semper ligula, quis dictum nulla erat nec lectus. Suspendisse potenti. Ut at vehicula massa. Duis eleifend sed ipsum non mollis. Maecenas ultrices justo sit amet rutrum pretium. Cras pharetra nibh felis, suscipit finibus libero condimentum non. Phasellus tristique eleifend lorem eu blandit. Proin sit amet turpis nec libero porttitor molestie quis sed tellus. Praesent quis congue nisi.
+
+```{r}
+data_lyrics %>% hchart('scatter', hcaes(x = emot_positive, y = emot_negative, group = language))
+```
+
+```{css styles, eval=FALSE}
+.spotify-table {
+  margin: 0 auto;
+  width: 100%;
+  border: 3px dashed black;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.spotify-header {
+  margin: 1.125rem 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.spotify-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.spotify-tbl, .emot-tbl {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+}
+```
