@@ -14,4 +14,7 @@ listing:
 page-layout: article
 title-block-banner: true
 comments: false
+format: 
+  html: 
+    code-tools: false
 ---

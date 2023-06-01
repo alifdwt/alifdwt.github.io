@@ -47,6 +47,7 @@ format:
     theme:
       # - simplex
       - theme.scss
+    code-tools: true
     toc: true
     toc-location: right
     code-link: true
