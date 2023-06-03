@@ -17,6 +17,7 @@ comments:
     theme: github-light
     issue-term: title
 image: "spotify2022.png"
+draft: true
 ---
 
 ## Pendahuluan dan Tujuan

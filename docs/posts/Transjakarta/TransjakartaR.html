@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,10 +20,9 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,13 +49,43 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -122,49 +151,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title"><span style="display: flex;">Alif Dewantara</span> <span style="font-size: 12.5px; font-weight: normal; display: flex ;">Data · Tech · Historian</span></span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../proyek.html" rel="" target="">
+    <a class="nav-link" href="../../proyek.html">
  <span class="menu-text">Proyek</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/alifdwt" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/alifdwt"><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/alifdwt/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/alifdwt/"><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/alifdwt" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/alifdwt"><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -173,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Statistik Penumpang Transportasi Jakarta Tahun 2021</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Statistik Penumpang Transportasi Jakarta Tahun 2021</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
                   <div>
         <div class="description">
           <p>Mengetahui statistik moda transportasi jalanan di DKI Jakarta.</p>
@@ -237,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://transjakarta.co.id/galeri/foto/?gallery_id=5&amp;image_id=1548"><img src="img/E3.jpg" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Bus Rapid Transit Transjakarta</figcaption>
+<p></p><figcaption class="figure-caption">Bus Rapid Transit Transjakarta</figcaption><p></p>
 </figure>
 </div>
 <section id="transjakarta-moda-transportasinya-orang-jakarta" class="level2">
@@ -287,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="table table-sm table-striped">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 6%">
@@ -415,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="table table-sm table-striped">
 <colgroup>
 <col style="width: 17%">
 <col style="width: 49%">
@@ -502,7 +529,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://commons.wikimedia.org/wiki/File:TransJakarta_Scania_K340IA_Euro_6.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/TransJakarta_Scania_K340IA_Euro_6.jpg" class="img-fluid figure-img" alt="Julius Danes, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons"></a></p>
-<figcaption class="figure-caption">BRT Transjakarta; Scania K340IA Euro 6</figcaption>
+<p></p><figcaption class="figure-caption">BRT Transjakarta; Scania K340IA Euro 6</figcaption><p></p>
 </figure>
 </div>
 <p>Lalu, seberapa banyak masyarakat Jakarta yang menggunakan <em>busway</em>? Trayek apa saja yang dikategorikan sebagai BRT? Pertanyaan tersebut dapat dijawab dengan tabel di bawah ini:</p>
@@ -518,7 +545,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="table table-sm table-striped">
 <thead>
 <tr class="header">
 <th style="text-align: left;">kode_trayek</th>
@@ -629,7 +656,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://commons.wikimedia.org/wiki/File:Metrotrans_at_Senayan.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Metrotrans_at_Senayan.jpg" class="img-fluid figure-img" alt="Tni fans111, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons"></a></p>
-<figcaption class="figure-caption">Bus Metrotrans di Senayan, salah satu moda transportasi berbasis Angkutan Umum Integrasi.</figcaption>
+<p></p><figcaption class="figure-caption">Bus Metrotrans di Senayan, salah satu moda transportasi berbasis Angkutan Umum Integrasi.</figcaption><p></p>
 </figure>
 </div>
 <p>Bagaimana antusias masyarakat Jakarta dalam menggunakan AUT, tabel di bawah adalah lima teratas data yang telah dikumpulkan sepanjang tahun 2021:</p>
@@ -645,7 +672,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="table table-sm table-striped">
 <colgroup>
 <col style="width: 17%">
 <col style="width: 57%">
@@ -716,7 +743,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://otomotif.okezone.com/read/2022/02/04/52/2542335/yuk-intip-fasilitas-mikrotrans-angkot-ber-ac-yang-kekinian-di-jakarta"><img src="https://img.okezone.com/content/2022/02/04/52/2542335/yuk-intip-fasilitas-mikrotrans-angkot-ber-ac-yang-kekinian-di-jakarta-GzL2LncNSh.jpg" class="img-fluid figure-img"></a></p>
-<figcaption class="figure-caption">Mikrotrans</figcaption>
+<p></p><figcaption class="figure-caption">Mikrotrans</figcaption><p></p>
 </figure>
 </div>
 <p>Apakah kehadiran Mikrotrans dimanfaatkan oleh masyarakat Jakarta? Trayek apa saja yang dilayani Mikrotrans? Mari kita lihat datanya!</p>
@@ -732,7 +759,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="table table-sm table-striped">
 <thead>
 <tr class="header">
 <th style="text-align: left;">kode_trayek</th>
@@ -862,7 +889,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="table table-sm table-striped">
 <thead>
 <tr class="header">
 <th style="text-align: left;">jenis</th>
@@ -890,6 +917,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dari analisis di atas bisa kita ketahui bahwa moda transportasi berbasis BRT adalah yang paling diminati di Jakarta. Walau begitu, diterapkannya PPKM oleh pemerintah yang memaksa para pekerja yang berkantor di daerah Segitiga Emas Jakarta untuk bekerja di rumah menyebabkan penurunan drastis penggunaan transportasi BRT ini. Akan tetapi, penurunan drastis tidak begitu dirasakan oleh Mikrotrans. Hal ini disebabkan karena Mikrotrans biasanya menjadi penghubung satu daerah pemukiman dengan daerah pemukiman lain, tentunya mobilitas seperti ini akan selalu diperlukan oleh sebagian besar masyarakat Jakarta.</p>
 <p><strong><em>Salam Maria, penuh rahmat, Tuhan sertamu</em>.</strong></p>
 
+
+<!-- -->
 
 </section>
 
@@ -921,23 +950,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -973,6 +988,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -1002,92 +1068,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1128,23 +1108,304 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://utteranc.es/client.js" repo="quarto-dev/quarto-web" issue-term="title" theme="github-light" crossorigin="anonymous" async="">
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb18" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Statistik Penumpang Transportasi Jakarta Tahun 2021</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html: </span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">    df-print: kable</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">  Mengetahui statistik moda transportasi jalanan di DKI Jakarta.</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Alif Dewantara"</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2023-02-13"</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> </span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">  - Analisis Data</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">  - R</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="an">comments:</span><span class="co"> </span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">  utterances: </span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">    repo: quarto-dev/quarto-web</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: github-light</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">    issue-term: title</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "logo-transjakarta.png"</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Bus Rapid Transit Transjakarta](img/E3.jpg)</span><span class="co">](https://transjakarta.co.id/galeri/foto/?gallery_id=5&amp;image_id=1548)</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Transjakarta, Moda Transportasinya Orang Jakarta</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>Transjakarta merupakan sistem transportasi publik utama di Jakarta. Selain karena harganya yang sangat terjangkau, Transjakarta menjadi moda transportasi favorit masyarakat karena ia menjangkau sebagian besar wilayah di Provinsi Daerah Khusus Ibukota Jakarta. Pertama kali beroperasi di Jakarta pada tahun 2004 dengan trayek Koridor 1: Blok M - Kota, kini Transjakarta telah memiliki lebih dari 100 trayek yang melayani kebutuhan transportasi masyarakat ibukota. Seberapa besar masyarakat menggunakan moda transportasi ini? Mari kita mencari tahu melalui analisis data berikut ini.</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r load_library, warning=FALSE, message=FALSE}</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Memuat library</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dygraphs)</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Jakarta Open Data</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>Datasets di bawah ini berisi Data Penumpang Bus Transjakarta Tahun 2021, yang didapatkan dari <span class="co">[</span><span class="ot">Jakarta Open Data</span><span class="co">](https://data.jakarta.go.id/dataset/data-penumpang-bus-transjakarta-januari-2021)</span>, Dinas Perhubungan Provinsi DKI Jakarta. Dataset dibuat pada 12 April 2022 dan memiliki frekuensi penerbitan satu bulan sekali. Untuk mendapatkan data tahunan, maka diperlukan penyatuan 12 data bulanan.</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a><span class="in">```{r load_data, collapse=TRUE}</span></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Memuat dataset bulanan</span></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>jan2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-januari-2021.csv"</span>)</span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>feb2021 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-februari-2021.csv"</span>)</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>mar2021 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-maret-2021.csv"</span>)</span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>apr2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-april-2021.csv"</span>)</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>mei2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-mei-2021.csv"</span>)</span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>jun2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-juni-2021.csv"</span>)</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>jul2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-juli-2021.csv"</span>)</span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>agu2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-agustus-2021.csv"</span>)</span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>sep2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-september-2021.csv"</span>)</span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>okt2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-oktober-2021.csv"</span>)</span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>nov2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-november-2021.csv"</span>)</span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>des2021 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datasets/data-penumpang-bus-transjakarta-desember-2021.csv"</span>)</span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r bind_data}</span></span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat dataset tahunan</span></span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>tj2021 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(jan2021, feb2021, mar2021, apr2021, mei2021, jun2021, jul2021, agu2021, sep2021, okt2021, nov2021, des2021)</span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Menampilkan 5 baris pertama tj2021</span></span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tj2021, <span class="dv">5</span>)</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>Dalam dataset ini terdapat beberapa kesalahan ketik dan *input* yang menyebabkan proses analisis data tidak berjalan sempurna. Maka dari itu, diperlukan pembenaran data seperti yang sudah dilakukan pada kotak kode di bawah ini. Selain melakukan proses *data cleaning*, juga dilakukan proses menambah kolom <span class="in">`nama_bulan`</span> dengan cara mengambil abreviasi 12 angka <span class="in">`bulan`</span> dalam datasets tersebut.</span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r data_cleaning}</span></span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Membenarkan data saltik</span></span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Ggadung"</span>, <span class="st">"Gadung"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Ttanjung"</span>, <span class="st">"Tanjung"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Ppulo"</span>, <span class="st">"Pulo"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"PIK - Balai Kota"</span>, <span class="st">"Pantai Maju - Balai Kota"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Pinang Ranti - Kampung Rambutan"</span>, <span class="st">"Kampung Rambutan - Pinang Ranti"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Gondangdia - Cikini via Kramat Jaya"</span>, <span class="st">"Gondangdia - Cikini via Kramat Raya"</span>, tj2021<span class="sc">$</span>trayek)</span>
+<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Membenarkan kode trayek</span></span>
+<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Pantai Maju - Balai Kota"</span>] <span class="ot">&lt;-</span> <span class="st">"1A"</span></span>
+<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Sentraland Cengkareng - Puri Kembangan"</span>] <span class="ot">&lt;-</span> <span class="st">"3E"</span></span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Tanjung Priok - Jembatan Item"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.77"</span></span>
+<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Cililitan - Condet via Kayu Manis"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.37"</span></span>
+<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Kampung Rambutan - Pinang Ranti"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.71"</span></span>
+<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Tongtek - Cililitan"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.43"</span></span>
+<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek[tj2021<span class="sc">$</span>trayek <span class="sc">==</span> <span class="st">"Gondangdia - Cikini via Kramat Raya"</span>] <span class="ot">&lt;-</span> <span class="st">"JAK.10B"</span></span>
+<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek[tj2021<span class="sc">$</span>kode_trayek <span class="sc">==</span> <span class="st">"JAK.10A"</span>] <span class="ot">&lt;-</span> <span class="st">"Gondangdia - Cikini via Salemba Raya"</span></span>
+<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>trayek[tj2021<span class="sc">$</span>kode_trayek <span class="sc">==</span> <span class="st">"JAK.10B"</span>] <span class="ot">&lt;-</span> <span class="st">"Gondangdia - Cikini via Kramat Raya"</span></span>
+<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan nama bulan</span></span>
+<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>nama_bulan <span class="ot">&lt;-</span> month.abb[tj2021<span class="sc">$</span>bulan]</span>
+<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a>Selain dataset dari Jakarta Open Data di atas, kami juga memuat dataset yang diambil dari transjakarta.co.id. Dataset tersebut adalah <span class="in">`routes.csv`</span> yang berisi rincian trayek-trayek seluruh moda transportasi yang dikendalikan oleh PT. Transportasi Jakarta. Tetapi dalam dataset tersebut, kami hanya mengambil kolom <span class="in">`route_color`</span> yang akan digunakan untuk warna *bar chart* yang mewakili trayek-trayek. Dataframe <span class="in">`rute`</span> dan <span class="in">`tj2021`</span> dapat disatukan dengan menggunakan kunci berupa <span class="in">`kode_trayek`</span> yang ada di kedua datasets tersebut.</span>
+<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a><span class="co"># Memuat data rute</span></span>
+<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a>rute <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'datasets/routes.csv'</span>) </span>
+<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Hanya mengambil data yang diinginkan</span></span>
+<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a>warna_rute <span class="ot">&lt;-</span> rute <span class="sc">%&gt;%</span></span>
+<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(route_id, route_color) <span class="sc">%&gt;%</span></span>
+<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kode_trayek =</span> route_id)</span>
+<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a>warna_rute<span class="sc">$</span>route_color <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^"</span>, <span class="st">"#"</span>, warna_rute<span class="sc">$</span>route_color)</span>
+<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a><span class="co">#warna_rute &lt;- merge(x=warna_rute, y=tj2021[ , c("kode_trayek", "trayek")], by="kode_trayek", all.x = TRUE)</span></span>
+<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a><span class="co">#warna_rute &lt;- warna_rute[!duplicated(warna_rute$kode_trayek), ]</span></span>
+<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a><span class="co">#row.names(warna_rute) &lt;- NULL</span></span>
+<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Menghubungkan dataset</span></span>
+<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a>tj2021<span class="sc">$</span>kode_trayek <span class="ot">&lt;-</span> <span class="fu">factor</span>(tj2021<span class="sc">$</span>kode_trayek, <span class="at">levels =</span> warna_rute<span class="sc">$</span>kode_trayek)</span>
+<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Apa Trayek yang Dilayani oleh Transjakarta?</span></span>
+<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>Setelah melalui proses pembersihan data di atas, dan penggabungan datasets, proses selanjutnya adalah menghitung <span class="in">`jumlah_penumpang`</span> per <span class="in">`trayek`</span> per tahun. Kode di bawah mengikutsertakan <span class="in">`kode_trayek`</span> agar memudahkan proses pemberian warna pada plot.</span>
+<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{r jml2021, warning=FALSE, message=FALSE}</span></span>
+<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan jumlah total per trayek per tahun</span></span>
+<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a>jmltrayek2021 <span class="ot">&lt;-</span> tj2021 <span class="sc">%&gt;%</span></span>
+<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(kode_trayek, trayek, jenis) <span class="sc">%&gt;%</span></span>
+<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">jumlah_penumpang =</span> <span class="fu">sum</span>(jumlah_penumpang))</span>
+<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(jmltrayek2021, <span class="dv">10</span>)</span>
+<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bus Rapid Transit (BRT)</span></span>
+<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>Dari tabel di atas kita mengetahui bahwa ada 134 baris data yang masing-masing berisi tentang rincian per trayek selama tahun 2021. Maka dari itu, dapat diketahui bahwa Transjakarta melayani 134 trayek yang beroperasi di seluruh DKI Jakarta. Luar Biasa!. Tetapi, masyarakat awam umumnya menganggap bahwa yang dimaksud dengan 'Transjakarta' adalah trayek bus yang memiliki jalurnya tersendiri di jalanan, atau biasa disebut '*busway*'. Transjakarta dan Dinas Perhubungan sendiri mengkategorikan hal itu sebagai '*Bus Rapid Transit*' atau disingkat BRT.</span>
+<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![BRT Transjakarta; Scania K340IA Euro 6](https://upload.wikimedia.org/wikipedia/commons/2/29/TransJakarta_Scania_K340IA_Euro_6.jpg)</span><span class="ot">{fig-alt="Julius Danes, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"}</span><span class="co">](https://commons.wikimedia.org/wiki/File:TransJakarta_Scania_K340IA_Euro_6.jpg)</span></span>
+<span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>Lalu, seberapa banyak masyarakat Jakarta yang menggunakan *busway*? Trayek apa saja yang dikategorikan sebagai BRT? Pertanyaan tersebut dapat dijawab dengan tabel di bawah ini:</span>
+<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan data jumlah penumpang BRT dalam setahun</span></span>
+<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a>brt2021 <span class="ot">&lt;-</span> jmltrayek2021 <span class="sc">%&gt;%</span></span>
+<span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jenis <span class="sc">==</span> <span class="st">'BRT'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(kode_trayek, trayek, jumlah_penumpang) <span class="sc">%&gt;%</span></span>
+<span id="cb18-140"><a href="#cb18-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(jumlah_penumpang))</span>
+<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a>brt2021</span>
+<span id="cb18-142"><a href="#cb18-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-144"><a href="#cb18-144" aria-hidden="true" tabindex="-1"></a>Ada 13 trayek yang dilayani oleh BRT Transjakarta. Tentunya, data di atas akan lebih menarik jika disajikan dalam bentuk *bar chart* seperti di bawah ini:</span>
+<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-146"><a href="#cb18-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r brt2021, fig.width=10, fig.height=6, collapse=TRUE}</span></span>
+<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot brt2021</span></span>
+<span id="cb18-148"><a href="#cb18-148" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(brt2021, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(kode_trayek, jumlah_penumpang), <span class="at">y=</span>jumlah_penumpang)) <span class="sc">+</span></span>
+<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>kode_trayek), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb18-150"><a href="#cb18-150" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">round</span>(jumlah_penumpang <span class="sc">/</span> <span class="fl">1e6</span>, <span class="dv">2</span>), <span class="st">"Juta"</span>))) <span class="sc">+</span></span>
+<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Jumlah Penumpang BRT Transjakarta 2021"</span>,</span>
+<span id="cb18-152"><a href="#cb18-152" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span><span class="st">"Berapa jumlah penumpang per trayek BRT Transjakarta?"</span>,</span>
+<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>,</span>
+<span id="cb18-154"><a href="#cb18-154" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Jumlah Penumpang"</span>) <span class="sc">+</span></span>
+<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb18-156"><a href="#cb18-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_fivethirtyeight</span>() <span class="sc">+</span></span>
+<span id="cb18-157"><a href="#cb18-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>()) <span class="sc">+</span></span>
+<span id="cb18-158"><a href="#cb18-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> warna_rute<span class="sc">$</span>route_color) <span class="sc">+</span></span>
+<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">breaks =</span> brt2021<span class="sc">$</span>kode_trayek,</span>
+<span id="cb18-160"><a href="#cb18-160" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> brt2021<span class="sc">$</span>trayek) <span class="sc">+</span></span>
+<span id="cb18-161"><a href="#cb18-161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"Jt"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>))</span>
+<span id="cb18-162"><a href="#cb18-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-163"><a href="#cb18-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a>Dari plot di atas dapat kita ketahui bahwa terdapat sekitar 50 juta pengguna BRT Transjakarta. Koridor 1: Blok M - Kota menjadi trayek dengan jumlah penumpang terbanyak, disusul dengan Koridor 9: Pinang Ranti - Pluit, dan Koridor 3: Kalideres - Pasar Baru. Hal ini dapat terjadi karena ketiga koridor tersebut melayani wilayah yang disebut sebagai '**Segitiga Emas Jakarta**', yakni pusat kegiatan perkantoran dan keuangan di mana banyak orang Jakarta dan luar Jakarta yang bekerja di sana.</span>
+<span id="cb18-165"><a href="#cb18-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a><span class="fu">### Angkutan Umum Integrasi (AUT)</span></span>
+<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a>Sekarang mari kita mencari tahu data tentang Transjakarta jenis Angkutan Umum Integrasi. Angkutan Umum Integrasi adalah moda transportasi yang menjadi penghubung antara trayek BRT, atau menjadi cabang yang melayani wilayah yang tidak dilayani oleh BRT.</span>
+<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Bus Metrotrans di Senayan, salah satu moda transportasi berbasis Angkutan Umum Integrasi.](https://upload.wikimedia.org/wikipedia/commons/1/18/Metrotrans_at_Senayan.jpg)</span><span class="ot">{fig-alt="Tni fans111, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"}</span><span class="co">](https://commons.wikimedia.org/wiki/File:Metrotrans_at_Senayan.jpg)</span></span>
+<span id="cb18-171"><a href="#cb18-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a>Bagaimana antusias masyarakat Jakarta dalam menggunakan AUT, tabel di bawah adalah lima teratas data yang telah dikumpulkan sepanjang tahun 2021:</span>
+<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-174"><a href="#cb18-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r table_aut2021}</span></span>
+<span id="cb18-175"><a href="#cb18-175" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan data angkutan umum terintegrasi</span></span>
+<span id="cb18-176"><a href="#cb18-176" aria-hidden="true" tabindex="-1"></a>aut2021 <span class="ot">&lt;-</span> jmltrayek2021 <span class="sc">%&gt;%</span></span>
+<span id="cb18-177"><a href="#cb18-177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jenis <span class="sc">==</span> <span class="st">'Angkutan Umum Integrasi'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-178"><a href="#cb18-178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(kode_trayek, trayek, jumlah_penumpang) <span class="sc">%&gt;%</span></span>
+<span id="cb18-179"><a href="#cb18-179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(jumlah_penumpang))</span>
+<span id="cb18-180"><a href="#cb18-180" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aut2021, <span class="dv">5</span>)</span>
+<span id="cb18-181"><a href="#cb18-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-182"><a href="#cb18-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-183"><a href="#cb18-183" aria-hidden="true" tabindex="-1"></a>Yap, ternyata AUT memiliki trayek yang lebih banyak dibandingkan dengan BRT. Hal ini terjadi karena jalur *busway* memerlukan lebar jalan yang luas, dan hanya segelintir jalanan di Jakarta yang bisa dipasangkan jalur *busway*. Oleh karenanya, AUT masih menggunakan jalan utama dan halte di pinggir jalan dalam hal antar jemput penumpang. Dengan ini, maka AUT lebih bisa menjangkau pemukiman/pusat kegiatan yang tidak memiliki jalanan luas yang memadai.</span>
+<span id="cb18-184"><a href="#cb18-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-185"><a href="#cb18-185" aria-hidden="true" tabindex="-1"></a>Grafik di bawah adalah data jumlah penumpang AUT per tahun 2021:</span>
+<span id="cb18-186"><a href="#cb18-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-187"><a href="#cb18-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{r aut2021, fig.width=10, fig.height=11, collapse=TRUE}</span></span>
+<span id="cb18-188"><a href="#cb18-188" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot jumlah penumpang angkutan umum integrasi</span></span>
+<span id="cb18-189"><a href="#cb18-189" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(aut2021, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(trayek, jumlah_penumpang), <span class="at">y=</span>jumlah_penumpang)) <span class="sc">+</span></span>
+<span id="cb18-190"><a href="#cb18-190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>trayek), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb18-191"><a href="#cb18-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">round</span>(jumlah_penumpang <span class="sc">/</span> <span class="fl">1e3</span>, <span class="dv">2</span>), <span class="st">"Rb"</span>))) <span class="sc">+</span></span>
+<span id="cb18-192"><a href="#cb18-192" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Jumlah Penumpang Angkutan Umum Integrasi 2021"</span>,</span>
+<span id="cb18-193"><a href="#cb18-193" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb18-194"><a href="#cb18-194" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Jumlah Penumpang"</span>) <span class="sc">+</span></span>
+<span id="cb18-195"><a href="#cb18-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb18-196"><a href="#cb18-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> warna_rute<span class="sc">$</span>route_color)</span>
+<span id="cb18-197"><a href="#cb18-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-198"><a href="#cb18-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-199"><a href="#cb18-199" aria-hidden="true" tabindex="-1"></a>Menurut *Badan Pusat Statistik Jakarta 2021*, jumlah angkutan umum berbasis bus kota (Bus Transjakarta) adalah **1680,** di antara seluruh bus yang melayani DKI Jakarta yang berjumlah **6428** kendaraan. Jumlah ini mengalami penurunan 34,58 persen dibandingkan tahun 2020 yang berjumlah **9826** kendaraan.</span>
+<span id="cb18-200"><a href="#cb18-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-201"><a href="#cb18-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mikrotrans</span></span>
+<span id="cb18-202"><a href="#cb18-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-203"><a href="#cb18-203" aria-hidden="true" tabindex="-1"></a>Berbeda dengan *Bus Rapid Transit* dan *Angkutan Umum Integrasi* yang menggunakan kendaraan bus, Mikrotrans adalah moda transportasi yang menggunakan minibus. Masyarakat Jakarta biasa menyebut moda transportasi ini sebagai '**angkot**' atau '**mikrolet**'. Mikrotrans hadir sebagai solusi bagi masyarakat yang ingin bepergian ke tempat yang tidak dapat dijangkau oleh kendaraan besar, atau yang jumlah penggunanya sedikit.</span>
+<span id="cb18-204"><a href="#cb18-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-205"><a href="#cb18-205" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Mikrotrans](https://img.okezone.com/content/2022/02/04/52/2542335/yuk-intip-fasilitas-mikrotrans-angkot-ber-ac-yang-kekinian-di-jakarta-GzL2LncNSh.jpg)</span><span class="co">](https://otomotif.okezone.com/read/2022/02/04/52/2542335/yuk-intip-fasilitas-mikrotrans-angkot-ber-ac-yang-kekinian-di-jakarta)</span></span>
+<span id="cb18-206"><a href="#cb18-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-207"><a href="#cb18-207" aria-hidden="true" tabindex="-1"></a>Apakah kehadiran Mikrotrans dimanfaatkan oleh masyarakat Jakarta? Trayek apa saja yang dilayani Mikrotrans? Mari kita lihat datanya!</span>
+<span id="cb18-208"><a href="#cb18-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-211"><a href="#cb18-211" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-212"><a href="#cb18-212" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengambil data pengguna jumlah pengguna Mikrotrans</span></span>
+<span id="cb18-213"><a href="#cb18-213" aria-hidden="true" tabindex="-1"></a>mikro2021 <span class="ot">&lt;-</span> jmltrayek2021 <span class="sc">%&gt;%</span></span>
+<span id="cb18-214"><a href="#cb18-214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(jenis <span class="sc">==</span> <span class="st">'Mikrotrans'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-215"><a href="#cb18-215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(kode_trayek, trayek, jumlah_penumpang) <span class="sc">%&gt;%</span></span>
+<span id="cb18-216"><a href="#cb18-216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(jumlah_penumpang))</span>
+<span id="cb18-217"><a href="#cb18-217" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mikro2021, <span class="dv">5</span>)</span>
+<span id="cb18-218"><a href="#cb18-218" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-219"><a href="#cb18-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-220"><a href="#cb18-220" aria-hidden="true" tabindex="-1"></a>Mikrotrans memiliki trayek paling banyak dalam jenis transportasi Transjakarta. Tentunya hal ini disebabkan karena ukuran kendaraan yang kecil sehingga dapat menjangkau sebagian besar wilayah Jakarta yang memiliki lebar jalan yang tak luas. Selain itu, Mikrotrans juga menjangkau masyarakat mengengah ke bawah yang biasanya tinggal di jalan sempit, dan dengan tarif yang masih digratiskan oleh pemerintah Jakarta, menyebabkan Mikrotrans menjadi moda transportasi yang diminati oleh warga Jakarta.</span>
+<span id="cb18-221"><a href="#cb18-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-222"><a href="#cb18-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r Mikrotrans2021, fig.width=10, fig.height=15}</span></span>
+<span id="cb18-223"><a href="#cb18-223" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot Mikrotrans</span></span>
+<span id="cb18-224"><a href="#cb18-224" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mikro2021, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(trayek, jumlah_penumpang), <span class="at">y=</span>jumlah_penumpang)) <span class="sc">+</span></span>
+<span id="cb18-225"><a href="#cb18-225" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span>trayek), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb18-226"><a href="#cb18-226" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(<span class="fu">round</span>(jumlah_penumpang <span class="sc">/</span> <span class="fl">1e3</span>, <span class="dv">2</span>), <span class="st">"Rb"</span>))) <span class="sc">+</span></span>
+<span id="cb18-227"><a href="#cb18-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Jumlah Penumpang Mikrotrans per Tahun 2021"</span>,</span>
+<span id="cb18-228"><a href="#cb18-228" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb18-229"><a href="#cb18-229" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Jumlah Penumpang"</span>) <span class="sc">+</span></span>
+<span id="cb18-230"><a href="#cb18-230" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span>
+<span id="cb18-231"><a href="#cb18-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-232"><a href="#cb18-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-233"><a href="#cb18-233" aria-hidden="true" tabindex="-1"></a><span class="fu">## Berapa Jumlah Penumpang Transjakarta per Bulan tahun 2021?</span></span>
+<span id="cb18-234"><a href="#cb18-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-235"><a href="#cb18-235" aria-hidden="true" tabindex="-1"></a>Sebelumnya kita sudah mendapatkan statistik penggunaan Transjakarta di tahun 2021. Lalu bagaimana dengan jumlah penumpang per bulannya?</span>
+<span id="cb18-236"><a href="#cb18-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-237"><a href="#cb18-237" aria-hidden="true" tabindex="-1"></a><span class="in">```{r tabel_jmlbulan, message=FALSE}</span></span>
+<span id="cb18-238"><a href="#cb18-238" aria-hidden="true" tabindex="-1"></a><span class="co"># Mendapatkan jumlah penumpang per bulan</span></span>
+<span id="cb18-239"><a href="#cb18-239" aria-hidden="true" tabindex="-1"></a>jmlbulan <span class="ot">&lt;-</span> tj2021 <span class="sc">%&gt;%</span></span>
+<span id="cb18-240"><a href="#cb18-240" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bulan, nama_bulan, jenis) <span class="sc">%&gt;%</span></span>
+<span id="cb18-241"><a href="#cb18-241" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">jumlah_penumpang =</span> <span class="fu">sum</span>(jumlah_penumpang))</span>
+<span id="cb18-242"><a href="#cb18-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-243"><a href="#cb18-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-244"><a href="#cb18-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r jmlbulan, fig.width=10, fig.height=5, warning=FALSE, message=FALSE}</span></span>
+<span id="cb18-245"><a href="#cb18-245" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot jmlbulan</span></span>
+<span id="cb18-246"><a href="#cb18-246" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(jmlbulan, <span class="fu">aes</span>(<span class="at">x=</span>bulan, <span class="at">y=</span>jumlah_penumpang, <span class="at">color =</span> jenis)) <span class="sc">+</span></span>
+<span id="cb18-247"><a href="#cb18-247" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb18-248"><a href="#cb18-248" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Jumlah Penumpang Transjakarta per Bulan"</span>,</span>
+<span id="cb18-249"><a href="#cb18-249" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Berapa jumlah penumpang Transportasi Jakarta per jenis transportasi per bulan?"</span>,</span>
+<span id="cb18-250"><a href="#cb18-250" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Bulan"</span>,</span>
+<span id="cb18-251"><a href="#cb18-251" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Jumlah Penumpang"</span>,</span>
+<span id="cb18-252"><a href="#cb18-252" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Jenis"</span>) <span class="sc">+</span></span>
+<span id="cb18-253"><a href="#cb18-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_fivethirtyeight</span>() <span class="sc">+</span></span>
+<span id="cb18-254"><a href="#cb18-254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>()) <span class="sc">+</span></span>
+<span id="cb18-255"><a href="#cb18-255" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> jmlbulan<span class="sc">$</span>bulan,</span>
+<span id="cb18-256"><a href="#cb18-256" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> jmlbulan<span class="sc">$</span>nama_bulan) <span class="sc">+</span></span>
+<span id="cb18-257"><a href="#cb18-257" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"Jt"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>))</span>
+<span id="cb18-258"><a href="#cb18-258" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-259"><a href="#cb18-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-260"><a href="#cb18-260" aria-hidden="true" tabindex="-1"></a><span class="in">```{r load_jmlbulan_df}</span></span>
+<span id="cb18-261"><a href="#cb18-261" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat dataframe jmlbulan</span></span>
+<span id="cb18-262"><a href="#cb18-262" aria-hidden="true" tabindex="-1"></a>jmlbulan_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(jmlbulan)</span>
+<span id="cb18-263"><a href="#cb18-263" aria-hidden="true" tabindex="-1"></a>jmlbulan_df<span class="sc">$</span>bulan <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">"^"</span>, <span class="st">"2021-"</span>, jmlbulan_df<span class="sc">$</span>bulan)</span>
+<span id="cb18-264"><a href="#cb18-264" aria-hidden="true" tabindex="-1"></a>jmlbulan_df<span class="sc">$</span>bulan <span class="ot">&lt;-</span> <span class="fu">paste0</span>(jmlbulan_df<span class="sc">$</span>bulan, <span class="st">"-1"</span>)</span>
+<span id="cb18-265"><a href="#cb18-265" aria-hidden="true" tabindex="-1"></a>jmlbulan_df<span class="sc">$</span>bulan <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(jmlbulan_df<span class="sc">$</span>bulan)</span>
+<span id="cb18-266"><a href="#cb18-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-267"><a href="#cb18-267" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengubah bentuk dataframe</span></span>
+<span id="cb18-268"><a href="#cb18-268" aria-hidden="true" tabindex="-1"></a>jmlbulan_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame.matrix</span>(<span class="fu">xtabs</span>(jumlah_penumpang<span class="sc">~</span>bulan<span class="sc">+</span>jenis, jmlbulan_df))</span>
+<span id="cb18-269"><a href="#cb18-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-270"><a href="#cb18-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-271"><a href="#cb18-271" aria-hidden="true" tabindex="-1"></a><span class="in">```{r jmlbulan_df, fig.width=15, fig.height=7}</span></span>
+<span id="cb18-272"><a href="#cb18-272" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot interaktif</span></span>
+<span id="cb18-273"><a href="#cb18-273" aria-hidden="true" tabindex="-1"></a><span class="fu">dygraph</span>(jmlbulan_df, <span class="at">main =</span> <span class="st">"Jumlah Penumpang Transjakarta per Jenis Kendaraan 2021"</span>, <span class="at">ylab =</span> <span class="st">"Jumlah Penumpang"</span>)</span>
+<span id="cb18-274"><a href="#cb18-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-275"><a href="#cb18-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-276"><a href="#cb18-276" aria-hidden="true" tabindex="-1"></a>Grafik di atas menunjukkan bahwa terdapat penurunan penumpang secara drastis yang terjadi di bulan Juli 2021. Penurunan ini terjadi di seluruh jenis transportasi Transjakarta. Jika kalian tinggal di Jakarta dan sekitarnya, mungkin kalian ingat dengan wabah Covid-19 yang terjadi di bulan tersebut. Orang-orang yang terjangkit Covid-19 varian Delta mengalami kenaikan yang sangat pesat, yakni empat kali lipatnya dibandingkan dengan bulan Juni 2021.</span>
+<span id="cb18-277"><a href="#cb18-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-278"><a href="#cb18-278" aria-hidden="true" tabindex="-1"></a>Kematian akibat Covid-19 yang semakin meningkat setiap harinya menyebabkan pemerintah Indonesia menerapkan <span class="co">[</span><span class="ot">Pemberlakuan Pembatasan Kegiatan Masyarakat (PPKM)</span><span class="co">](https://id.wikipedia.org/wiki/Pemberlakuan_pembatasan_kegiatan_masyarakat_di_Indonesia)</span> Darurat yang berlaku pada tanggal 2 hingga 25 Juli 2021. Salah satu kebijakan yang pemerintah ambil yakni pengetatan aktivitas, terutama menetapkan 100% kerja dari rumah untuk sektor nonesensial, dan pengaturan kapasitas maksimal 70% untuk transportasi umum.</span>
+<span id="cb18-279"><a href="#cb18-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-280"><a href="#cb18-280" aria-hidden="true" tabindex="-1"></a><span class="fu">## Kesimpulan</span></span>
+<span id="cb18-281"><a href="#cb18-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-284"><a href="#cb18-284" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-285"><a href="#cb18-285" aria-hidden="true" tabindex="-1"></a>total_penumpang <span class="ot">&lt;-</span> tj2021 <span class="sc">%&gt;%</span></span>
+<span id="cb18-286"><a href="#cb18-286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(jenis) <span class="sc">%&gt;%</span></span>
+<span id="cb18-287"><a href="#cb18-287" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">jumlah_2021 =</span> <span class="fu">sum</span>(jumlah_penumpang))</span>
+<span id="cb18-288"><a href="#cb18-288" aria-hidden="true" tabindex="-1"></a>total_penumpang</span>
+<span id="cb18-289"><a href="#cb18-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-290"><a href="#cb18-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-291"><a href="#cb18-291" aria-hidden="true" tabindex="-1"></a>Dari analisis di atas bisa kita ketahui bahwa moda transportasi berbasis BRT adalah yang paling diminati di Jakarta. Walau begitu, diterapkannya PPKM oleh pemerintah yang memaksa para pekerja yang berkantor di daerah Segitiga Emas Jakarta untuk bekerja di rumah menyebabkan penurunan drastis penggunaan transportasi BRT ini. Akan tetapi, penurunan drastis tidak begitu dirasakan oleh Mikrotrans. Hal ini disebabkan karena Mikrotrans biasanya menjadi penghubung satu daerah pemukiman dengan daerah pemukiman lain, tentunya mobilitas seperti ini akan selalu diperlukan oleh sebagian besar masyarakat Jakarta.</span>
+<span id="cb18-292"><a href="#cb18-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-293"><a href="#cb18-293" aria-hidden="true" tabindex="-1"></a>***Salam Maria, penuh rahmat, Tuhan sertamu*****.**</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
     <li class="nav-item">
  Hak Cipta © 2023 Musim Semi Peking
   </li>  
 </ul>
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+      </div>
   </div>
 </footer>
 

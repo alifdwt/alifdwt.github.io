@@ -49,7 +49,7 @@ Jawaban singkatnya: **iya**. Pertanyaan dari judul di atas berangkat dari salah 
 
 -   dsb.
 
-Saya sebagai orang yang menghabiskan waktu **40 jam dalam sehari** untuk *dengerin* lagu, tentunya tertantang untuk menjawab pertanyaan semacam ini. Kebetulan, saya pernah membuat analisis riwayat pemutaran Spotify saya sejak pertama pakai Spotify akhir tahun 2017 sampai awal 2023 kemarin (yang *cuma* jadi draft doang di Tableau). Dengan pengalaman tersebut, saya cukup kompeten lah dalam melakukan analisis yang sama terhadap selera musik kebanyakan orang Indonesia.
+Saya sebagai orang yang menghabiskan waktu 40 jam dalam sehar**i** untuk *dengerin* lagu, tentunya tertantang untuk menjawab pertanyaan semacam ini. Kebetulan, saya pernah membuat analisis riwayat pemutaran Spotify saya sejak pertama pakai Spotify akhir tahun 2017 sampai awal 2023 kemarin (yang *cuma* jadi draft doang di Tableau). Dengan pengalaman tersebut, saya cukup kompeten lah dalam melakukan analisis yang sama terhadap selera musik kebanyakan orang Indonesia.
 
 Pembahasan ini akan menganalisis lagu yang disukai oleh orang Indonesia berdasarkan rincian fitur audio yang diambil dari [Spotify API](developer.spotify.com), dan analisis lirik yang diambil dari [Musixmatch](musixmatch.com). Mengapa dua? Jika kalian memperhatikan dengan seksama lagu yang kalian dengar serta liriknya, akan ditemukan beberapa lagu yang bernada ceria tetapi liriknya sedih, begitu pula sebaliknya. Kedua data tersebut saya ambil pada **Sabtu, 27 Mei 2023**.
 
@@ -112,9 +112,9 @@ div(class = "spotify-table",
 Jika kalian geser tabelnya ke kanan, kalian akan melihat bahwa ada kolom `Mood` yang terbagi menjadi empat *value*: 'Sad', 'Energetic', 'Happy', dan 'Calm'. Keempat *value* tersebut dihasilkan dari proses klasifikasi menggunakan *K-Nearest-Neighbor* berdasarkan empat parameter dalam *audio features* di atas. Untuk penjelasan lebih lengkap, silahkan baca artikel yang bagus banget ini: [Predicting the Music Mood of a Song with Deep Learning. by Cristóbal Veas](https://towardsdatascience.com/predicting-the-music-mood-of-a-song-with-deep-learning-c3ac2b45229e).
 
 ```{r}
-as.data.frame(audio_features %>%
+audio_features %>%
   count(mood) %>%
-  arrange(desc(n)))
+  arrange(desc(n))
 ```
 
 Nah, berdasarkan tabel di atas, ditemukan bahwa ternyata dalam *playlist* Top 50 - Indonesia, **34** diantaranya adalah **lagu sedih**, lalu **8** trek lagu **bersemangat**, dan **8** trek lagu **bahagia**. Di sini sudah terlihat bahwa lagu sedih bahkan memiliki populasi dua kali lebih besar daripada gabungan antara lagu bahagia dan berenergi digabung!
@@ -134,11 +134,13 @@ audio_features %>%
   hc_add_theme(hc_theme_google())
 ```
 
-## Analisis Lirik dengan NRCLex
+## Analisis Lirik
 
 Selanjutnya, saya melakukan analisis lirik. Ada berbagai macam cara untuk mendapatkan lirik lagu menggunakan Python, tetapi yang paling banyak dipakai adalah dengan mengekstrak lirik dari Genius API. Tetapi sayangnya, karena lagu dalam *playlist* ini sebagian besar berbahasa Indonesia, dan *database* lagu Indonesia di Genius masih belum bisa memenuhi seluruh lagu yang ada dalam *playlist*, membuat saya harus mencari cara lain.
 
 Akhirnya, saya melihat Musixmatch, penyedia lirik lagu yang juga menyediakan lirik untuk Spotify (yang biasa kalian lihat di bawah layar). Namun, Musixmatch API hanya menyediakan 30% dari lirik lagu untuk pengguna *free*. Maka dari itu, saya menggunakan *package* dari pihak ketiga, yakni: **Syrics**. Dengan bantuan dari Ahura Mazda, dan Chat-GPT, akhirnya saya menemukan cara untuk mendapatkan lirik dari *package* tersebut.
+
+### NRCLex
 
 Dalam analisis lirik ini, saya menggunakan **NRCLex**, sebuah *package* berlatarbelakang *Natural Language Processing* (NLP) yang dapat mengenali enam ekspresi emosi dari teks, yakni: **fear** (takut), **anger** (marah), **anticipation** (waspada), **trust** (percaya), **surprise** (terkejut), **sadness** (kesedihan), **disgust** (jijik), dan **joy** (bahagia). Selain itu, NRCLex juga dapat mengenali sentimen **positif** dan **negatif** dalam teks. Canggih kan?
 
@@ -185,39 +187,48 @@ div(class = "spotify-table",
 
 Memang untuk saat ini NRCLex (dan mungkin *package* analisis sentimen lainnya) masih belum mendukung Bahasa Indonesia. Maka untuk mengakalinya, lirik lagu-lagu dalam dataset yang bukan Bahasa Inggris saya terjemahkan terlebih dahulu menggunakan Google Translate. Tetapi ternyata hasilnya cukup memuaskan (walau saya masih heran sebenarnya *kenapa* hasil angkanya tak ada yang melebihi 0.5).
 
+### VADER
+
+Langkah selanjutnya adalah menganalisis lirik menggunakan [VADER](https://github.com/cjhutto/vaderSentiment), yaitu sebuah *package* analisis sentimen yang secara spesifik dibuat untuk memproses sentimen yang ada dalam media sosial. Grafik di bawah adalah hasil analisis untuk 43 lirik lagu dalam *playlist* Spotify Top 50 - Indonesia (VADER tak berhasil menganalisis 50 lagu dalam *playlist* karena ia tak bisa menganalisis kata-kata kasar atau yang mengarah ke aksi kriminal).
+
+Saya di sini mengambil skor gabungan (*compound*) dari VADER Sentiment, yakni skor yang berkisar antara -1 hingga +1, di mana skor positif menunjukkan sentimen positif, skor negatif menunjukkan sentimen negatif, dan skor 0 menunjukkan sentimen netral. Maka, semakin dekat skor dengan -1 atau +1, semakin kuat sentimen yang diungkapkan dalam teks.
+
 ```{r}
-data_lyrics %>% hchart('scatter', hcaes(x = emot_positive, y = emot_negative, group = language),
-                       tooltip = list(pointFormat = "{point.artist} - {point.track} <br> emot_positive: {point.emot_positive} <br> emot_negative: {point.emot_negative}")) %>%
-  hc_title(
-    text = "Sentimen Positif vs. Sentimen Negatif",
-    align = "center"
-  ) %>%
-  hc_credits(enabled = TRUE, text = "http://alifdwt.github.com") %>%
-  hc_add_theme(hc_theme_google())
+data_lyrics_roberta <- read.csv("datasets/data_lyrics_roberta.csv")
 ```
 
-*Scatter plot* di atas menunjukkan seberapa positif atau negatif sentimen pada lirik masing-masing lagu. Walau sebagian besar sentimen tersebut memiliki angka kurang dari 0.4, ternyata lagu Coldplay berjudul Yellow memiliki sentimen positif sejumlah 0.68, dan sentimen negatif sejumlah 0.
+```{r}
+ggplot() +
+  geom_density(aes(x = data_lyrics_roberta$vader_compound, fill = "Density"), alpha = 0.5, show.legend = FALSE) +
+  labs(title = "VADER COMPOUND",
+       subtitle = "Spotify Top 50 Indonesia",
+       x = "Nilai",
+       y = "Density",
+       fill = NULL) +
+  theme_minimal()
+```
 
-Lagu-lagu berbahasa Indonesia di sini memiliki sentimen yang lebih positif dibandingkan
+Hasil analisis VADER menunjukkan bahwa lebih banyak lirik yang memiliki sentimen positif dibandingkan sentimen negatif. Hasilnya cukup mengejutkan, karena walau 2/3 lagu dalam *playlist* Spotify Top 50 Indonesia memiliki nada/suasana hati yang sedih, tetapi lirik-liriknya positif, bahkan mendekati angka +1, yang berarti sangat positif (walau beberapa lagu juga memiliki skor mendekati angka -1, yang berarti sangat negatif).
 
-Amet dictum sit amet justo. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Dui ut ornare lectus sit amet est placerat in egestas. Id interdum velit laoreet id donec ultrices tincidunt. Sit amet tellus cras adipiscing enim eu turpis egestas pretium. Enim diam vulputate ut pharetra sit amet aliquam. Malesuada fames ac turpis egestas sed. Nisi est sit amet facilisis. Duis tristique sollicitudin nibh sit amet commodo. Quisque non tellus orci ac auctor augue. Massa sapien faucibus et molestie ac feugiat sed lectus. Ridiculus mus mauris vitae ultricies. Id aliquet lectus proin nibh nisl.
+## Kata-Kata Apa Saja yang Sering Muncul dalam Playlist Top 50 - Indonesia
 
-## Diam phasellus vestibulum lorem
+Ada satu cara lagi yang bisa menjawab "Benarkah orang Indonesia suka dengerin lagu sedih?", yaitu dengan mencari tahu apa kata-kata yang sering muncul. Dengan begitu, kita akan tahu apakah kata-kata sedih/bersentimen negatif lebih sering muncul, ataukah sebaliknya.
 
-Diam phasellus vestibulum lorem sed risus ultricies tristique. Scelerisque eu ultrices vitae auctor eu augue ut. Sem fringilla ut morbi tincidunt augue interdum. Euismod in pellentesque massa placerat duis ultricies lacus sed. Nec dui nunc mattis enim. Tortor at risus viverra adipiscing at in tellus integer feugiat. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Sollicitudin tempor id eu nisl nunc mi ipsum.
+Cara paling keren untuk membuat visualisasi tersebut adalah dengan membuat **Wordcloud** menggunakan *package* R bernama [Wordcloud2](https://github.com/Lchiffon/wordcloud2). Wordcloud ini saya bagi menjadi tiga, yaitu: Indonesia, Inggris, dan Korea, sesuai dengan bahasa yang ada dalam lagu-lagu di playlist tersebut.
 
-Di proses sebelumnya kita sudah membuat analisis lirik, sekarang mari kita memanfaatkan lirik yang sudah kita dapatkan tadi. Bagaimana jika kita ingin melihat kata-kata apa saja yang sering muncul di lagu-lagu dalam playlist Top 50 - Indonesia.
-
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 vect_words <- read_csv("datasets/vect_words.csv")
 vect_words_long <- gather(vect_words, key = "language", value = "count", -words)
 ```
 
-```{r include=FALSE, echo=FALSE}
+```{r}
 stopwords_id <- c("yang", "dan", "di", "dari", "ke", "ro", "nong", "untuk")
 stopwords_en <- c("the", "is", "and", "in", "of", "to")
-stopwords_ko <- c("은", "는", "이", "가", "을", "를")
 ```
+
+Sebelum membuat wordcloud, kita harus menetapkan dulu stop words*-*nya, yaitu kata-kata yang tidak perlu untuk divisualisasikan. Kebanyakan dari *stop words* ini adalah kata hubung dari Bahasa Indonesia dan Bahasa Inggris, sedangkan untuk Bahasa Korea saya tampilkan apa adanya, karena dalam *playlist* tersebut hanya ada satu lagu berbahasa Korea.
+
+Silahkan arahkan kursor pada kata untuk mengetahui total jumlah kata yang muncul dalam lirik-lirik lagu.
 
 ```{r}
 vect_words_id = vect_words %>%
@@ -232,7 +243,7 @@ div(class = "spotify-table",
     )
 ```
 
-Quis ipsum suspendisse ultrices gravida dictum fusce. Malesuada fames ac turpis egestas. Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut. Amet consectetur adipiscing elit duis tristique sollicitudin. Integer vitae justo eget magna fermentum iaculis eu. Fermentum dui faucibus in ornare quam viverra orci. Nisi est sit amet facilisis magna etiam tempor. Viverra orci sagittis eu volutpat. Aenean et tortor at risus viverra adipiscing. Non curabitur gravida arcu ac tortor dignissim convallis aenean et. Massa tincidunt dui ut ornare lectus sit amet est. Dictum varius duis at consectetur lorem donec massa.
+Bisa kita lihat dari wordcloud Indonesia di atas bahwa ada banyak kata-kata bersentimen positif: cinta, hati, bahagia, asmara, setia, rindu, dll. Terdapat pula kata-kata yang bersentimen negatif, seperti: hilang, mati, berpisah, jangan, dll, namun jumlahnya masih kalah dengan kata-kata yang bersentimen positif.
 
 ```{r}
 vect_words_en = vect_words %>%
@@ -247,7 +258,9 @@ div(class = "spotify-table",
     )
 ```
 
-Laoreet id donec ultrices tincidunt arcu. Condimentum id venenatis a condimentum vitae sapien pellentesque. Et tortor consequat id porta nibh. Nec ultrices dui sapien eget mi. Nisl nunc mi ipsum faucibus. Enim nunc faucibus a pellentesque. Vehicula ipsum a arcu cursus vitae congue mauris. Convallis posuere morbi leo urna molestie at elementum eu. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. Lorem dolor sed viverra ipsum nunc.
+Untuk lagu berbahasa Inggris justru hasilnya berkebalikan dengan bahasa Indonesia, di mana kata-kata bersentimen negatif: *cant, die, fuck, hate, ill,* dsb lebih sering muncul ketimbang sentimen positif: *baby, feel, happiness*, dsb.
+
+Terakhir, di bawah ini adalah wordcloud untuk lagu berbahasa Korea (sayangnya saya *gak* bisa Bahasa Korea, hehe):
 
 ```{r}
 vect_words_ko <- vect_words %>%
@@ -262,7 +275,59 @@ div(class = "spotify-table",
     )
 ```
 
-Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Lacus laoreet non curabitur gravida arcu ac tortor. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere lorem. Ipsum a arcu cursus vitae. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Amet dictum sit amet justo donec enim diam vulputate ut. Sed elementum tempus egestas sed. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Quis blandit turpis cursus in hac. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse.
+## Kesimpulan
+
+Lagu-lagu bernuansa sedih sering menggambarkan pengalaman-pengalaman hidup yang sering dialami oleh banyak orang, seperti perpisahan, patah hati, atau kesulitan hidup. Mendengarkan lagu-lagu tersebut dapat membuat orang merasa terhubung dan dapat mengidentifikasi diri dengan lirik dan pesan yang disampaikan. Hal ini dapat memberikan rasa empati dan penghiburan, terutama dalam situasi sulit.
+
+Analisis di atas memberikan jawaban untuk pertanyaan: "Benarkah orang Indonesia suka mendengarkan lagu sedih?":
+
+-   Analisis fitur audio dari Spotify menunjukkan bahwa 34 lagu teratas di Indonesia bernuansa sedih, 8 bernuansa bahagia, dan 8 bernuansa semangat. Ya, orang Indonesia menyukai lagu sedih
+
+-   Analisis lirik menunjukkan bahwa lirik dalam *playlist* lebih condong pada sentimen positif, walau lirik bersentimen negatif juga tak berjumlah sedikit.
+
+-   Lagu berbahasa Inggris cenderung memiliki sentimen negatif, sedangkan lagu berbahasa Indonesia cenderung memiliki sentimen positif
+
+Musik dengan nuansa sedih sering kali dapat menjadi wadah ekspresi emosi yang mendalam. Lagu-lagu yang melankolis atau sedih dapat membantu orang merasakan dan mengungkapkan perasaan mereka, baik itu kesedihan, kehilangan, atau kerinduan.
+
+## BONUS
+
+Setelah analisis di atas, mungkin kalian penasaran dan punya pertanyaan **"Lagu apa yang liriknya paling positif dan paling negatif di *playlist* Spotify Top 50 - Indonesia"**. Dan inilah jawabannya.
+
+Lagu paling bersentimen positif di bulan Mei 2023:
+
+```{r warning=FALSE, message=FALSE}
+# Mendapatkan baris dengan nilai 'roberta_pos' tertinggi
+highest_pos_row <- data_lyrics_roberta %>% 
+  filter(roberta_pos == max(roberta_pos))
+
+# Menampilkan output
+cat(paste0(highest_pos_row$track, " - ", highest_pos_row$artist, "\n"))
+cat(highest_pos_row$lyrics)
+```
+
+Lagu paling bersentimen negatif di bulan Mei 2023:
+
+```{r}
+# Mendapatkan baris dengan nilai 'roberta_pos' tertinggi
+highest_neg_row <- data_lyrics_roberta %>% 
+  filter(roberta_neg == max(roberta_neg))
+
+# Menampilkan output
+cat(paste0(highest_neg_row$track, " - ", highest_neg_row$artist, "\n"))
+cat(highest_neg_row$lyrics)
+```
+
+Sekian analisis dari saya, jangan ragu untuk memberikan komentarmu di bawah. Sekian dan terima kasih. Seluruh proses *data collection* dan *data preprocessing* dapat di lihat di [sini](https://github.com/alifdwt/Spotify-Top50Indo).
+
+***Salam Maria, penuh rahmat, Tuhan sertamu*****.**
+
+::: callout-note
+## Lebih lanjut:
+
+[Predicting Song Music Genre - Tanya Shapiro](https://github.com/tashapiro/predicting-song-music-genre)
+
+[How to Analyze Emotions and Words of the Lyrics From your Favorite Music Artist by Cristóbal Veas](https://towardsdatascience.com/how-to-analyze-emotions-and-words-of-the-lyrics-from-your-favorite-music-artist-bbca10411283)
+:::
 
 ```{css styles, eval=FALSE}
 .spotify-table {
@@ -288,5 +353,9 @@ Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tin
 .spotify-tbl, .emot-tbl {
   font-size: 0.875rem;
   line-height: 1.125rem;
+}
+
+.lirik {
+  text-align: center;
 }
 ```

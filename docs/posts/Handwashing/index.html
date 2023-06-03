@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,10 +20,9 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,13 +49,43 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -113,49 +142,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title"><span style="display: flex;">Alif Dewantara</span> <span style="font-size: 12.5px; font-weight: normal; display: flex ;">Data · Tech · Historian</span></span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../proyek.html" rel="" target="">
+    <a class="nav-link" href="../../proyek.html">
  <span class="menu-text">Proyek</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/alifdwt" rel="" target=""><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/alifdwt"><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/alifdwt/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/alifdwt/"><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/alifdwt" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/alifdwt"><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blog.xml" rel="" target=""><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -164,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Dokter Semmelweis dan Temuan dalam Mencuci Tangan</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Dokter Semmelweis dan Temuan dalam Mencuci Tangan</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
                   <div>
         <div class="description">
           <p>Mengetahui dan menganalisa metode cuci tangan di Rumah Sakit Umum Vienna di abad ke-19.</p>
@@ -227,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.merdeka.com%2Fjabar%2F5-fakta-ignaz-semmelweis-pelopor-cuci-tangan-yang-selamatkan-banyak-orang-kln.html&amp;psig=AOvVaw2Ab27GG4AbeYdWog120_Xg&amp;ust=1675622543148000&amp;source=images&amp;cd=vfe&amp;ved=0CBEQjhxqFwoTCIjAksbC_PwCFQAAAAAdAAAAABAE"><img src="Ignaz Semmelweils.jpeg" class="img-fluid figure-img" width="435"></a></p>
-<figcaption class="figure-caption">Dr.&nbsp;Ignaz Semmelweis</figcaption>
+<p></p><figcaption class="figure-caption">Dr.&nbsp;Ignaz Semmelweis</figcaption><p></p>
 </figure>
 </div>
 <p>Dokter Semmelweis lahir di Austria-Hungaria pada tahun 1818, dan aktif bekerja di Rumah Sakit Umum Vienna. Saat itu, Dr.&nbsp;Semmelweis menemukan adanya penyakit yang sering ditemuinya di rumah sakit: <a href="https://en.wikipedia.org/wiki/Postpartum_infections"><em>childbed fever</em></a> (demam kasur), yakni penyakit yang disebabkan oleh infeksi bakteri yang menyerang saluran reproduksi perempuan setelah melahirkan atau keguguran. Ia bekerja keras mencari cara untuk mengatasi penyakit ini, sebab pada tahun 1840-an, 10% wanita yang melahirkan di Rumah Sakit Umum Vienna meninggal karena terinfeksi. Dr.&nbsp;Semmelweis sangat memikirkan hal ini karena ia tahu penyebab utama demam tersebut: tangan-tangan para dokter yang telah terkontaminasi saat memindahkan bayi. Sayangnya, staf rumah sakit saat itu tak ada yang mengindahkan sarannya untuk mencuci tangan!</p>
@@ -417,12 +444,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Dari penjelasan di atas kita telah tahu bahwa mencuci tangan telah mengurangi proporsi angka kematian antara 6,7 sampai 10 persen, berdasarkan 95% <em>confidence interval.</em> Maka seharusnya Semmelweis memiliki landasan yang kuat bahwa mencuci tangan, walaupun sederhana, tetapi merupakan prosedur sangat efektif yang dapat menyelamatkan banyak orang.</p>
 <p>Sayangnya, walaupun telah banyak bukti tersebut, teori Semmelweis yang mengatakan bahwa demam tidur disebabkan oleh suatu ‘zat’ (yang kita ketahui sekarang sebagai <em>bakteri</em>) dari mayat-mayat ruang otopsi, dianggap konyol oleh ilmuan saat itu. Asosiasi kesehatan saat itu sebagian besar menolak penemuan Semmelweis dan bahkan pada 1849, ia dipaksa untuk meninggalkan pekerjaaannya di Rumah Sakit Umum Vienna secara permanen.</p>
 <p>Salah satu alasannya adalah karena pada saat itu statistika dan argumen yang berlandaskan statistika masih tidak umum di kalangan ilmu kesehatan. Semmelweis hanya mempublikasikan data mentah dalam bentuk tabel, tetapi ia tidak menunjukkan grafik atau <em>confidence interval</em>. Jika saja Semmelweis memiliki akses melakukan analisis seperti yang kita lakukan, ia bisa saja lebih berhasil mengampanyekan para dokter di Vienna untuk mencuci tangan.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Important
 </div>
 </div>
@@ -432,6 +459,8 @@ Important
 </div>
 <p><strong><em>Salam Maria, penuh rahmat, Tuhan sertamu.</em></strong></p>
 
+
+<!-- -->
 
 </section>
 
@@ -463,23 +492,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -515,6 +530,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -544,92 +610,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -670,23 +650,177 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://utteranc.es/client.js" repo="quarto-dev/quarto-web" issue-term="title" theme="github-light" crossorigin="anonymous" async="">
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Dokter Semmelweis dan Temuan dalam Mencuci Tangan"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">  Mengetahui dan menganalisa metode cuci tangan di Rumah Sakit Umum Vienna di abad ke-19.</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Alif Dewantara"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2023-02-05"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> </span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">  - Analisis Data</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">  - Python</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="an">image:</span><span class="co"> "Streptococcus_pyogenes.jpg"</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perkenalkan, ia Dr. Ignaz Semmelweis</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![Dr. Ignaz Semmelweis](Ignaz%20Semmelweils.jpeg)</span><span class="ot">{width="435"}</span><span class="co">](https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.merdeka.com%2Fjabar%2F5-fakta-ignaz-semmelweis-pelopor-cuci-tangan-yang-selamatkan-banyak-orang-kln.html&amp;psig=AOvVaw2Ab27GG4AbeYdWog120_Xg&amp;ust=1675622543148000&amp;source=images&amp;cd=vfe&amp;ved=0CBEQjhxqFwoTCIjAksbC_PwCFQAAAAAdAAAAABAE)</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>Dokter Semmelweis lahir di Austria-Hungaria pada tahun 1818, dan aktif bekerja di Rumah Sakit Umum Vienna. Saat itu, Dr. Semmelweis menemukan adanya penyakit yang sering ditemuinya di rumah sakit: <span class="co">[</span><span class="ot">*childbed fever*</span><span class="co">](https://en.wikipedia.org/wiki/Postpartum_infections)</span> (demam kasur), yakni penyakit yang disebabkan oleh infeksi bakteri yang menyerang saluran reproduksi perempuan setelah melahirkan atau keguguran. Ia bekerja keras mencari cara untuk mengatasi penyakit ini, sebab pada tahun 1840-an, 10% wanita yang melahirkan di Rumah Sakit Umum Vienna meninggal karena terinfeksi. Dr. Semmelweis sangat memikirkan hal ini karena ia tahu penyebab utama demam tersebut: tangan-tangan para dokter yang telah terkontaminasi saat memindahkan bayi. Sayangnya, staf rumah sakit saat itu tak ada yang mengindahkan sarannya untuk mencuci tangan!</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>Maka di sini, kita akan bersama-sama menganalisa kembali data yang membuat Dr. Semmelweis menemukan pentingnya **mencuci tangan**. Kita bisa memulainya dengan melihat data yang membuat Semmelweis menyadari bahwa ada yang salah dalam prosedur Rumah Sakit Umum Vienna.</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co"># import modul</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Membaca datasets/yearly_deaths_by_clinic.csv ke dalam yearly</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>yearly <span class="op">=</span> pd.read_csv(<span class="st">'datasets/yearly_deaths_by_clinic.csv'</span>)</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Print yearly</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(yearly)</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Proporsi angka kematian</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>Tabel di atas tadi memberi informasi terkait angka para ibu yang melahirkan (<span class="in">`births`</span>) di dua klinik (<span class="in">`clinic`</span>) milik Rumah Sakit Vienna antara tahun 1841 sampai 1846 (<span class="in">`year`</span>). Kalian mungkin sadar bahwa proses melahirkan di tahun tersebut sangat riskan, dan angka kematian (<span class="in">`deaths`</span>) ibu yang melahirkan, sebagian besar terjadi akibat demam kasur.</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>Kita bisa lihat dengan lebih jelas jika kita melihatnya dari proporsi kematian para ibu berdasarkan angka ibu yang melahirkan (<span class="in">`proportion_deaths`</span>). Mari kita fokus pada proporsi kematian di Klinik 1.</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Mengkalkulasi proporsi kematian per angka kelahiran</span></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>yearly[<span class="st">'proportion_deaths'</span>] <span class="op">=</span> yearly[<span class="st">'deaths'</span>]<span class="op">/</span>yearly[<span class="st">'births'</span>]</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Ekstrak data tahunan dari Klinik 1 ke dalam yearly1 dan Klinik 2 ke dalam yearly2</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>yearly1 <span class="op">=</span> yearly[yearly.clinic <span class="op">==</span> <span class="st">'clinic 1'</span>]</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>yearly2 <span class="op">=</span> yearly[yearly.clinic <span class="op">==</span> <span class="st">'clinic 2'</span>]</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out yearly1</span></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(yearly1)</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Kematian di klinik</span></span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>Jika kita membuat memvisualisasikan <span class="in">`proportion_deaths`</span> kedua klinik dalam *line chart*, kita akan melihat adanya suatu pola.</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot proporsi kematian per tahun di kedua klinik</span></span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> yearly1.plot(x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'proportion_deaths'</span>, label<span class="op">=</span><span class="st">'clinic 1'</span>)</span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>yearly2.plot(x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'proportion_deaths'</span>, label<span class="op">=</span><span class="st">'clinic 2'</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Proportion deaths'</span>)</span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Kampanye mencuci tangan dimulai!</span></span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>Dari plot di atas pasti kalian bertanya "Mengapa ada lebih banyak kematian terjadi di klinik 1?". Dr. Semmelweis pun melihat hal serupa dan cukup kebingungan. Padahal, perbedaan antara kedua klinik itu kelihatannya tak begitu penting: Orang yang bertugas di klinik 1 didominasi oleh mahasiswa/i kedokteran, sedangkan di klinik 2 didominasi oleh mahasiswa/i kebidanan. Perbedaan keduanya adalah jika mahasiswa/i kebidanan hanya mengurusi para ibu hamil dan melahirkan, mahasiswa/i kedokteran juga harus mengurusi ruang otopsi.</span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>Dr. Semmelweis mulai mencurigai mayat-mayat yang ada di ruang otopsi, yang mungkin saja menjadi sumber bakteri yang tersebar melalui tangan-tangan kotor mahasiswa/i kedokteran. Dalam keadaan linglung dan pasrah karena menghadapi angka kematian yang tetap tinggi, Dr. Semmelweis pun membuat keputusan: "**Cucilah tangan kalian!**".</span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>Perlu diketahui bahwa kesadaran mencuci tangan di masa itu tidak sebaik sekarang. Perintah Dr. Semmelweis tersebut tentu saja dianggap kontroversial dan aneh. Penduduk Vienna pada masa itu juga belum tahu tentang adanya bakteri.</span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>Nah, mari kita sekarang membuka data yang baru, yakni data bulanan dari klinik 1 untuk melihat apakah kampanye cuci tangan ini memberikan efek.</span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a><span class="co"># Membaca datasets/monthly_deaths.csv ke dalam monthly</span></span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>monthly <span class="op">=</span> pd.read_csv(<span class="st">'datasets/monthly_deaths.csv'</span>, parse_dates<span class="op">=</span>[<span class="st">'date'</span>])</span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Hitung proporsi kematian per angka kelahiran</span></span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a>monthly[<span class="st">'proportion_deaths'</span>] <span class="op">=</span> monthly[<span class="st">'deaths'</span>]<span class="op">/</span>monthly[<span class="st">'births'</span>]</span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Print out lima baris awal monthly</span></span>
+<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(monthly.head())</span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## Efek mencuci tangan</span></span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a>Data di atas sudah berhasil dimuat, maka kita dapat melihat proporsi kematian di tahun tersebut. Dalam plot ini kita tak akan memberi tanda tentang kapan kampanye cuci tangan ini dimulai, tetapi kampanye tersebut telah mengurangi angka kematian dengan sangat signifikan sehingga kalian bisa tahu hanya dengan melihat plot di bawah.</span>
+<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot proporsi kematian</span></span>
+<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> monthly.plot(x<span class="op">=</span><span class="st">'date'</span>, y<span class="op">=</span><span class="st">'proportion_deaths'</span>)</span>
+<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Proportion deaths'</span>)</span>
+<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a>Proporsi kematian menurun drastis pada musim panas (Juni) 1847, yakni saat kampanye cuci tangan dimulai oleh Dr. Semmelweis</span>
+<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a>Efek mencuci tangan akan lebih terlihat jelas jika kita membuat grafik seperti ini.</span>
+<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-114"><a href="#cb14-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Tanggal dimulainya kampanye cuci tangan</span></span>
+<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a>handwashing_start <span class="op">=</span> pd.to_datetime(<span class="st">'1847-06-01'</span>)</span>
+<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a><span class="co"># Memisahkan monthly ke sebelum dan sesudah handwashing_start</span></span>
+<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a>before_washing <span class="op">=</span> monthly[monthly.date <span class="op">&lt;</span> handwashing_start]</span>
+<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a>after_washing <span class="op">=</span> monthly[monthly.date <span class="op">&gt;=</span> handwashing_start]</span>
+<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Membuat plot proporsi kematian sebelum dan sesudah mencuci tangan</span></span>
+<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> before_washing.plot(x<span class="op">=</span><span class="st">'date'</span>, y<span class="op">=</span><span class="st">'proportion_deaths'</span>, label<span class="op">=</span><span class="st">'Before handwashing'</span>)</span>
+<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a>after_washing.plot(x<span class="op">=</span><span class="st">'date'</span>, y<span class="op">=</span><span class="st">'proportion_deaths'</span>, label<span class="op">=</span><span class="st">'After handwashing'</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Proportion deaths'</span>)</span>
+<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-128"><a href="#cb14-128" aria-hidden="true" tabindex="-1"></a>Grafik di atas menunjukkan bahwa mencuci tangan memberikan efek yang luar biasa. Seluar biasa apakah cuci tangan mengurangi rata-rata proporsi kematian per bulan?</span>
+<span id="cb14-129"><a href="#cb14-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a><span class="co"># Rata-rata perbedaan proporsi kematian saat kampanye cuci tangan</span></span>
+<span id="cb14-134"><a href="#cb14-134" aria-hidden="true" tabindex="-1"></a>before_proportion <span class="op">=</span> before_washing.proportion_deaths</span>
+<span id="cb14-135"><a href="#cb14-135" aria-hidden="true" tabindex="-1"></a>after_proportion <span class="op">=</span> after_washing.proportion_deaths</span>
+<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a>mean_diff <span class="op">=</span> after_proportion.mean() <span class="op">-</span> before_proportion.mean() </span>
+<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean_diff)</span>
+<span id="cb14-138"><a href="#cb14-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-139"><a href="#cb14-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-140"><a href="#cb14-140" aria-hidden="true" tabindex="-1"></a><span class="fu">## Analisis Bootstrap Data Cuci Tangan Semmelweis</span></span>
+<span id="cb14-141"><a href="#cb14-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-142"><a href="#cb14-142" aria-hidden="true" tabindex="-1"></a>Kampanye cuci tangan telah mengurangi angka kematian secara signifikan! Jika sebelumnya rata-rata proporsi kematian adalah 10%, kini berkurang sebanyak 8% menjadi 2%.</span>
+<span id="cb14-143"><a href="#cb14-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-144"><a href="#cb14-144" aria-hidden="true" tabindex="-1"></a>Agar kalian mendapatkan gambaran terkait seberapa penting mencuci tangan dalam mengurangi kematian, kita dapat membuat *confidence interval*.</span>
+<span id="cb14-145"><a href="#cb14-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-148"><a href="#cb14-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb14-149"><a href="#cb14-149" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> percentile</span>
+<span id="cb14-150"><a href="#cb14-150" aria-hidden="true" tabindex="-1"></a><span class="co"># A bootstrap analysis of the reduction of deaths due to handwashing</span></span>
+<span id="cb14-151"><a href="#cb14-151" aria-hidden="true" tabindex="-1"></a>boot_mean_diff <span class="op">=</span> []</span>
+<span id="cb14-152"><a href="#cb14-152" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3000</span>):</span>
+<span id="cb14-153"><a href="#cb14-153" aria-hidden="true" tabindex="-1"></a>    boot_before <span class="op">=</span> before_proportion.sample(frac<span class="op">=</span><span class="dv">1</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-154"><a href="#cb14-154" aria-hidden="true" tabindex="-1"></a>    boot_after <span class="op">=</span> after_proportion.sample(frac<span class="op">=</span><span class="dv">1</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-155"><a href="#cb14-155" aria-hidden="true" tabindex="-1"></a>    boot_mean_diff.append(boot_after.mean() <span class="op">-</span> boot_before.mean())</span>
+<span id="cb14-156"><a href="#cb14-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating a 95% confidence interval from boot_mean_diff </span></span>
+<span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a>confidence_interval <span class="op">=</span> percentile(boot_mean_diff, [<span class="fl">2.5</span>, <span class="fl">97.5</span>])</span>
+<span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(confidence_interval)</span>
+<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nasib Dr. Semmelweis</span></span>
+<span id="cb14-163"><a href="#cb14-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-164"><a href="#cb14-164" aria-hidden="true" tabindex="-1"></a>Dari penjelasan di atas kita telah tahu bahwa mencuci tangan telah mengurangi proporsi angka kematian antara 6,7 sampai 10 persen, berdasarkan 95% *confidence interval.* Maka seharusnya Semmelweis memiliki landasan yang kuat bahwa mencuci tangan, walaupun sederhana, tetapi merupakan prosedur sangat efektif yang dapat menyelamatkan banyak orang.</span>
+<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a>Sayangnya, walaupun telah banyak bukti tersebut, teori Semmelweis yang mengatakan bahwa demam tidur disebabkan oleh suatu 'zat' (yang kita ketahui sekarang sebagai *bakteri*) dari mayat-mayat ruang otopsi, dianggap konyol oleh ilmuan saat itu. Asosiasi kesehatan saat itu sebagian besar menolak penemuan Semmelweis dan bahkan pada 1849, ia dipaksa untuk meninggalkan pekerjaaannya di Rumah Sakit Umum Vienna secara permanen.</span>
+<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a>Salah satu alasannya adalah karena pada saat itu statistika dan argumen yang berlandaskan statistika masih tidak umum di kalangan ilmu kesehatan. Semmelweis hanya mempublikasikan data mentah dalam bentuk tabel, tetapi ia tidak menunjukkan grafik atau *confidence interval*. Jika saja Semmelweis memiliki akses melakukan analisis seperti yang kita lakukan, ia bisa saja lebih berhasil mengampanyekan para dokter di Vienna untuk mencuci tangan.</span>
+<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a>Tulisan ini adalah salah satu hasil kerja saya saat belajar dalam *career path Data Scientist with Python* di Datacamp.</span>
+<span id="cb14-172"><a href="#cb14-172" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a>***Salam Maria, penuh rahmat, Tuhan sertamu.***</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-      <ul class="footer-items list-unstyled">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
     <li class="nav-item">
  Hak Cipta © 2023 Musim Semi Peking
   </li>  
 </ul>
-    </div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+      </div>
   </div>
 </footer>
 
