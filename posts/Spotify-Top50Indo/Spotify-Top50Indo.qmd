@@ -10,7 +10,6 @@ categories:
 format: 
   html: 
     page-layout: full
-#draft: true
 ---
 
 ```{r library, message=FALSE, warning=FALSE, include=FALSE}
@@ -112,9 +111,30 @@ div(class = "spotify-table",
 Jika kalian geser tabelnya ke kanan, kalian akan melihat bahwa ada kolom `Mood` yang terbagi menjadi empat *value*: 'Sad', 'Energetic', 'Happy', dan 'Calm'. Keempat *value* tersebut dihasilkan dari proses klasifikasi menggunakan *K-Nearest-Neighbor* berdasarkan empat parameter dalam *audio features* di atas. Untuk penjelasan lebih lengkap, silahkan baca artikel yang bagus banget ini: [Predicting the Music Mood of a Song with Deep Learning. by Cristóbal Veas](https://towardsdatascience.com/predicting-the-music-mood-of-a-song-with-deep-learning-c3ac2b45229e).
 
 ```{r}
-audio_features %>%
+mood_count <- audio_features %>%
   count(mood) %>%
   arrange(desc(n))
+
+highchart() %>%
+  hc_add_series(mood_count,
+                "pie",
+                hcaes(name = mood,
+                      y = n),
+                name = "Jumlah lagu") %>%
+  hc_title(
+    text = "Spotify Top 50 - Indonesia: Suasana Hati"
+  ) %>%
+  hc_subtitle(
+    text = "Ini adalah pie chart yang memvisualisasikan mood seluruh lagu dalam playlist Spotify Top 50 - Indonesia"
+  ) %>%
+  hc_caption(
+    text = "Nilai di atas diambil dari empat variabel Audio Features Spotify: Valence, Danceability, Acousticness, dan Energy",
+    style = list(fontSize = "9px")
+  ) %>%
+  hc_credits(
+    enabled = TRUE,
+    text = "http://alifdwt.github.io"
+  )
 ```
 
 Nah, berdasarkan tabel di atas, ditemukan bahwa ternyata dalam *playlist* Top 50 - Indonesia, **34** diantaranya adalah **lagu sedih**, lalu **8** trek lagu **bersemangat**, dan **8** trek lagu **bahagia**. Di sini sudah terlihat bahwa lagu sedih bahkan memiliki populasi dua kali lebih besar daripada gabungan antara lagu bahagia dan berenergi digabung!
@@ -130,7 +150,7 @@ audio_features %>%
          tooltip = list(pointFormat = "{point.artist} - {point.track} <br> valence: {point.valence} <br> energy: {point.energy}")) %>%
   hc_title(text = "Energy vs. Valence") %>%
   hc_subtitle(text = "Semakin ke kanan lagu semakin ceria <br> Semakin ke atas lagu semakin bersemangat") %>%
-  hc_credits(enabled = TRUE, text = "http://alifdwt.github.com") %>%
+  hc_credits(enabled = TRUE, text = "http://alifdwt.github.io") %>%
   hc_add_theme(hc_theme_google())
 ```
 
