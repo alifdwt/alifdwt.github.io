@@ -1,20 +1,289 @@
 ---
-title: "Selamat datang di blog saya yang membahas Analisis Data!"
-description: Di sini, saya akan membahas teknik-teknik dan alat-alat dalam analisis data, serta cara mengimplementasikannya dalam konteks bisnis dan organisasi. Saya juga akan membahas topik menarik seperti Machine Learning, Big Data, dan Artificial Intelligence dalam Analisis Data, serta memberikan sumber daya dan alat-alat untuk mempelajarinya. Dengan blog ini, saya berharap dapat memberikan wawasan dan pemahaman yang lebih baik tentang Analisis Data dan memberikan manfaat bagi pembaca yang ingin memperdalam pengetahuan tentang topik ini.
-listing:
-  fields: [image, title, description, date, reading-time, categories]
-  contents: posts
-  sort: "date desc"
-  type: grid
-  grid-columns: 2
-  image-height: 240px
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: article
-title-block-banner: true
-comments: false
+title: "Alif Dewantara"
+description: |
+  <p style="font-size: 1.3em; line-height: 1.3;">Di dalam setiap titik data tersembunyi cerita yang menakjubkan. Analisis data adalah kunci untuk mengurai misteri dan mengungkap wawasan yang tak ternilai harganya. Dalam kerumitan data, terdapat kebijaksanaan yang dapat membimbing pengambilan keputusan yang cerdas. Dengan analisis data, kita dapat memahami masa lalu, memprediksi masa depan, dan mengubah realitas menjadi lebih baik.</p>
+  <a class="call-button" href="https://alifdwt.github.io" target="_blank">Hubungi Kami</a>
+  <a class="call-button" href="https://bit.ly/OIr87e" target="_blank">Portofolio</a>
+  <a class="call-button" href="https://twitter.com/alifdwt" target="_blank">Media Sosial</a>
+  <style>
+   .call-button {
+    flex-grow: 1;
+    display: inline-block;
+    background-color: white;
+    color: #212529;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px
+  }
+  </style>
+#toc: false
+#main-photo: /img/logo-circle.png
+page-layout: full
+title-block-banner: "linear-gradient(90deg, hsla(230, 59%, 25%, 1) 0%, hsla(359, 73%, 39%, 1) 50%, hsla(32, 97%, 59%, 1) 100%)"
 format: 
   html: 
     code-tools: false
 ---
+
+```{=html}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="consultant-section">
+  <img class="headshot" src="/img/logo-circle.png" alt="Alif Headshot">
+  <div class="consultant-info">
+    <div>
+      <span class="about">Selamat datang di layanan analisis data kami! Kami adalah tim ahli yang berdedikasi untuk membantu Anda mengungkap wawasan berharga dari data bisnis Anda. Dengan menggunakan pendekatan yang terintegrasi dan teknologi terkini, kami menyediakan jasa analisis data yang mendalam, visualisasi yang memukau, pembangunan prediksi dan model machine learning yang akurat, serta optimalisasi proses bisnis berbasis data. Kami akan membantu Anda mengambil keputusan yang lebih cerdas, meningkatkan efisiensi, dan mencapai keunggulan kompetitif.</span>
+      <div class="prompt">Tertarik untuk bekerjasama?</div>
+      <div class="cta-buttons">
+        <a href="https://alifdwt.github.io" target="_blank">Hubungi Kami</a>
+        <a href="mailto:aputradewantara@gmail.com">Kirim Surel</a>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<h1 style="text-align:center;">LAYANAN KAMI</h1>
+<div class="services">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="anchored" id="data-audit">Audit Data <a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="#data-audit" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a>
+      </h3>
+      <img src="/img/icons/analytics.png" alt="Data Audit Icon">
+    </div>
+    <div class="card-body">
+      <p>Anda memiliki banyak data tapi tak tahu apa yang harus dilakukan? Kami akan mengerjakannya bersama Anda untuk memahami model bisnis. Tim ahli kami akan membantu Anda menganalisis data secara menyeluruh untuk mengidentifikasi pola, tren, dan wawasan berharga yang dapat digunakan untuk pengambilan keputusan yang cerdas.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="anchored" id="data-visualization">Visualisasi Data <a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="#data-visualization" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a>
+      </h3>
+      <img src="/img/icons/visualization.png" alt="Visualization Icon">
+    </div>
+    <div class="card-body">
+      <p>Kami kompeten dalam membuat visualisasi untuk model bisnis Anda. Visualisasi statis? Bisa. Visualisasi interaktif untuk dipasang di web? Bisa banget. Kami akan mengubah data kompleks menjadi visualisasi yang jelas dan informatif, membantu Anda memahami dan menyampaikan informasi dengan lebih baik kepada pemangku kepentingan.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="anchored" id="reports-dashboards">Prediksi &amp; Model Machine Learning <a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="#reports-dashboards" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a>
+      </h3>
+      <img src="/img/icons/reports.png" alt="Report Automation Icon">
+    </div>
+    <div class="card-body">
+      <p>Tim ahli kami akan menganalisis data yang ada untuk mengidentifikasi pola dan tren yang tersembunyi, dan menggunakan algoritma machine learning untuk membuat prediksi yang dapat mendukung pengambilan keputusan yang lebih baik. Dengan model ini, Anda dapat mengantisipasi tren masa depan, merencanakan strategi yang lebih efektif, dan meningkatkan kinerja bisnis Anda secara keseluruhan.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="anchored" id="workshops-training">Optimalisasi Proses Bisnis <a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="#workshops-training" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a>
+      </h3>
+      <img src="/img/icons/workshops.png" alt="Workshops Icon">
+    </div>
+    <div class="card-body">
+      <p>Kami akan menganalisis dan mengoptimalkan proses bisnis Anda menggunakan pendekatan berbasis data. Kami akan menggunakan data untuk memberikan wawasan yang mendalam tentang kinerja proses bisnis Anda dan memberikan rekomendasi konkret untuk meningkatkannya. Dengan pendekatan ini, Anda dapat meningkatkan produktivitas, mengurangi waktu siklus, dan mencapai keunggulan kompetitif dalam industri Anda.</p>
+    </div>
+  </div>
+</div>
+<hr>
+<style>
+  .prompt {
+    padding-top: 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
+  .about {
+    font-size: 1em;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 450px;
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .cta-buttons a {
+    flex-grow: 1;
+    display: inline-block;
+    background-color: white;
+    color: #212529;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .cta-buttons a:hover {
+    background-color: #d9230f;
+    color: #ffffff !important;
+  }
+
+  .cta-buttons a[href*="https://alifdwt.github.io"]::before {
+    content: "\f073";
+    font-family: FontAwesome;
+    padding-right: 5px;
+    font-size: 1.2em;
+    margin-right: 5px;
+  }
+
+  .cta-buttons a[href^="mailto:"]::before {
+    content: "\f0e0";
+    font-family: FontAwesome;
+    padding-right: 5px;
+    font-size: 1.2em;
+    margin-right: 5px;
+  }
+
+  .consultant-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 1.2em !important;
+  }
+
+  .consultant-info {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 30px;
+    margin-right: 20px;
+  }
+
+  .headshot {
+    width: 220px !important;
+    margin-right: 20px;
+    clip-path: inset(0 0 0 0 round 50%);
+  }
+
+  .consultant-info p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    .consultant-section {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .consultant-info {
+      margin: 40px 0;
+      width: 90% !important;
+      text-align: left;
+    }
+
+    .cta-buttons {
+      text-align: center;
+    }
+
+    .consultant-info img {
+      margin-right: 0;
+    }
+  }
+
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 800px) {
+    .services {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: middle !important;
+      align-items: center;
+    }
+
+    .card {
+      width: 95% !important;
+      max-width: none;
+      margin-right: 0px !important;
+      margin-left: 0px !important;
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 40px);
+    min-width: 300px;
+  }
+
+  .service-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+
+  .service-icon img {
+    height: 80px;
+  }
+
+  .card-header h3 {
+    margin: 0px;
+    font-size: 1.5rem;
+    flex: 1;
+  }
+
+  .card-header img {
+    height: 50px;
+  }
+
+  .anchorjs-link {
+    display: none;
+  }
+
+  .card-header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+
+  .card-body p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    margin-top: 30px;
+  }
+
+  .container-image {
+    flex: 1 1;
+    overflow: hidden;
+  }
+
+  .image img {
+    width: 100%;
+    clip-path: inset(0 0 0 0 round 50%);
+  }
+
+  .text {
+    flex: 1 1 calc(100% - 250px);
+    max-width: calc(100% - 250px);
+    margin-left: 50px;
+  }
+
+</style>
+```

@@ -26,7 +26,7 @@ website:
       - text: "Proyek"
         file: proyek.qmd
       - text: "Blog"
-        file: index.qmd
+        file: blog.qmd
     right:
       - icon: twitter
         href: https://twitter.com/alifdwt
@@ -60,11 +60,5 @@ format:
     highlight-style: dracula
     code-summary: Lihat Kode
     code-fold: true
-    
-    comments: 
-      utterances: 
-        repo: quarto-dev/quarto-web
-        theme: github-light
-        issue-term: title
 
 editor: visual
